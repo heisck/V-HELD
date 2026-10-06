@@ -11,7 +11,7 @@ Before building or making major changes to the project, execute and verify all 2
 7. **Connect GitHub** repository and ensure remote sync.
 8. **Add a comprehensive .gitignore**.
 9. **Generate a brand/design document** aligned with V-HELD's Ghanaian community identity.
-10. **Lock in the technology stack** (Next.js, TypeScript, Tailwind, GSAP/Lenis, Turso, Cloudinary, Sentry).
+10. **Lock in the technology stack** (Next.js, TypeScript, Tailwind, GSAP/Lenis, Turso, Upstash Redis, Cloudinary, Sentry).
 11. **Set up a design system** with clear color palettes, spacing tokens, and typography.
 12. **Break the PRD into concrete tasks**.
 13. **Set up the database and authentication** (Turso DB, secure auth flows).
