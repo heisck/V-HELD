@@ -15,8 +15,33 @@ The landing page features a full-bleed, unscaled, high-clarity background image 
 - **Location**: `public/assets/landing/hero-primary.jpg`
 - **Native Resolution**: 4096 × 2672 (High Definition 4K)
 - **Role**: Primary background image for the system.
-- **Display Mode**: Pure full-page background fit (`min-h-screen w-full relative overflow-hidden`), `object-cover object-center`.
-- **UI Elements**: None (pure image presentation without buttons, text overlays, or extra elements).
+- **Display Mode**: Full-viewport visual presentation (`h-screen w-full relative overflow-hidden`), `object-cover object-center`.
+- **Scroll Padding**: Extra scroll area positioned beneath to simulate and observe the dynamic floating navbar transition.
+
+---
+
+## 2. Floating Pill Navigation Architecture
+
+The navigation is modeled after the minimalist floating pill layout:
+- **Logo**: Simple, minimal icon-only SVG mark (`/assets/logo.svg` & `/icon.svg`). Clicking it navigates to Home (`/`). No text name in the navbar.
+- **Dynamic Scroll States**:
+  - **Scrolling Down**: Contracts into a compact, centered floating dock (`w-[90%] max-w-3xl rounded-full py-2 px-5 shadow-2xl`).
+  - **Scrolling Up or Top**: Expands into the wide, generous header bar with rounded corners (`w-[95%] max-w-6xl rounded-2xl sm:rounded-3xl py-3 px-5 sm:px-8 shadow-xl`).
+- **Scroll Bar Removed**: Global scrollbars are hidden across browsers (`scrollbar-width: none`, `::-webkit-scrollbar { display: none }`) while allowing smooth scrolling.
+- **Menu Hierarchy**:
+  - `About` (`/about`)
+  - `Volunteer` (Context menu dropdown):
+    - `Our Impact` (Proof section)
+    - `Stories`
+    - `Volunteer Now` action button
+  - `Programmes` (`/programmes`)
+  - `Join` (Context menu dropdown):
+    - `Partner With Us` (`/partner`)
+    - `Support Our Work` (`/support`)
+  - `Contact` (`/contact`)
+- **Primary CTA Button**: **Volunteer** with a circular action icon (right-pointing entry arrow matching reference).
+
+
 
 ---
 

@@ -8,35 +8,24 @@
 ## 1. Primary Background Asset & Configuration
 
 - **Asset Path**: `public/assets/landing/hero-primary.jpg`
+- **Logo Mark Path**: `public/assets/logo.svg` & `src/app/icon.svg`
 - **Component File**: `src/app/page.tsx`
-- **Implementation**:
-  ```tsx
-  import Image from 'next/image';
-
-  export default function HomePage() {
-    return (
-      <main className="relative min-h-screen w-full overflow-hidden bg-stone-950">
-        <Image
-          src="/assets/landing/hero-primary.jpg"
-          alt="V-HELD primary landing visual"
-          fill
-          priority
-          quality={100}
-          sizes="100vw"
-          className="object-cover object-center select-none"
-        />
-      </main>
-    );
-  }
-  ```
+- **Navigation File**: `src/components/layout/Navbar.tsx`
 
 ---
 
-## 2. Storage Strategy: Local Codebase (`public/`) vs. Cloud Storage
+## 2. Floating Navbar Specs
 
-- **Core UI & Hero Artwork (Codebase / `public/`)**:
-  - Delivers instantaneous LCP via local origin / edge caching.
-  - Zero external DNS or authentication dependencies.
-  - Native Next.js image optimization pipeline.
-- **Dynamic Content (Cloud Storage)**:
-  - Used strictly for user-submitted uploads, applicant documents, and CMS-managed media.
+1. **Appearance**:
+   - Floating pill shape (`rounded-full bg-white/95 border border-stone-200/80 shadow-lg backdrop-blur-md`).
+   - Icon-only logo on the left (links to `/`).
+   - Center navigation:
+     - `About` (`/about`)
+     - `Volunteer` (Context menu: "Our Impact", "Stories", and "Volunteer Now" button)
+     - `Programmes` (`/programmes`)
+     - `Join` (Context menu: "Partner With Us", "Support Our Work")
+     - `Contact` (`/contact`)
+   - Right action: Single pill button labeled **Volunteer** (`/apply`).
+2. **Scroll Dynamics**:
+   - Top of page: `w-[94%] max-w-6xl top-6`.
+   - On scroll (`scrollY > 40`): smooth transition to a centered floating dock `w-[90%] max-w-4xl top-4 shadow-2xl`.
