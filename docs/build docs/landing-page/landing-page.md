@@ -25,21 +25,15 @@ The landing page features a full-bleed, unscaled, high-clarity background image 
 The navigation is modeled after the minimalist floating pill layout:
 - **Logo**: Simple, minimal icon-only SVG mark (`/assets/logo.svg` & `/icon.svg`). Clicking it navigates to Home (`/`). No text name in the navbar.
 - **Dynamic Scroll States**:
-  - **Scrolling Down**: Contracts into a compact, centered floating dock (`w-[90%] max-w-3xl rounded-full py-2 px-5 shadow-2xl`).
-  - **Scrolling Up or Top**: Expands into the wide, generous header bar with rounded corners (`w-[95%] max-w-6xl rounded-2xl sm:rounded-3xl py-3 px-5 sm:px-8 shadow-xl`).
-- **Scroll Bar Removed**: Global scrollbars are hidden across browsers (`scrollbar-width: none`, `::-webkit-scrollbar { display: none }`) while allowing smooth scrolling.
-- **Menu Hierarchy**:
-  - `About` (`/about`)
-  - `Volunteer` (Context menu dropdown):
-    - `Our Impact` (Proof section)
-    - `Stories`
-    - `Volunteer Now` action button
-  - `Programmes` (`/programmes`)
-  - `Join` (Context menu dropdown):
-    - `Partner With Us` (`/partner`)
-    - `Support Our Work` (`/support`)
-  - `Contact` (`/contact`)
-- **Primary CTA Button**: **Volunteer** with a circular action icon (right-pointing entry arrow matching reference).
+  - **Initial / Top State**: Sits naturally directly on top of the hero backdrop with **no outer white container, no border, no bottom line, and no shadow**. Logo on the left, clean links in the middle, and Volunteer button on the right.
+  - **On Scroll**: Transitions into a slim, compact, centered floating dock in the middle (`rounded-full bg-[#FAF7F5]/92 backdrop-blur-md border border-stone-200/70 shadow-lg px-4 py-1.5`).
+- **Interactive Context Menus**:
+  - Open automatically on **hover** for pointer devices (laptops/desktops via `hover: hover and pointer: fine`).
+  - Open with a **tap/click** on touchscreen devices (tablets/phones).
+- **Volunteer Dropdown**: Strictly contains the proof items (`Our Impact` and `Stories`), with no extra button inside.
+- **Volunteer Button**: Features the direct entry action arrow icon with no enclosing circular border.
+- **Scrollbar**: Completely hidden across all browsers while retaining native smooth scrolling.
+
 
 
 

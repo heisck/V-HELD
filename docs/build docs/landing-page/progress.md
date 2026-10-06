@@ -13,13 +13,15 @@
 | Metric | Status | Detail |
 | :--- | :--- | :--- |
 | **Primary Visual Asset** | Completed | Added to `public/assets/landing/hero-primary.jpg` |
-| **Floating Pill Navbar** | Completed | Clean pill navbar with scroll transition and context menus |
+| **Dark Canvas Tone** | Completed | Set `#090807` globally on `html` and `body` (zero white screen bleed) |
+| **Floating Pill Navbar** | Completed | Clean pill navbar with smooth non-abrupt centering transition |
 | **Simple Logo Mark** | Completed | Created `/assets/logo.svg` & `/icon.svg` (icon-only mark) |
-| **Context Menus** | Completed | "Volunteer" (Impact, Stories, CTA) and "Join" (Partner, Support) |
-| **CTA Button** | Completed | Primary button labeled "Volunteer" |
-| **Scroll Simulation Padding** | Completed | Added full-height scroll simulation area below hero image |
+| **Context Menus** | Completed | Hover on laptop / click on touch; proof items only |
+| **CTA Button** | Completed | "Volunteer" with direct arrow icon (no enclosing circle) |
+| **Chromium Frame QA** | Completed | Verified frame-by-frame: zero white bleed, smooth dock centering |
 | **Type Check Gate** | Passing | 0 TypeScript errors |
 | **Lint Gate** | Passing | 0 ESLint warnings/errors |
+
 
 ---
 
