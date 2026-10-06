@@ -14,9 +14,17 @@ The landing page features a full-bleed, unscaled, high-clarity background image 
 ### Asset Details & Storage
 - **Location**: `public/assets/landing/hero-primary.jpg`
 - **Native Resolution**: 4096 × 2672 (High Definition 4K)
-- **Role**: Primary background image for the system.
-- **Display Mode**: Full-viewport visual presentation (`h-screen w-full relative overflow-hidden`), `object-cover object-center`.
-- **Scroll Padding**: Extra scroll area positioned beneath to simulate and observe the dynamic floating navbar transition.
+### Section 2: Hero Section (Editorial Layout)
+- **Main Headline (H1)**: Positioned at the **bottom left** under the mountain slope:
+  - **Typography**: Heavy condensed uppercase with tight tracking matching the reference image (`font-black tracking-tighter uppercase leading-[0.88]`).
+  - **Text**: `GIVE BACK.` / `MAKE A` / `DIFFERENCE!`
+- **Vision Narrative**: Positioned in the lower-right area where the vision text sits in the architectural reference:
+  - *"Join volunteers from Ghana and across the world to empower communities through education, health, and leadership development."*
+- **Segmented Capsule Pill Button**: Matches Reference Image 1:
+  - Unified capsule container (`rounded-full bg-[#F4EFEB]/95 backdrop-blur-md border border-stone-200/80 shadow-2xl p-1`).
+  - **Left Segment**: `Explore Programmes` (light interactive pill).
+  - **Right Segment**: `Volunteer` (solid dark pill with entry action arrow icon).
+
 
 ---
 
