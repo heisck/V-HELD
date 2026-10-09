@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const viewport: Viewport = {
-  themeColor: '#FFFFFF',
+  themeColor: '#EFE9E2',
   width: 'device-width',
   initialScale: 1,
 };
@@ -47,7 +47,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white text-stone-900 min-h-screen antialiased">{children}</body>
+      <body className="bg-[#EFE9E2] text-stone-900 min-h-screen antialiased">{children}</body>
     </html>
   );
 }

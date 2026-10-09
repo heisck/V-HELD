@@ -97,10 +97,10 @@ export default function Navbar() {
       <nav
         ref={navRef}
         aria-label="Main Navigation"
-        className={`pointer-events-auto relative w-full bg-white/95 backdrop-blur-md transform-gpu transition-[max-width,padding,border-radius,box-shadow,border-color] duration-300 ease-out ${
+        className={`pointer-events-auto relative w-full transform-gpu transition-[max-width,padding,border-radius,box-shadow,border-color,background-color] duration-300 ease-out ${
           isScrolled
-            ? 'max-w-4xl rounded-full border border-stone-200 px-4 sm:px-6 py-2 shadow-md'
-            : 'max-w-full rounded-none border-0 border-b border-stone-200/80 px-6 sm:px-10 lg:px-12 py-3.5 shadow-none'
+            ? 'max-w-4xl rounded-full border border-stone-300/80 bg-white/95 backdrop-blur-md px-4 sm:px-6 py-2 shadow-md'
+            : 'max-w-full rounded-none border-0 bg-[#EFE9E2]/80 backdrop-blur-md px-6 sm:px-10 lg:px-12 py-3.5 shadow-none'
         }`}
       >
         <div className={`w-full flex items-center justify-between ${isScrolled ? '' : 'max-w-7xl mx-auto'}`}>

@@ -123,6 +123,7 @@
 | 2026-10-09 | Pure White Theme & Dropdown Refinements | **PASS** | Switched 100% to white theme (zero dark mode/endpoints), removed dropdown headers & descriptions, removed document SVG icon from Apply, 26/26 tests passing, screenshots captured |
 | 2026-10-09 | Hero Seal Removal & Navbar Flash Fix | **PASS** | Removed floating seal card from Hero, centered hero layout, eliminated compositor white flash during navbar scroll via GPU layer lock & targeted geometry transitions, 26/26 tests passing |
 | 2026-10-09 | Full-Width Unconfined Navbar at Rest | **PASS** | Navbar spans 100% width edge-to-edge at rest (no floating div), gracefully grouping to centered floating pill only on scroll; 26/26 tests passing, screenshots verified |
+| 2026-10-09 | Give Back Hero Illustration & Color Match | **PASS** | Matched global codebase background to #EFE9E2 from uploaded asset, removed line divider at rest, integrated feathered Give Back illustration, paired with black/green Make a Difference headline; 26/26 tests passing |
 
 ---
 
@@ -137,3 +138,4 @@
 8. **Centered Editorial Hero Layout**: Hero section uses a focused, centered editorial hierarchy without artificial floating seal/badge card clutter.
 9. **Zero-Flash Navbar Transitions**: Navbar retains uniform backdrop-filter and background-color across scroll states, with transitions restricted to geometry/elevation (`max-width`, `padding`, `box-shadow`) under `transform-gpu` to guarantee zero GPU texture tearing or white flashes.
 10. **Unconfined Header at Rest**: Header spans the entire top edge of the screen at rest without being boxed into a floating pill container; only morphs into a centered pill upon scroll.
+11. **Warm Sand (#EFE9E2) Surface Palette**: Background harmonized to exact color of hero Give Back illustration, with borderless top header at rest and bold typographic pairing ("Make a" in black, "Difference." in green).

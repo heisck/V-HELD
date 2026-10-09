@@ -112,9 +112,17 @@
 - **Clean Centered Editorial Hero**: High-impact headlines ("Give Back. Make a Difference.") centered with concise, dignified narrative, prominent action buttons (`Volunteer`, `Explore Focus Areas`), and subtle non-profit credentials.
 
 ### Lesson 8: Full-Width Unconfined Header at Rest, Center Pill on Scroll
-- **Unconfined at Rest**: The navigation bar must NOT sit inside a floating island/div or semi-confined rounded box when resting at the top of the page. It must open edge-to-edge across the full viewport width (`w-full`, `rounded-none`, `border-0 border-b border-stone-200/80`, `pt-0 px-0`), with the brand logo on the far left and action buttons on the right.
+- **Unconfined at Rest**: The navigation bar must NOT sit inside a floating island/div or semi-confined rounded box when resting at the top of the page. It must open edge-to-edge across the full viewport width (`w-full`, `rounded-none`, `border-0`, `pt-0 px-0`), with the brand logo on the far left and action buttons on the right.
 - **Pack to Center Only on Scroll**: The navbar only packs/groups inwards into a centered floating pill (`max-w-4xl`, `rounded-full`, `border border-stone-200`, `shadow-md`, `pt-3`) when the user actively scrolls down the page.
 - **Zero Layout Jitter**: Preserves consistent backdrop-filter and background across states, transitioning strictly `max-width`, `padding`, `border-radius`, and `box-shadow` on GPU.
+
+### Lesson 9: Asset Background Color Harmony & Editorial Headline Pairing
+- **Exact Background Harmonization**: Matched global application background color directly to the organic warm sand tone of the core asset (`#EFE9E2`). Applied to `:root`, `html`, `body`, and page containers.
+- **Zero Line Divider at Rest**: When resting at the top, the navigation bar is completely borderless (`border-0`), melting seamlessly into the `#EFE9E2` page surface.
+- **Hero Illustration & Headline Lockup**:
+  - Artistic illustration (`/assets/hero-give-back.webp`) featured at the hero apex with subtle edge feathering.
+  - Below the illustration, the headline completes the thought: **"Make a"** in crisp black (`text-black`), **"Difference."** in Ghanaian Forest Green (`text-[#065830]`).
+  - Accessible `sr-only` labeling ensures screen readers and test runners recognize the complete phrase "Give Back. Make a Difference."
 
 ---
 
@@ -122,9 +130,9 @@
 
 | Section | Anti-Pattern Removed | Transformed Design | Visual QA Status |
 | :--- | :--- | :--- | :--- |
-| **Header / Navbar** | 8 loose buttons, double-word labels, verbose CTA, unneeded subtitle, bulky dropdown fluff, SVG doc icon, floating island div at rest, white transition flash | Unconfined full-width bar at rest (`border-b`, `w-full`), packing to centered pill (`max-w-4xl rounded-full`) only on scroll; zero flash, zero layout jitter | Verified via headless Chrome (at rest, mid-scroll, full scroll) |
-| **Hero Section** | Badge above headline, em-dash, 3 check-icon boxes, dark background, artificial seal card box | Centered editorial hero (`max-w-4xl`), bold stone-900 typography with Ghanaian Forest Green accent, action buttons `Volunteer` & `Explore Focus Areas`, credentials line, zero floating seal clutter | Verified via headless Chrome |
-| **Intro / Welcome** | Badge above headline (`• WHO WE ARE`), colored pill badges, dot bullet markers, generic arrow icons, dark theme | 2 high-contrast structured cards (Ghanaian Residents vs. International Guests) with neutral `border-stone-200` on `bg-stone-50` | Verified via headless Chrome |
+| **Header / Navbar** | 8 loose buttons, double-word labels, verbose CTA, unneeded subtitle, bulky dropdown fluff, SVG doc icon, floating island div at rest, line divider at rest | Borderless full-width bar at rest (`border-0`, `bg-[#EFE9E2]/80`), packing to centered pill (`max-w-4xl rounded-full`) only on scroll | Verified via headless Chrome (at rest, mid-scroll, full scroll) |
+| **Hero Section** | Badge above headline, em-dash, 3 check-icon boxes, dark background, artificial seal card box | Featured "GIVE BACK" artistic illustration (`hero-give-back.webp`), centered headline with "Make a" in black & "Difference." in green, action buttons, credentials | Verified via headless Chrome |
+| **Intro / Welcome** | Badge above headline (`• WHO WE ARE`), colored pill badges, dot bullet markers, generic arrow icons, dark theme | 2 high-contrast structured cards (Ghanaian Residents vs. International Guests) on `#EFE9E2` background | Verified via headless Chrome |
 | **Focus Areas** | Badge above headline (`• OUR FOCUS AREAS`), colored card borders (`border-emerald-800/40`), generic arrow icons, dark theme | 3 numbered editorial cards (`01 Focus Pillar`), neutral stone-200 borders, white cards, topic tags in stone-50 pills, clear typographic links | Verified via headless Chrome |
 | **Why Volunteer** | Badge above headline (`• WHY VOLUNTEER`), verbose CTA (`Check Eligibility & Apply`), dark theme | Clean 6-item numbered grid (`01` to `06`), white cards, concise action button `Apply` in inclusive participation callout | Verified via headless Chrome |
 | **Volunteer Journey** | Badge above headline (`• HOW IT WORKS`), verbose button (`Begin Application`), dark theme | 7 numbered sequential stages (`Stage 01 of 07` to `Stage 07 of 07`), stone-50 background, concise action button `Apply` in safeguarding banner | Verified via headless Chrome |
