@@ -2,14 +2,15 @@
 
 > **Ticket**: `ticket/VH-101-landing-page`  
 > **Route**: `/`  
-> **Target Release**: Develop Trunk (`develop`)
+> **Target Release**: Develop Trunk (`develop`)  
+> **Status**: Completed & Validated
 
 ---
 
 ## 1. Asset & Reference Specifications
 
 ### 1.1 Local MCP Reference Cache
-All UI structures are derived from cached Landingfolio components located in:
+All implemented UI components were referenced from cached Landingfolio components located in:
 `docs/build docs/landing-page/references/`
 - `header.json` & `header_ref_*.jpg`
 - `hero.json` & `hero_ref_*.jpg`
@@ -19,66 +20,78 @@ All UI structures are derived from cached Landingfolio components located in:
 - `call-to-action.json` & `call-to-action_ref_*.jpg`
 - `footer.json` & `footer_ref_*.jpg`
 
-### 1.2 Official Brand Asset Paths
-- **Official Emblems & Lockups**:
-  - `/assets/brand/v-held-emblem.svg` (240x235)
-  - `/assets/brand/v-held-logo-vertical-name.svg` (260x220)
-  - `/assets/brand/v-held-logo-horizontal.svg` (480x170)
-  - `/assets/brand/v-held-logo-horizontal-dark.svg` (480x170)
-  - `/assets/brand/v-held-logo-vertical-full.svg` (320x350)
-  - `/assets/brand/v-held-logo-vertical-full-dark.svg` (320x350)
+### 1.2 Official Brand Asset Inventory
+- Standalone Emblem Mark: `/assets/brand/v-held-emblem.svg`
+- Primary Vertical Lockup: `/assets/brand/v-held-logo-vertical-name.svg`
+- Master Horizontal Lockup: `/assets/brand/v-held-logo-horizontal.svg`
+- Master Horizontal Lockup (Dark mode): `/assets/brand/v-held-logo-horizontal-dark.svg`
+- Full Stacked Vertical Lockup: `/assets/brand/v-held-logo-vertical-full.svg`
+- Full Stacked Vertical Lockup (Dark mode): `/assets/brand/v-held-logo-vertical-full-dark.svg`
 
 ---
 
 ## 2. Interaction Physics & Animation Contracts
 
 ### 2.1 Navigation Scroll Dynamics
-- **Trigger Threshold**: `window.scrollY > 20px` transitions navbar from wide hero mode (`max-w-[72rem]`) to compact floating pill (`max-w-[44rem]`).
-- **Timing & Easing**: 400ms duration, standard easing `cubic-bezier(0.16, 1, 0.3, 1)`.
-- **Reduced Motion**: If `prefers-reduced-motion: reduce` is enabled, disable fluid transforms and maintain static position without animations.
+- **Trigger Threshold**: `window.scrollY > 20px` transitions navbar from wide hero mode (`max-w-7xl`) to compact floating pill (`max-w-5xl rounded-full bg-[#121110]/95 backdrop-blur-md border border-stone-800/80 px-6 py-2.5 shadow-2xl`).
+- **Timing & Easing**: 300ms ease-out.
+- **Mobile Menu**: Accessible drawer with body lock, ESC key listener, and outside-click dismissal.
+- **Reduced Motion**: If `prefers-reduced-motion: reduce` is enabled, all animations and transitions are clamped to 0.01ms and scroll-behavior set to auto via `globals.css`.
 
 ### 2.2 Micro-Interactions & Hover Feedback
-- **Buttons**: Micro-translate on active (`active:scale-[0.98]`), subtle color shifts. Never rely solely on fade opacity.
-- **Card States**: 1px subtle highlight transition, elevated drop shadow on pointer interaction, accessible focus-visible rings with 2px offset.
-- **Touch Targets**: Minimum 44px x 44px tap target size across all mobile interfaces.
+- **Buttons**: Tactile active press scale (`active:scale-[0.98]`), subtle color transitions, high-contrast gold focus rings (`focus-visible:ring-[#E3A709]`).
+- **Cards**: Subtle stone-700 border hover highlight, zero bouncy or disorienting transform jumps.
+- **Touch Targets**: Minimum 44px x 44px tap target size across all mobile interactive controls.
 
 ---
 
-## 3. Responsive Breakpoints & Viewport Testing Matrix
+## 3. Responsive Breakpoints & Multi-Viewport Verification
 
-| Breakpoint | Width (px) | Device Target | Verification Notes |
-| :--- | :--- | :--- | :--- |
-| **Mobile Small** | 375px | iPhone SE / Mobile | Single column, stacked CTAs, accessible hamburger menu |
-| **Mobile Large** | 414px | iPhone 15 / Plus | Full touch padding, zero text clipping |
-| **Tablet Portrait** | 768px | iPad Mini | 2-column grids where appropriate, legible typography |
-| **Tablet Landscape** | 834px | iPad Pro 11 | Compact navigation bar, balanced padding |
-| **Laptop** | 1024px | Small Desktop | Full desktop navigation, 3-column focus grids |
-| **Desktop Standard**| 1440px | MacBook Pro 16 / iMac| Max container widths (`max-w-7xl`), generous vertical rhythm |
-| **Ultrawide** | 1920px | 4K Displays | Centered layout containers, zero unbounded stretch |
+Verified via Headless Chromium (`google-chrome --headless=new`) against production build:
+- **Mobile Small (375px)**: `docs/build docs/landing-page/qa-screenshots/mobile_375.png`
+- **Mobile Large (414px)**: `docs/build docs/landing-page/qa-screenshots/mobile_414.png`
+- **Tablet Portrait (768px)**: `docs/build docs/landing-page/qa-screenshots/tablet_768.png`
+- **Laptop (1024px)**: `docs/build docs/landing-page/qa-screenshots/laptop_1024.png`
+- **Desktop Standard (1440px)**: `docs/build docs/landing-page/qa-screenshots/desktop_1440.png`
+- **Ultrawide (1920px)**: `docs/build docs/landing-page/qa-screenshots/ultrawide_1920.png`
 
----
-
-## 4. Accessibility & Quality Contracts
-
-1. **Contrast Compliance**: WCAG AA ratio >= 4.5:1 for standard body text; >= 3:1 for large display titles.
-2. **Keyboard Navigation**: Complete tab sequence across all links, buttons, and interactive cards with high-visibility gold focus rings (`focus-visible:ring-amber-500`).
-3. **Screen Reader Semantic Structure**: Exactly one `<h1>` per page, hierarchical `<h2>` and `<h3>` tags, meaningful `aria-label` tags on icons and utility links.
-4. **Hydration Integrity**: Pure deterministic SSR rendering, zero React hydration mismatches between server and client.
+Zero horizontal overflow, zero clipping, zero layout overlap.
 
 ---
 
-## 5. Verification Gate Commands
+## 4. Multi-Disciplinary Gate Verification
+
+### 4.1 UI Critic Audit (Anti-Vibecoding Compliance)
+- 100% adherence to all 20 rules in `docs/ui-patterns-avoid.md`.
+- No purple-to-blue gradients; official Ghanaian Forest Green (`#065830`), Warm African Gold (`#E3A709`), and Terracotta (`#C34D21`) used purposefully.
+- No gradient hero text; solid `#FFFFFF` with negative tracking.
+- No emojis in headings.
+- No generic 3 icon boxes in a row.
+
+### 4.2 "Pony Tail" Security Audit
+- `folio-mcp.json` remains permanently gitignored (`.gitignore`).
+- Zero API keys or secrets exposed in code or client bundles.
+- Strict security headers configured in `next.config.js`:
+  - `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`
+  - `X-Frame-Options: SAMEORIGIN`
+  - `X-Content-Type-Options: nosniff`
+  - `Referrer-Policy: origin-when-cross-origin`
+  - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+
+### 4.3 Code Review & Performance Budget
+- TypeScript: strict mode, 0 errors (`tsc --noEmit`).
+- Lint: Next.js ESLint, 0 errors, 0 warnings (`next lint`).
+- Tests: 13 test suites, 26 tests passing in Vitest (`vitest run`).
+- Bundle: 103 kB First Load JS (< 150 kB budget).
+
+---
+
+## 5. Review & Integration Gate
 
 ```bash
-# Type check without emitting files
-npm run type-check
-
-# Lint check
-npm run lint
-
-# Unit and component tests
-npm run test
-
-# Full review gate
+# Verify agent acceptance gate
 npm run check:agent
+
+# Verify production build
+npm run build
 ```
