@@ -1,0 +1,74 @@
+[
+  {
+    "id": "prointro:6ac33bc1e6807869462a049d",
+    "image": "https://landingfoliocom.imgix.net/components/1790334440223-prointro-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/prointro"
+  },
+  {
+    "id": "woblo:6a923cbdedf122cc25ab2eca",
+    "image": "https://landingfoliocom.imgix.net/components/1787968672253-woblo-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/woblo"
+  },
+  {
+    "id": "near:6a923c4cedf122cc25ab2e08",
+    "image": "https://landingfoliocom.imgix.net/components/1787968502441-near-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/near"
+  },
+  {
+    "id": "rulebase:6a923c3aedf122cc25ab2de4",
+    "image": "https://landingfoliocom.imgix.net/components/1787968522965-rulebase-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/rulebase"
+  },
+  {
+    "id": "atlas:6a923cf0edf122cc25ab2f1f",
+    "image": "https://landingfoliocom.imgix.net/components/1787968702335-atlas-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/atlas"
+  },
+  {
+    "id": "lexboost:6ac33be4e6807869462a04e0",
+    "image": "https://landingfoliocom.imgix.net/components/1788233324094-lexboost-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/lexboost"
+  },
+  {
+    "id": "checkout-page:6ac33c57e6807869462a0566",
+    "image": "https://landingfoliocom.imgix.net/components/1788233246547-checkout-page-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/checkout-page"
+  },
+  {
+    "id": "supercut:6a923d80edf122cc25ab300f",
+    "image": "https://landingfoliocom.imgix.net/components/1787968747733-supercut-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/supercut"
+  },
+  {
+    "id": "scotch:6a923d70edf122cc25ab2ff0",
+    "image": "https://landingfoliocom.imgix.net/components/1787968786975-scotch-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/scotch"
+  },
+  {
+    "id": "wild:6a923d5dedf122cc25ab2fc6",
+    "image": "https://landingfoliocom.imgix.net/components/1787968817260-wild-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/wild"
+  },
+  {
+    "id": "squarespace:6a923da1edf122cc25ab304a",
+    "image": "https://landingfoliocom.imgix.net/components/1787968914561-squarespace-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/squarespace"
+  },
+  {
+    "id": "optimizely:6a6db445a71b8b2896454d4b",
+    "image": "https://landingfoliocom.imgix.net/components/1785567073387-optimizely-0.jpg?q=75&auto=format",
+    "category": "hero",
+    "source": "https://www.landingfolio.com/inspiration/post/optimizely"
+  }
+]

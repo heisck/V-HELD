@@ -1,10 +1,43 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
+
+export const viewport: Viewport = {
+  themeColor: '#EFE9E2',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: 'V-HELD | Volunteers in Health, Education and Leadership Development',
   description:
-    'Join volunteers from Ghana and around the world in supporting communities through health, education and leadership development. Give Back. Make a Difference!',
+    'V-HELD connects passionate volunteers from Ghana and across the world with community initiatives in education, community health, and youth leadership. Give Back. Make a Difference!',
+  keywords: [
+    'volunteer in Ghana',
+    'Ghana NGO',
+    'community development Ghana',
+    'healthcare volunteering',
+    'teaching in Ghana',
+    'youth leadership development',
+    'volunteer Africa',
+    'ethical volunteering',
+  ],
+  authors: [{ name: 'V-HELD' }],
+  metadataBase: new URL('https://vheld.org'),
+  openGraph: {
+    title: 'V-HELD | Volunteers in Health, Education and Leadership Development',
+    description:
+      'Join volunteers from Ghana and around the world in supporting communities through health, education and leadership development.',
+    url: 'https://vheld.org',
+    siteName: 'V-HELD',
+    locale: 'en_GH',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'V-HELD | Volunteers in Health, Education and Leadership Development',
+    description:
+      'Join volunteers from Ghana and around the world supporting grassroots community development.',
+  },
 };
 
 export default function RootLayout({
@@ -14,7 +47,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-[#EFE9E2] text-stone-900 min-h-screen antialiased">{children}</body>
     </html>
   );
 }

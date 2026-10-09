@@ -3,17 +3,33 @@
 @tailwind utilities;
 
 :root {
-  --background: #090807;
-  --foreground: #F5F5F4;
+  --background: #EFE9E2;
+  --foreground: #1C1917;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Remove scroll bar globally while keeping scrolling active */
 html,
 body {
-  background-color: #090807;
+  background-color: #EFE9E2;
   color: var(--foreground);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: none; /* IE & Edge */
   scrollbar-width: none; /* Firefox */
   margin: 0;

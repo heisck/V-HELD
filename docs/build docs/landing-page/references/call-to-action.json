@@ -1,0 +1,74 @@
+[
+  {
+    "id": "woblo:6a923ccfedf122cc25ab2ee5",
+    "image": "https://landingfoliocom.imgix.net/components/1787968672253-woblo-5.jpg?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/woblo"
+  },
+  {
+    "id": "near:6a923c4fedf122cc25ab2e17",
+    "image": "https://landingfoliocom.imgix.net/components/1787968502441-near-3.jpg?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/near"
+  },
+  {
+    "id": "checkout-page:6ac33c68e6807869462a0590",
+    "image": "https://landingfoliocom.imgix.net/components/1788233246547-checkout-page-11.jpg?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/checkout-page"
+  },
+  {
+    "id": "optimizely:6a6db446a71b8b2896454d50",
+    "image": "https://landingfoliocom.imgix.net/components/1785567073387-optimizely-1.jpg?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/optimizely"
+  },
+  {
+    "id": "optimizely:6a6db44fa71b8b2896454d64",
+    "image": "https://landingfoliocom.imgix.net/components/1785567073387-optimizely-6.jpg?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/optimizely"
+  },
+  {
+    "id": "wispr-flow:6a923eb1edf122cc25ab31f5",
+    "image": "https://landingfoliocom.imgix.net/components/1787968956724-wispr-flow-8.jpg?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/wispr-flow"
+  },
+  {
+    "id": "bugster:6a69abff648ba3c582cf0f67",
+    "image": "https://landingfoliocom.imgix.net/components/1785306669597-bugster-9.jpg?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/bugster"
+  },
+  {
+    "id": "glideapps-com:6260cbad8cd0dfad578c9657",
+    "image": "https://landingfoliocom.imgix.net/components/1650510748238-glideapps.com-call-to-action-test40721.png?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/glideapps-com"
+  },
+  {
+    "id": "featurebase:626398113a4a03ea36d7502d",
+    "image": "https://landingfoliocom.imgix.net/components/1650694140805-featurebase-call-to-action-test40721.png?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/featurebase"
+  },
+  {
+    "id": "spendflo:626397713a4a03ea36d7501a",
+    "image": "https://landingfoliocom.imgix.net/components/1650693973003-spendflo-call-to-action-test40721.png?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/spendflo"
+  },
+  {
+    "id": "surge:625cd16b34a4b481ffc8103d",
+    "image": "https://landingfoliocom.imgix.net/components/1650250076587-surge-call-to-action-test40721.png?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/surge"
+  },
+  {
+    "id": "designup:6260cf40a213e2af4433ff3f",
+    "image": "https://landingfoliocom.imgix.net/components/1650511665495-designup-call-to-action-test40721.png?q=75&auto=format",
+    "category": "call-to-action",
+    "source": "https://www.landingfolio.com/inspiration/post/designup"
+  }
+]

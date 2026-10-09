@@ -1,0 +1,74 @@
+[
+  {
+    "id": "rulebase:6a923c41edf122cc25ab2df0",
+    "image": "https://landingfoliocom.imgix.net/components/1787968522965-rulebase-4.jpg?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/rulebase"
+  },
+  {
+    "id": "orshot:6a923e98edf122cc25ab31c0",
+    "image": "https://landingfoliocom.imgix.net/components/1787968993965-orshot-3.jpg?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/orshot"
+  },
+  {
+    "id": "orshot:6a923e9aedf122cc25ab31c5",
+    "image": "https://landingfoliocom.imgix.net/components/1787968993965-orshot-5.jpg?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/orshot"
+  },
+  {
+    "id": "orshot:6a923e9dedf122cc25ab31cb",
+    "image": "https://landingfoliocom.imgix.net/components/1787968993965-orshot-7.jpg?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/orshot"
+  },
+  {
+    "id": "webhound:6a6adac4554f89996bc2b06e",
+    "image": "https://landingfoliocom.imgix.net/components/1785387558464-webhound-8.jpg?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/webhound"
+  },
+  {
+    "id": "dico:6260cc758cd0dfad578c966f",
+    "image": "https://landingfoliocom.imgix.net/components/1650510949498-dico-testimonial-test40721.png?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/dico"
+  },
+  {
+    "id": "glideapps-com:6260cbad8cd0dfad578c9650",
+    "image": "https://landingfoliocom.imgix.net/components/1650510748211-glideapps.com-testimonial-test40721.png?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/glideapps-com"
+  },
+  {
+    "id": "spendflo:626397713a4a03ea36d75011",
+    "image": "https://landingfoliocom.imgix.net/components/1650693972976-spendflo-testimonial-test40721.png?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/spendflo"
+  },
+  {
+    "id": "surge:625cd16b34a4b481ffc81039",
+    "image": "https://landingfoliocom.imgix.net/components/1650250076579-surge-testimonial-test40721.png?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/surge"
+  },
+  {
+    "id": "surge:625cd16b34a4b481ffc8103b",
+    "image": "https://landingfoliocom.imgix.net/components/1650250076580-surge-testimonial-test40721.png?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/surge"
+  },
+  {
+    "id": "designup:6260cf40a213e2af4433ff3a",
+    "image": "https://landingfoliocom.imgix.net/components/1650511665472-designup-testimonial-test40721.png?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/designup"
+  },
+  {
+    "id": "useflowkit:6243f80acbde52e8f07e409b",
+    "image": "https://landingfoliocom.imgix.net/components/1612757387779_Screenshot_20210208Flowkit9png?q=75&auto=format",
+    "category": "testimonial",
+    "source": "https://www.landingfolio.com/inspiration/post/useflowkit"
+  }
+]

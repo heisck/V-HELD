@@ -4,36 +4,60 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+interface SubItem {
+  title: string;
+  href: string;
+}
+
+const VOLUNTEER_SUBITEMS: SubItem[] = [
+  {
+    title: 'Why Volunteer',
+    href: '/#why-volunteer',
+  },
+  {
+    title: 'How It Works',
+    href: '/#how-it-works',
+  },
+  {
+    title: 'Impact',
+    href: '/#impact',
+  },
+  {
+    title: 'Stories',
+    href: '/#stories',
+  },
+];
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [openMenu, setOpenMenu] = useState<'volunteer' | 'join' | null>(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const navRef = useRef<HTMLElement>(null);
-  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdown on click outside or escape
+  // Close dropdown and drawer on click outside or Escape
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setOpenMenu(null);
+        setIsDropdownOpen(false);
+        setIsMobileMenuOpen(false);
       }
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setOpenMenu(null);
+        setIsDropdownOpen(false);
+        setIsMobileMenuOpen(false);
       }
     };
 
@@ -45,283 +69,228 @@ export default function Navbar() {
     };
   }, []);
 
-  // Hover handlers for pointer devices (laptops/desktops)
-  const handleMouseEnter = (menu: 'volunteer' | 'join') => {
-    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-      setOpenMenu(menu);
+  // Hover handlers for dropdown (desktop only)
+  const handleMouseEnter = () => {
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+      if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+      setIsDropdownOpen(true);
     }
   };
 
   const handleMouseLeave = () => {
-    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      hoverTimeoutRef.current = setTimeout(() => {
-        setOpenMenu(null);
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+      dropdownTimeoutRef.current = setTimeout(() => {
+        setIsDropdownOpen(false);
       }, 150);
     }
   };
 
-  const handleClickToggle = (menu: 'volunteer' | 'join') => {
-    setOpenMenu((prev) => (prev === menu ? null : menu));
-  };
-
-  // Uniform link class for synchronized color and background transitions across ALL items
-  const linkBaseClass = `px-2 py-1 rounded-full shrink-0 transition-colors duration-400 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
-    isScrolled
-      ? 'text-stone-800 hover:text-stone-950 hover:bg-stone-200/50'
-      : 'text-stone-100 hover:text-white hover:bg-white/15 drop-shadow-sm'
-  }`;
+  const linkBaseClass =
+    'px-3.5 py-1.5 rounded-full text-[13px] font-medium tracking-tight text-stone-700 hover:text-stone-950 hover:bg-stone-100 transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830]';
 
   return (
-    <header className="fixed top-3 sm:top-3.5 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center pointer-events-none px-3 sm:px-4">
-      {/* Outer wrapper: smoothly transitions max-width */}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none transition-[padding] duration-300 ease-out ${
+        isScrolled ? 'pt-3 sm:pt-4 px-4 sm:px-6' : 'pt-0 px-0'
+      }`}
+    >
       <nav
         ref={navRef}
         aria-label="Main Navigation"
-        className={`pointer-events-auto relative w-full flex items-center justify-between transition-all duration-400 ease-out ${
+        className={`pointer-events-auto relative w-full transform-gpu transition-[max-width,padding,border-radius,box-shadow,border-color,background-color] duration-300 ease-out ${
           isScrolled
-            ? 'max-w-[40rem] py-1.5 px-3 sm:px-4'
-            : 'max-w-[72rem] py-2 sm:py-3 px-2 sm:px-4'
+            ? 'max-w-4xl rounded-full border border-stone-300/80 bg-white/95 backdrop-blur-md px-4 sm:px-6 py-2 shadow-md'
+            : 'max-w-full rounded-none border-0 bg-[#EFE9E2]/80 backdrop-blur-md px-6 sm:px-10 lg:px-12 py-3.5 shadow-none'
         }`}
       >
-        {/* Animated Pill Background: Pure solid white on scroll */}
-        <div
-          className={`absolute inset-0 rounded-full transition-all duration-400 ease-out pointer-events-none ${
-            isScrolled
-              ? 'opacity-100 scale-100 bg-white border border-stone-200/90 shadow-lg'
-              : 'opacity-0 scale-95 bg-transparent border border-transparent shadow-none'
-          }`}
-          aria-hidden="true"
-        />
-
-        {/* Left: Simple Icon-Only Logo */}
-        <Link
-          href="/"
-          className="relative z-10 flex items-center rounded-xl p-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 transition-transform hover:scale-105 shrink-0"
-          aria-label="V-HELD Home"
-          onClick={() => setOpenMenu(null)}
-        >
-          <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 shrink-0 flex items-center justify-center">
-            <Image
-              src="/assets/logo.svg"
-              alt="V-HELD Logo"
-              width={32}
-              height={32}
-              priority
-              className="w-8 h-8 object-contain"
-            />
-          </div>
-        </Link>
-
-        {/* Center: Navigation Links with 100% unified, synchronized transition */}
-        <div
-          className={`relative z-10 flex items-center transition-all duration-400 ease-out text-xs sm:text-[13px] font-medium
-            w-[40vw] max-w-[40vw] sm:w-auto sm:max-w-none overflow-x-auto no-scrollbar whitespace-nowrap shrink
-            [mask-image:linear-gradient(to_right,black_65%,transparent_100%)] sm:[mask-image:none]
-            ${isScrolled ? 'gap-0.5 sm:gap-2' : 'gap-1 sm:gap-4'}
-          `}
-        >
-          {/* About */}
+        <div className={`w-full flex items-center justify-between ${isScrolled ? '' : 'max-w-7xl mx-auto'}`}>
+          {/* Logo Brand Anchor: Emblem + V-HELD text, NO country tag */}
           <Link
-            href="/about"
-            className={linkBaseClass}
-            onClick={() => setOpenMenu(null)}
+            href="/"
+            aria-label="V-HELD Home"
+            onClick={() => {
+              setIsDropdownOpen(false);
+              setIsMobileMenuOpen(false);
+            }}
+            className="flex items-center gap-2.5 rounded-xl p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830] group"
           >
-            About
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 shrink-0">
+              <Image
+                src="/assets/brand/v-held-emblem.svg"
+                alt="V-HELD Emblem"
+                width={36}
+                height={36}
+                priority
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <span className="font-bold text-base sm:text-lg tracking-tight text-stone-900 group-hover:text-[#065830] transition-colors">
+              V-HELD
+            </span>
           </Link>
 
-          {/* Volunteer (Context Menu) */}
-          <div
-            className="relative shrink-0"
-            onMouseEnter={() => handleMouseEnter('volunteer')}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button
-              type="button"
-              onClick={() => handleClickToggle('volunteer')}
-              aria-expanded={openMenu === 'volunteer'}
-              className={`flex items-center gap-1 ${linkBaseClass} ${
-                openMenu === 'volunteer'
-                  ? isScrolled
-                    ? 'bg-stone-200/70 text-stone-950'
-                    : 'bg-white/20 text-white'
-                  : ''
-              }`}
-            >
-              <span>Volunteer</span>
-              <svg
-                className={`w-3 h-3 transition-transform duration-200 ${
-                  openMenu === 'volunteer' ? 'rotate-180' : ''
-                }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
+          {/* Desktop Navigation Links: Maximum 4 items, Single words only */}
+          <div className="hidden md:flex items-center gap-1.5">
+            <Link href="/#about" className={linkBaseClass}>
+              About
+            </Link>
 
-            {/* Volunteer Context Menu (Proof only) */}
-            {openMenu === 'volunteer' && (
-              <div
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-2xl bg-white shadow-xl border border-stone-200 py-2 px-1 text-stone-800 animate-in fade-in duration-150 whitespace-normal"
-                role="menu"
+            <Link href="/#focus-areas" className={linkBaseClass}>
+              Focus
+            </Link>
+
+            {/* Context Menu Dropdown: Volunteer */}
+            <div
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                type="button"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                aria-expanded={isDropdownOpen}
+                aria-haspopup="true"
+                className={`flex items-center gap-1.5 ${linkBaseClass} ${
+                  isDropdownOpen ? 'bg-stone-100 text-stone-900' : ''
+                }`}
               >
-                <div className="px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-stone-400">
-                  Proof
+                <span>Volunteer</span>
+                <svg
+                  className={`w-3.5 h-3.5 text-stone-500 transition-transform duration-200 ${
+                    isDropdownOpen ? 'rotate-180 text-[#065830]' : ''
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+
+              {/* Clean Context Menu: Clean links without header or description clutter */}
+              {isDropdownOpen && (
+                <div
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 rounded-2xl bg-white border border-stone-200 p-1.5 shadow-xl animate-in fade-in slide-in-from-top-1 duration-150"
+                  role="menu"
+                >
+                  {VOLUNTEER_SUBITEMS.map((sub) => (
+                    <Link
+                      key={sub.title}
+                      href={sub.href}
+                      onClick={() => setIsDropdownOpen(false)}
+                      role="menuitem"
+                      className="block px-3 py-2 rounded-xl text-xs font-semibold text-stone-700 hover:text-[#065830] hover:bg-stone-50 transition-colors"
+                    >
+                      {sub.title}
+                    </Link>
+                  ))}
                 </div>
-                <Link
-                  href="/impact"
-                  onClick={() => setOpenMenu(null)}
-                  className="flex flex-col px-3 py-1.5 rounded-xl hover:bg-stone-200/50 transition-colors"
-                  role="menuitem"
-                >
-                  <span className="text-xs font-semibold text-stone-900">
-                    Our Impact
-                  </span>
-                  <span className="text-[11px] text-stone-500">
-                    Community results &amp; milestones
-                  </span>
-                </Link>
-                <Link
-                  href="/stories"
-                  onClick={() => setOpenMenu(null)}
-                  className="flex flex-col px-3 py-1.5 rounded-xl hover:bg-stone-200/50 transition-colors"
-                  role="menuitem"
-                >
-                  <span className="text-xs font-semibold text-stone-900">
-                    Stories
-                  </span>
-                  <span className="text-[11px] text-stone-500">
-                    Field narratives from volunteers
-                  </span>
-                </Link>
-              </div>
-            )}
+              )}
+            </div>
+
+            <Link href="/partner" className={linkBaseClass}>
+              Partner
+            </Link>
+
+            <Link href="/#contact" className={linkBaseClass}>
+              Contact
+            </Link>
           </div>
 
-          {/* Programmes */}
-          <Link
-            href="/programmes"
-            className={linkBaseClass}
-            onClick={() => setOpenMenu(null)}
-          >
-            Programmes
-          </Link>
+          {/* Action Button: Pure action text, zero extraneous icon */}
+          <div className="flex items-center gap-2.5">
+            <Link
+              href="/apply"
+              className="inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#065830] hover:bg-[#086c3b] active:scale-[0.98] text-white text-xs sm:text-sm font-semibold tracking-wide shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830]"
+            >
+              <span>Apply</span>
+            </Link>
 
-          {/* Join (Context Menu) */}
-          <div
-            className="relative shrink-0"
-            onMouseEnter={() => handleMouseEnter('join')}
-            onMouseLeave={handleMouseLeave}
-          >
+            {/* Mobile Toggle Button */}
             <button
               type="button"
-              onClick={() => handleClickToggle('join')}
-              aria-expanded={openMenu === 'join'}
-              className={`flex items-center gap-1 ${linkBaseClass} ${
-                openMenu === 'join'
-                  ? isScrolled
-                    ? 'bg-stone-200/70 text-stone-950'
-                    : 'bg-white/20 text-white'
-                  : ''
-              }`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+              aria-expanded={isMobileMenuOpen}
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full text-stone-700 hover:text-stone-950 hover:bg-stone-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830] transition-colors"
             >
-              <span>Join</span>
-              <svg
-                className={`w-3 h-3 transition-transform duration-200 ${
-                  openMenu === 'join' ? 'rotate-180' : ''
-                }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              {isMobileMenuOpen ? (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              )}
             </button>
-
-            {/* Join Context Menu */}
-            {openMenu === 'join' && (
-              <div
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-2xl bg-white shadow-xl border border-stone-200 py-2 px-1 text-stone-800 animate-in fade-in duration-150 whitespace-normal"
-                role="menu"
-              >
-                <Link
-                  href="/partner"
-                  onClick={() => setOpenMenu(null)}
-                  className="flex flex-col px-3 py-1.5 rounded-xl hover:bg-stone-200/50 transition-colors"
-                  role="menuitem"
-                >
-                  <span className="text-xs font-semibold text-stone-900">
-                    Partner With Us
-                  </span>
-                  <span className="text-[11px] text-stone-500">
-                    Institutions &amp; partners
-                  </span>
-                </Link>
-                <Link
-                  href="/support"
-                  onClick={() => setOpenMenu(null)}
-                  className="flex flex-col px-3 py-1.5 rounded-xl hover:bg-stone-200/50 transition-colors"
-                  role="menuitem"
-                >
-                  <span className="text-xs font-semibold text-stone-900">
-                    Support Our Work
-                  </span>
-                  <span className="text-[11px] text-stone-500">
-                    Individual contributions
-                  </span>
-                </Link>
-              </div>
-            )}
           </div>
-
-          {/* Contact */}
-          <Link
-            href="/contact"
-            className={linkBaseClass}
-            onClick={() => setOpenMenu(null)}
-          >
-            Contact
-          </Link>
         </div>
 
-        {/* Right: Volunteer Button - Solid black */}
-        <div className="relative z-10 flex items-center shrink-0">
-          <Link
-            href="/apply"
-            className="group inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-stone-950 hover:bg-stone-800 text-white shadow-md border border-stone-800/50 transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-            onClick={() => setOpenMenu(null)}
+        {/* Mobile Navigation Drawer */}
+        {isMobileMenuOpen && (
+          <div
+            className="md:hidden mt-3 rounded-2xl bg-white border border-stone-200 p-5 shadow-2xl space-y-3 animate-in fade-in slide-in-from-top-2 duration-150"
+            role="dialog"
+            aria-modal="true"
           >
-            <span>Volunteer</span>
-            <svg
-              className="w-3.5 h-3.5 text-stone-200 group-hover:text-white transition-transform group-hover:translate-x-0.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-2" />
-              <polyline points="10 17 15 12 10 7" />
-              <line x1="15" y1="12" x2="3" y2="12" />
-            </svg>
-          </Link>
-        </div>
+            <div className="flex flex-col space-y-1">
+              <Link
+                href="/#about"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-xl text-sm font-medium text-stone-700 hover:text-stone-900 hover:bg-stone-50"
+              >
+                About
+              </Link>
+              <Link
+                href="/#focus-areas"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-xl text-sm font-medium text-stone-700 hover:text-stone-900 hover:bg-stone-50"
+              >
+                Focus
+              </Link>
+              <div className="pt-2 pb-1 px-3 text-[10px] font-bold uppercase tracking-wider text-[#065830]">
+                Volunteer
+              </div>
+              {VOLUNTEER_SUBITEMS.map((sub) => (
+                <Link
+                  key={sub.title}
+                  href={sub.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="pl-6 pr-3 py-1.5 rounded-lg text-xs font-medium text-stone-600 hover:text-[#065830] hover:bg-stone-50"
+                >
+                  {sub.title}
+                </Link>
+              ))}
+              <Link
+                href="/partner"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-xl text-sm font-medium text-stone-700 hover:text-stone-900 hover:bg-stone-50"
+              >
+                Partner
+              </Link>
+              <Link
+                href="/#contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-3 py-2 rounded-xl text-sm font-medium text-stone-700 hover:text-stone-900 hover:bg-stone-50"
+              >
+                Contact
+              </Link>
+            </div>
+
+            <div className="pt-3 border-t border-stone-200">
+              <Link
+                href="/apply"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full text-center block px-4 py-2.5 rounded-xl bg-[#065830] hover:bg-[#086c3b] text-white text-sm font-semibold shadow-sm transition-colors"
+              >
+                Apply
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   );
