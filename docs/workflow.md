@@ -20,24 +20,30 @@ For every feature, milestone, or task track, execute this continuous cycle:
       │                                         ├── progress.md
       │                                         └── handoff.md
       ▼
-3. Incremental Build & Validation ────────────► 9-step incremental lifecycle
+3. UI Design Discovery via Folio MCP ─────────► Reference Landingfolio collections
+      │                                         ├── Hard budget: ≤ 100 calls / day
+      │                                         ├── Mandatory daily usage counter
+      │                                         ├── Local storage & caching (never re-fetch)
+      │                                         └── Subagent design taste audit for options
+      ▼
+4. Incremental Build & Validation ────────────► 9-step incremental lifecycle
       │
       ├── Periodic Upstream Sync ─────────────► git fetch / rebase main
       └── Periodic Atomic Commits ────────────► Strict User Authorship ONLY (Heisck)
       │                                         (NO Gemini co-author/contributor tags)
       ▼
-4. Multi-Disciplinary Audit Gate ─────────────► Single Agent using all specialized skills:
+5. Multi-Disciplinary Audit Gate ─────────────► Single Agent using all specialized skills:
       │                                         ├── 1. UI Critic Audit
       │                                         ├── 2. "Pony Tail" Security Review
       │                                         └── 3. Code & Architecture Review
       ▼
-5. Remediate ALL Findings ────────────────────► Fix 100% of issues; zero warnings/TODOs
+6. Remediate ALL Findings ────────────────────► Fix 100% of issues; zero warnings/TODOs
       │
       ▼
-6. Acceptance Check & Context Compaction ─────► npm run check:agent & compact context
+7. Acceptance Check & Context Compaction ─────► npm run check:agent & compact context
       │
       ▼
-7. Merge Branch into Main & Verify ───────────► Clean merge to main, verify build & tests
+8. Merge Branch into Main & Verify ───────────► Clean merge to main, verify build & tests
 ```
 
 ---
@@ -73,9 +79,10 @@ Every feature branch must have a dedicated documentation subfolder created immed
   - Anti-vibecoding checklist specific to the feature.
 
 ### 2. `progress.md` (Living Status Tracker)
-- **Purpose**: Real-time tracking of milestones, deliverables, test execution, and blockers.
+- **Purpose**: Real-time tracking of milestones, deliverables, test execution, blockers, and MCP quota usage.
 - **Contents**:
   - **Status Overview Table**: Metrics, current status (Completed / In Progress / Pending), and details.
+  - **MCP Usage Counter**: Daily counter tracking Landingfolio MCP queries against the 100 requests/day limit.
   - **Deliverables Checklist**: Granular checkbox list (`- [x]` / `- [ ]`) of implemented components and features.
   - **Validation & Test History**: Record of type-check, lint, unit tests, and browser verification passes.
   - **Blockers & Decisions**: Architecture decisions or dependencies resolved.
@@ -83,7 +90,7 @@ Every feature branch must have a dedicated documentation subfolder created immed
 ### 3. `handoff.md` (Engineering Handoff Document)
 - **Purpose**: Clean interface contracts, asset inventories, and runtime requirements for handoff and downstream integration.
 - **Contents**:
-  - Primary asset paths and CDN/image configurations.
+  - Primary asset paths, local MCP reference files, and CDN configurations.
   - Interaction physics, scroll dynamic thresholds, and animation specs.
   - API endpoint contracts and server actions.
   - Responsive breakpoints, touch targets, and accessibility requirements.
@@ -91,24 +98,67 @@ Every feature branch must have a dedicated documentation subfolder created immed
 
 ---
 
-## 4. Phase 3: Incremental Build, Periodic Sync & Atomic Commits
+## 4. Phase 3: UI Design Reference via Landingfolio MCP & Design Taste Governance
 
-### 4.1 Incremental Execution
+### 4.1 Strict Security: `folio-mcp.json` Permanently Gitignored
+- `folio-mcp.json` resides in the project root and configures the Landingfolio MCP server (`https://mcp.landingfolio.com/mcp`) with an authorized bearer token.
+- **NON-NEGOTIABLE SECURITY RULE**: `folio-mcp.json` is and **must always remain gitignored** (`.gitignore`).
+- Never stage, commit, log, or leak `folio-mcp.json` or its bearer token into Git history.
+
+### 4.2 The "No Designing From Your Head" Mandate
+- **Never design in isolation**: Agents must **NOT** invent UI layouts, components, card hierarchies, section flows, or animation choreography purely from memory or default AI templates.
+- **Mandatory Reference Source**: All UI components, section structures (landing page heroes, features, impact metrics, stories, footers), micro-layouts, divs, and animations must be explicitly referenced from the Landingfolio collection via the Folio MCP.
+- Use the MCP collection to retrieve real, production-grade visual designs, section blueprints, interaction patterns, and code implementations.
+
+### 4.3 Daily Quota & Mandatory Call Counter (Max 100 Requests / Day)
+- **Hard Ceiling**: We operate under a strict rate limit of **100 MCP requests per day**.
+- **Mandatory MCP Usage Counter**:
+  - Every feature track must log and maintain an active MCP call counter in `docs/build docs/<branch-name>/progress.md`.
+  - Format:
+    ```markdown
+    ### Landingfolio MCP Daily Usage Tracker (Daily Limit: 100)
+    | Call # | Date | Component / Section Queried | Local Cache Path | Calls Remaining |
+    | :--- | :--- | :--- | :--- | :--- |
+    | 01 | 2026-10-09 | Hero Editorial Layout | docs/build docs/landing-page/references/hero.png | 99 |
+    ```
+  - Before making an MCP call, check the day's total calls. If the counter reaches 100, no further MCP requests may be issued until the next day; rely entirely on previously cached references.
+
+### 4.4 Aggressive Local Storage & Asset Caching (Fetch Once, Reuse Forever)
+- To conserve the 100-calls/day budget, **never make repeated calls for the same design, section, or asset**:
+  - Whenever querying the MCP, download and store the code snippet, screenshot, and screen recording directly on the local filesystem (under `docs/build docs/<branch-name>/references/` or `public/assets/reference/<section>/`).
+  - Read from the saved local reference files during implementation.
+  - Re-use cached references across similar sections or future iterations rather than calling the MCP again.
+
+### 4.5 Subagent Design Taste Audits for UI Options
+- When selecting between design options, section layouts, animations, or styling treatments:
+  - **Spawn a specialized subagent** (e.g. via `invoke_subagent` or a dedicated design review subagent).
+  - Provide the subagent with the retrieved MCP options, screenshots, and proposed code.
+  - The subagent conducts a **Design Taste Audit**, assessing:
+    1. Alignment with V-HELD's brand (warm, authentic Ghanaian community development, professional NGO aesthetic).
+    2. Adherence to anti-vibecoding rules ([`docs/ui-patterns-avoid.md`](ui-patterns-avoid.md)).
+    3. Editorial typography, spacing harmony, visual weight, and interaction subtlety.
+  - Implement only the option that passes the subagent's design taste audit.
+
+---
+
+## 5. Phase 4: Incremental Build, Periodic Sync & Atomic Commits
+
+### 5.1 Incremental Execution
 - Adhere strictly to the **9-step incremental validation protocol** ([`docs/incremental-validation.md`](incremental-validation.md)):
-  1. Build component -> 2. Run relevant test -> 3. Verify DOM render -> 4. Check console errors -> 5. Check interaction -> 6. Check responsive viewports -> 7. Check performance -> 8. Fix root cause immediately -> 9. Advance to next item.
+  1. Build component referencing local MCP cache -> 2. Run relevant test -> 3. Verify DOM render -> 4. Check console errors -> 5. Check interaction -> 6. Check responsive viewports -> 7. Check performance -> 8. Fix root cause immediately -> 9. Advance to next item.
 
-### 4.2 Periodic Synchronization
+### 5.2 Periodic Synchronization
 - As you build, sync periodically with upstream to avoid code drift and merge friction:
   ```bash
   git fetch origin
   git status
   ```
 
-### 4.3 Periodic Atomic Commits
+### 5.3 Periodic Atomic Commits
 - Commit frequently as logical units of work are completed (e.g., new component built, schema validated, style refined).
 - Never accumulate massive uncommitted working trees.
 
-### 4.4 Strict Commit Identity & Authorship Rules (CRITICAL)
+### 5.4 Strict Commit Identity & Authorship Rules (CRITICAL)
 - **Commit as User ONLY**: All commits must be authored strictly and exclusively as the repository owner (`Heisck <kelvinkwabenaparkingston@gmail.com>`).
 - **NO AI Attributions**:
   - **NEVER** include "Gemini", "Antigravity", "AI Assistant", or any third-party agent names in the commit author, committer, or commit message body.
@@ -118,7 +168,7 @@ Every feature branch must have a dedicated documentation subfolder created immed
 
 ---
 
-## 5. Phase 4: Multi-Disciplinary Completion Gate (Single Unified Agent)
+## 6. Phase 5: Multi-Disciplinary Completion Gate (Single Unified Agent)
 
 When feature implementation is complete, execute a comprehensive, rigorous multi-disciplinary audit using **one single unified agent utilizing all available specialized skills**. The audit covers three non-negotiable pillars:
 
@@ -141,7 +191,7 @@ When feature implementation is complete, execute a comprehensive, rigorous multi
 
 ### Pillar 1: UI Critic Audit
 - **Anti-Vibecoding Check**: Strictly verify that none of the 20 banned patterns ([`docs/ui-patterns-avoid.md`](ui-patterns-avoid.md)) are present (no purple gradients, no emojis in headings, no Lucide overload, no generic cards, no untouched Shadcn).
-- **Aesthetic & Brand Fidelity**: Verify warm, authentic Ghanaian community development identity with refined editorial typography and structured whitespace.
+- **Aesthetic & Brand Fidelity**: Verify warm, authentic Ghanaian community development identity with refined editorial typography and structured whitespace. Verify alignment with the approved MCP reference.
 - **Responsive Inspection**: Inspect rendering across mobile (375px), tablet (768px), laptop (1024px), desktop (1440px), and ultrawide (1920px). Zero horizontal scrolling, zero container clipping.
 - **Accessibility Check**: WCAG AA contrast ratios (4.5:1 body, 3:1 large text), 44x44px touch targets, visible keyboard focus indicators, `prefers-reduced-motion` compliance.
 - **Headless Chromium Inspection**: Run against the production build to capture and inspect screenshots for z-index collisions, text overflows, or rendering artifacts.
@@ -150,7 +200,7 @@ When feature implementation is complete, execute a comprehensive, rigorous multi
 > *A "Pony Tail" review is tight, taut, uncompromising, and paranoid—leaving zero loose strands or overlooked security gaps.*
 
 - **Full 40 Security Mandates Audit**: Inspect against all rules in [`docs/security-requirements.md`](security-requirements.md).
-- **Zero Exposed Secrets**: Verify no API keys, private credentials, or internal secrets are exposed in client-side code or git history.
+- **Zero Exposed Secrets**: Verify no API keys, private credentials, or internal secrets are exposed in client-side code or git history (including ensuring `folio-mcp.json` remains gitignored).
 - **Input Validation & Sanitization**: Ensure 100% of user inputs and structured mutations pass server-side Zod validation and proper sanitization.
 - **Authorization & Data Privacy**: Check Row Level Security (RLS), least privilege DB policies, and strict access controls on sensitive volunteer documents (passports, CVs).
 - **Network & Headers**: Verify HSTS, CSP headers, CORS policies, secure cookie attributes (`HttpOnly`, `SameSite`, `Secure`), and CSRF defenses.
@@ -168,23 +218,23 @@ When feature implementation is complete, execute a comprehensive, rigorous multi
 
 ---
 
-## 6. Phase 5: Acceptance Check & Context Auto-Compaction
+## 7. Phase 6: Acceptance Check & Context Auto-Compaction
 
-### 6.1 Acceptance Review Gate
+### 7.1 Acceptance Review Gate
 Execute the formal acceptance review gate command:
 ```bash
 npm run check:agent
 ```
 All checks (`tsc --noEmit`, `next lint`, `vitest run`) must pass with zero errors and zero warnings.
 
-### 6.2 Context Auto-Compaction
+### 7.2 Context Auto-Compaction
 To prevent context bloat and keep working memory sharp:
-- **Summarize in Living Docs**: Record key architectural decisions, resolved issues, and component APIs into `progress.md` and `handoff.md`.
+- **Summarize in Living Docs**: Record key architectural decisions, resolved issues, MCP references used, and component APIs into `progress.md` and `handoff.md`.
 - **Compact Context**: Condense verbose intermediate reasoning, tool outputs, and transient artifacts so only critical, high-signal information persists into the next cycle.
 
 ---
 
-## 7. Phase 6: Merge to Main Branch & Final Verification
+## 8. Phase 7: Merge to Main Branch & Final Verification
 
 Once the branch is fully built, audited, remediated, and verified:
 

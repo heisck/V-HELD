@@ -34,3 +34,11 @@
 - [x] Add scroll listener animating navbar towards a centered floating dock on scroll.
 - [x] Add bottom padding below hero image in `src/app/page.tsx` for scroll simulation.
 - [x] Update documentation in `landing-page.md`, `progress.md`, and `handoff.md`.
+
+---
+
+## 3. Landingfolio MCP Daily Usage Tracker (Daily Limit: 100)
+
+| Call # | Date | Component / Section Queried | Local Cache Path | Calls Remaining |
+| :--- | :--- | :--- | :--- | :--- |
+| — | 2026-10-09 | *No calls made today yet* | — | 100 |
