@@ -37,3 +37,8 @@ next-env.d.ts
 
 #landing folio mcp
 /folio-mcp.json
+
+# UI QA Screenshots
+/qa-screenshots/
+**/qa-screenshots/**
+*.png

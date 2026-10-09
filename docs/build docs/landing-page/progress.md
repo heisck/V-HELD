@@ -139,3 +139,4 @@
 9. **Zero-Flash Navbar Transitions**: Navbar retains uniform backdrop-filter and background-color across scroll states, with transitions restricted to geometry/elevation (`max-width`, `padding`, `box-shadow`) under `transform-gpu` to guarantee zero GPU texture tearing or white flashes.
 10. **Unconfined Header at Rest**: Header spans the entire top edge of the screen at rest without being boxed into a floating pill container; only morphs into a centered pill upon scroll.
 11. **Warm Sand (#EFE9E2) Surface Palette**: Background harmonized to exact color of hero Give Back illustration, with borderless top header at rest and bold typographic pairing ("Make a" in black, "Difference." in green).
+12. **Centralized QA Screenshots & Gitignore**: All QA and validation screenshots are consolidated into a single local `/qa-screenshots/` directory and permanently excluded via `.gitignore` to keep git history lightweight.
