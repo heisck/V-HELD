@@ -93,10 +93,10 @@ export default function Navbar() {
       <nav
         ref={navRef}
         aria-label="Main Navigation"
-        className={`pointer-events-auto relative w-full transition-all duration-300 ease-out ${
+        className={`pointer-events-auto relative w-full rounded-full bg-white/95 backdrop-blur-md border border-stone-200 transform-gpu transition-[max-width,padding,box-shadow] duration-300 ease-out ${
           isScrolled
-            ? 'max-w-4xl rounded-full bg-white/95 backdrop-blur-md border border-stone-200 px-4 sm:px-6 py-2 shadow-lg'
-            : 'max-w-6xl px-3 sm:px-6 py-3 bg-white/80 backdrop-blur-sm border border-stone-200/80 rounded-full shadow-sm'
+            ? 'max-w-4xl px-4 sm:px-6 py-2 shadow-md'
+            : 'max-w-5xl px-4 sm:px-6 py-2.5 shadow-sm'
         }`}
       >
         <div className="flex items-center justify-between">

@@ -92,7 +92,7 @@
   - African Gold (`#E3A709`) is reserved for high-contrast dark green surfaces (such as the CTA banner and dark accent buttons) or subtle borders—never low-contrast yellow text directly on pure white.
 - **Brand SVGs**: Use light-surface brand SVGs (`v-held-logo-horizontal.svg` and `v-held-logo-vertical-full.svg`), replacing dark-inverted asset variants.
 
-### Lesson 5: Dropdown Simplicity & Button Purity
+#### Lesson 5: Dropdown Simplicity & Button Purity
 - **No Bulky Dropdown Cards**: Context menus must be lightweight, clean link lists.
   - Removed "Volunteer Pathways" block headers and long multi-line descriptive text underneath nav links.
   - Retain clear, scannable links: `Why Volunteer`, `How It Works`, `Impact`, `Stories`.
@@ -100,14 +100,25 @@
   - Buttons like `Apply` do not need decorative or misplaced SVG icons (such as paper/doc icons or arrows). Clean, crisp typography with purposeful hover states is superior.
   - Never place dollar signs or arbitrary icons on volunteer actions.
 
+### Lesson 6: Zero Compositor Flash During Scroll Transitions
+- **Root Cause of White Flash**: Animating `backdrop-filter` (e.g. from `blur-sm` to `blur-md`) or animating `background-color` opacities (e.g. `bg-white/80` to `bg-white/95`) on an element with `transition-all` forces the browser's compositor to drop the GPU texture cache on the layout boundary, flashing raw white before re-rasterizing the blur shader.
+- **Remediation**:
+  1. Maintain **100% identical background and blur properties** across both resting and scrolled states (`bg-white/95 backdrop-blur-md border border-stone-200`).
+  2. Never use `transition-all` on elements with backdrop filters. Constrain the transition strictly to geometry/elevation: `transition-[max-width,padding,box-shadow] duration-300 ease-out`.
+  3. Apply `transform-gpu` (`transform: translateZ(0)`) to ensure the compositor keeps a dedicated hardware layer.
+
+### Lesson 7: Elimination of Artificial Hero Seal / Badge Boxes
+- **No Floating Seal Cards**: Artificial badge cards containing vertical seals/logos on the right side of the hero section clutter the visual weight and look like boilerplate filler.
+- **Clean Centered Editorial Hero**: High-impact headlines ("Give Back. Make a Difference.") centered with concise, dignified narrative, prominent action buttons (`Volunteer`, `Explore Focus Areas`), and subtle non-profit credentials.
+
 ---
 
 ## 4. Completed Section Transformation Ledger
 
 | Section | Anti-Pattern Removed | Transformed Design | Visual QA Status |
 | :--- | :--- | :--- | :--- |
-| **Header / Navbar** | 8 loose buttons, double-word labels (`Why Volunteer`), verbose CTA (`Apply to Volunteer`), unneeded subtitle text ("Ghana"), bulky dropdown headers/descriptions, SVG icon in Apply | 4 single-word links (`About`, `Focus`, `Volunteer ⌄`, `Partner`, `Contact`), clean dropdown links without card fluff, pure typographic action button `Apply`, emblem + V-HELD text, white pill backdrop | Verified via headless Chrome (resting, scrolled pill, mobile) |
-| **Hero Section** | Badge above headline (`• COMMUNITY IMPACT IN GHANA`), em-dash (`—`), 3 check-icon boxes in a row, dark background | Pure white background, bold stone-900 typography with Ghanaian Forest Green accent, action buttons `Volunteer` and `Explore Focus Areas`, clean monospace credibility line, official vertical emblem badge | Verified via headless Chrome |
+| **Header / Navbar** | 8 loose buttons, double-word labels, verbose CTA, unneeded subtitle, bulky dropdown fluff, SVG doc icon, white transition flash on scroll | 4 single-word links, clean scannable dropdown, pure typographic `Apply`, zero compositor white flash (`transform-gpu`, targeted `max-w` transition) | Verified via headless Chrome (resting, mid-scroll, full scroll) |
+| **Hero Section** | Badge above headline, em-dash, 3 check-icon boxes, dark background, artificial seal card box | Centered editorial hero (`max-w-4xl`), bold stone-900 typography with Ghanaian Forest Green accent, action buttons `Volunteer` & `Explore Focus Areas`, credentials line, zero floating seal clutter | Verified via headless Chrome |
 | **Intro / Welcome** | Badge above headline (`• WHO WE ARE`), colored pill badges, dot bullet markers, generic arrow icons, dark theme | 2 high-contrast structured cards (Ghanaian Residents vs. International Guests) with neutral `border-stone-200` on `bg-stone-50` | Verified via headless Chrome |
 | **Focus Areas** | Badge above headline (`• OUR FOCUS AREAS`), colored card borders (`border-emerald-800/40`), generic arrow icons, dark theme | 3 numbered editorial cards (`01 Focus Pillar`), neutral stone-200 borders, white cards, topic tags in stone-50 pills, clear typographic links | Verified via headless Chrome |
 | **Why Volunteer** | Badge above headline (`• WHY VOLUNTEER`), verbose CTA (`Check Eligibility & Apply`), dark theme | Clean 6-item numbered grid (`01` to `06`), white cards, concise action button `Apply` in inclusive participation callout | Verified via headless Chrome |
