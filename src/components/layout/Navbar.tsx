@@ -89,17 +89,21 @@ export default function Navbar() {
     'px-3.5 py-1.5 rounded-full text-[13px] font-medium tracking-tight text-stone-700 hover:text-stone-950 hover:bg-stone-100 transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830]';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none px-4 sm:px-6 pt-3 sm:pt-4">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none transition-[padding] duration-300 ease-out ${
+        isScrolled ? 'pt-3 sm:pt-4 px-4 sm:px-6' : 'pt-0 px-0'
+      }`}
+    >
       <nav
         ref={navRef}
         aria-label="Main Navigation"
-        className={`pointer-events-auto relative w-full rounded-full bg-white/95 backdrop-blur-md border border-stone-200 transform-gpu transition-[max-width,padding,box-shadow] duration-300 ease-out ${
+        className={`pointer-events-auto relative w-full bg-white/95 backdrop-blur-md transform-gpu transition-[max-width,padding,border-radius,box-shadow,border-color] duration-300 ease-out ${
           isScrolled
-            ? 'max-w-4xl px-4 sm:px-6 py-2 shadow-md'
-            : 'max-w-5xl px-4 sm:px-6 py-2.5 shadow-sm'
+            ? 'max-w-4xl rounded-full border border-stone-200 px-4 sm:px-6 py-2 shadow-md'
+            : 'max-w-full rounded-none border-0 border-b border-stone-200/80 px-6 sm:px-10 lg:px-12 py-3.5 shadow-none'
         }`}
       >
-        <div className="flex items-center justify-between">
+        <div className={`w-full flex items-center justify-between ${isScrolled ? '' : 'max-w-7xl mx-auto'}`}>
           {/* Logo Brand Anchor: Emblem + V-HELD text, NO country tag */}
           <Link
             href="/"

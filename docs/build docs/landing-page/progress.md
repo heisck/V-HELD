@@ -122,6 +122,7 @@
 | 2026-10-09 | UI Transformation & Anti-Pattern Cleanup | **PASS** | 100% banned patterns eliminated (zero badges above headlines, single-word nav, action-only buttons, neutral borders), 26/26 tests passing, screenshots verified |
 | 2026-10-09 | Pure White Theme & Dropdown Refinements | **PASS** | Switched 100% to white theme (zero dark mode/endpoints), removed dropdown headers & descriptions, removed document SVG icon from Apply, 26/26 tests passing, screenshots captured |
 | 2026-10-09 | Hero Seal Removal & Navbar Flash Fix | **PASS** | Removed floating seal card from Hero, centered hero layout, eliminated compositor white flash during navbar scroll via GPU layer lock & targeted geometry transitions, 26/26 tests passing |
+| 2026-10-09 | Full-Width Unconfined Navbar at Rest | **PASS** | Navbar spans 100% width edge-to-edge at rest (no floating div), gracefully grouping to centered floating pill only on scroll; 26/26 tests passing, screenshots verified |
 
 ---
 
@@ -135,3 +136,4 @@
 7. **Clean Navigation Dropdowns**: Context menus must be uncluttered link lists without bulky card headers or paragraph descriptions. Buttons must have crisp typographic actions without misplaced icons.
 8. **Centered Editorial Hero Layout**: Hero section uses a focused, centered editorial hierarchy without artificial floating seal/badge card clutter.
 9. **Zero-Flash Navbar Transitions**: Navbar retains uniform backdrop-filter and background-color across scroll states, with transitions restricted to geometry/elevation (`max-width`, `padding`, `box-shadow`) under `transform-gpu` to guarantee zero GPU texture tearing or white flashes.
+10. **Unconfined Header at Rest**: Header spans the entire top edge of the screen at rest without being boxed into a floating pill container; only morphs into a centered pill upon scroll.

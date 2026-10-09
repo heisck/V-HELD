@@ -111,13 +111,18 @@
 - **No Floating Seal Cards**: Artificial badge cards containing vertical seals/logos on the right side of the hero section clutter the visual weight and look like boilerplate filler.
 - **Clean Centered Editorial Hero**: High-impact headlines ("Give Back. Make a Difference.") centered with concise, dignified narrative, prominent action buttons (`Volunteer`, `Explore Focus Areas`), and subtle non-profit credentials.
 
+### Lesson 8: Full-Width Unconfined Header at Rest, Center Pill on Scroll
+- **Unconfined at Rest**: The navigation bar must NOT sit inside a floating island/div or semi-confined rounded box when resting at the top of the page. It must open edge-to-edge across the full viewport width (`w-full`, `rounded-none`, `border-0 border-b border-stone-200/80`, `pt-0 px-0`), with the brand logo on the far left and action buttons on the right.
+- **Pack to Center Only on Scroll**: The navbar only packs/groups inwards into a centered floating pill (`max-w-4xl`, `rounded-full`, `border border-stone-200`, `shadow-md`, `pt-3`) when the user actively scrolls down the page.
+- **Zero Layout Jitter**: Preserves consistent backdrop-filter and background across states, transitioning strictly `max-width`, `padding`, `border-radius`, and `box-shadow` on GPU.
+
 ---
 
 ## 4. Completed Section Transformation Ledger
 
 | Section | Anti-Pattern Removed | Transformed Design | Visual QA Status |
 | :--- | :--- | :--- | :--- |
-| **Header / Navbar** | 8 loose buttons, double-word labels, verbose CTA, unneeded subtitle, bulky dropdown fluff, SVG doc icon, white transition flash on scroll | 4 single-word links, clean scannable dropdown, pure typographic `Apply`, zero compositor white flash (`transform-gpu`, targeted `max-w` transition) | Verified via headless Chrome (resting, mid-scroll, full scroll) |
+| **Header / Navbar** | 8 loose buttons, double-word labels, verbose CTA, unneeded subtitle, bulky dropdown fluff, SVG doc icon, floating island div at rest, white transition flash | Unconfined full-width bar at rest (`border-b`, `w-full`), packing to centered pill (`max-w-4xl rounded-full`) only on scroll; zero flash, zero layout jitter | Verified via headless Chrome (at rest, mid-scroll, full scroll) |
 | **Hero Section** | Badge above headline, em-dash, 3 check-icon boxes, dark background, artificial seal card box | Centered editorial hero (`max-w-4xl`), bold stone-900 typography with Ghanaian Forest Green accent, action buttons `Volunteer` & `Explore Focus Areas`, credentials line, zero floating seal clutter | Verified via headless Chrome |
 | **Intro / Welcome** | Badge above headline (`• WHO WE ARE`), colored pill badges, dot bullet markers, generic arrow icons, dark theme | 2 high-contrast structured cards (Ghanaian Residents vs. International Guests) with neutral `border-stone-200` on `bg-stone-50` | Verified via headless Chrome |
 | **Focus Areas** | Badge above headline (`• OUR FOCUS AREAS`), colored card borders (`border-emerald-800/40`), generic arrow icons, dark theme | 3 numbered editorial cards (`01 Focus Pillar`), neutral stone-200 borders, white cards, topic tags in stone-50 pills, clear typographic links | Verified via headless Chrome |
