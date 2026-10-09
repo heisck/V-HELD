@@ -2,7 +2,7 @@
 
 ## Operating Protocol
 
-Before implementing any feature or modifying existing code, consult `AGENTS.md` and adhere to all documented guidelines.
+Before implementing any feature or modifying existing code, consult `AGENTS.md` and adhere to all documented guidelines. All work must strictly follow the mandatory branch-to-main lifecycle specified in [`docs/workflow.md`](workflow.md) (branch isolation, branch documentation in `docs/build docs/<branch-name>/`, atomic user-only commits with zero AI co-authorship, multi-disciplinary completion gate, and clean main merge).
 
 When building, reviewing, or refactoring the application, agents must actively inspect and guard against:
 

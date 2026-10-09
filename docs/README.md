@@ -30,4 +30,16 @@
 | [`content-standards.md`](content-standards.md) | Zero Lorem Ipsum, authentic voice, Ghanaian NGO narrative standards | **Current** |
 | [`signature-interactions.md`](signature-interactions.md) | Purposeful signature interactive moments tied to community mission | **Current** |
 | [`definition-of-done.md`](definition-of-done.md) | Master Definition of Done checklist | **Current** |
+| [`workflow.md`](workflow.md) | Mandatory branch-to-main development, review, and merge lifecycle | **Current** |
 | [`raw-spec.md`](raw-spec.md) | Verbatim archive of all user prompt requirements | **Living** |
+
+---
+
+## Feature Build Specifications (`docs/build docs/`)
+
+| Directory / Document | Purpose | Status |
+| :--- | :--- | :--- |
+| [`build docs/landing-page/landing-page.md`](build%20docs/landing-page/landing-page.md) | Landing page comprehensive architecture, section blueprints, and copy | **Current** |
+| [`build docs/landing-page/progress.md`](build%20docs/landing-page/progress.md) | Landing page milestone tracking, task status, and test execution history | **Living** |
+| [`build docs/landing-page/handoff.md`](build%20docs/landing-page/handoff.md) | Engineering handoff, component contracts, tokens, and agent directives | **Current** |
+
