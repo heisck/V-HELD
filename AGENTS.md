@@ -57,36 +57,40 @@ This runs the full gate: `tsc --noEmit` + lint + unit/integration tests. This is
 
 ---
 
-## 1.2 Mandatory Branch-to-Main Development Workflow
+## 1.2 Mandatory Develop-Trunk Ticket-Driven Development Workflow
 
 > **Detailed Specification**: [`docs/workflow.md`](docs/workflow.md)
 
 Until the entire application is completed, all development must strictly follow this closed-loop workflow:
 
-1. **Branch Isolation**:
-   - Never build directly on `main`.
-   - Create a dedicated branch for every feature or task track: `git checkout -b <branch-name>`.
+1. **Develop Trunk Rule & Ticket Branch Isolation**:
+   - Never build directly on `main`. Never branch feature work from `main`.
+   - `develop` is the active development integration branch.
+   - For every task or feature track, branch from `develop` with a Ticket ID:
+     `git checkout develop && git pull origin develop && git checkout -b ticket/<ticket-id>-<ticket-slug>`.
 2. **Branch Documentation Suite**:
-   - Immediately create a dedicated subfolder under `docs/build docs/<branch-name>/` containing the 3 mandatory living files:
-     - `<branch-name>.md`: Architecture blueprints, component contracts, tokens, and visual specifications.
-     - `progress.md`: Living tracker with milestone breakdown, status table, checklist items, and test history.
+   - Immediately create a dedicated subfolder under `docs/build docs/<ticket-name>/` containing the 3 mandatory living files:
+     - `<ticket-name>.md`: Architecture blueprints, component contracts, tokens, and visual specifications.
+     - `progress.md`: Living tracker with milestone breakdown, status table, checklist items, MCP usage counter, and test history.
      - `handoff.md`: Engineering handoff, interaction physics, runtime configs, and verification steps.
 3. **UI Design Reference via Landingfolio MCP & Taste Governance**:
    - **`folio-mcp.json` Security**: `folio-mcp.json` in the root is strictly gitignored and must **remain gitignored permanently**. Never commit, stage, or expose it in git history.
    - **Never Design "From Your Head"**: Do not invent UI layouts, divs, sections, or animations in isolation. All design patterns must be referenced from the Landingfolio collection via the Folio MCP.
    - **Daily Quota & Call Counter (≤ 100 calls/day)**: Hard limit of 100 MCP requests per day. Maintain an active usage counter in `progress.md` tracking every call.
-   - **Local Reference Caching**: Fetch code, screenshots, or screen recordings once and store them on the local filesystem (`docs/build docs/<branch-name>/references/`) so you never query the MCP again for the same component.
+   - **Local Reference Caching**: Fetch code, screenshots, or screen recordings once and store them on the local filesystem (`docs/build docs/<ticket-name>/references/`) so you never query the MCP again for the same component.
    - **Subagent Design Taste Audit**: Spawn a specialized subagent to review and evaluate design options for any page, section, div, or animation before implementation.
-4. **Incremental Build & Periodic Synchronization**:
+4. **Sub-Task Section Branches & 9-Step Incremental Build**:
+   - For component sections (e.g. `header-component`, `hero-section`), create subtask branches from the parent ticket branch:
+     `git checkout -b subtask/<ticket-id>-<section-name>`.
    - Follow the 9-step incremental validation lifecycle ([`docs/incremental-validation.md`](docs/incremental-validation.md)).
-   - Sync periodically with upstream (`git fetch` / status checks) during the build to avoid code drift.
+   - Merge verified sections back into the parent ticket branch: `git merge --no-ff subtask/...`.
 5. **Periodic Atomic Commits with Strict User Authorship (CRITICAL)**:
    - Make small, frequent, atomic commits as logical milestones are hit.
    - **Commit strictly as the user**: All commits must be authored strictly by `Heisck <kelvinkwabenaparkingston@gmail.com>`.
    - **ZERO AI attribution**: Absolutely NO "Gemini", "Antigravity", or agent mentions in author, committer, or commit messages.
    - **ZERO co-author tags**: Never append `Co-authored-by: Gemini...` or any AI contributor trailers. Commits must look 100% human-authored by the user.
 6. **Multi-Disciplinary Completion Gate (Single Agent, Full Skill Stack)**:
-   - When the build is finished, run an exhaustive triple-pillar audit using **one single unified agent utilizing all available specialized skills**:
+   - When the ticket build is finished, run an exhaustive triple-pillar audit using **one single unified agent utilizing all available specialized skills**:
      - **UI Critic**: Enforce 20 anti-vibecoding rules ([`docs/ui-patterns-avoid.md`](docs/ui-patterns-avoid.md)), 7-viewport responsive QA, WCAG AA contrast, typography scale, headless Chromium frame review.
      - **"Pony Tail" Security Review**: Deep, paranoid, tight review covering all 40 security mandates ([`docs/security-requirements.md`](docs/security-requirements.md)): RLS, server-side Zod validation on all inputs/mutations, sanitization, secret leakage prevention, secure headers, auth/session locks.
      - **Code Review**: Strict TypeScript (`tsc --noEmit`), lint checks (`next lint`), Vitest test suite, clean modular structure, zero dead code, zero console warnings.
@@ -94,9 +98,14 @@ Until the entire application is completed, all development must strictly follow 
 7. **Acceptance Gate & Context Auto-Compaction**:
    - Execute `npm run check:agent` (`tsc --noEmit && next lint && vitest run`).
    - Compact agent context by recording progress, decisions, MCP usage, and handoff contracts into `progress.md` and `handoff.md`, freeing working memory.
-8. **Merge Branch to Main & Final Verification**:
-   - Switch to `main`, ensure `main` is current, and cleanly merge: `git merge --no-ff <branch-name>`.
-   - Re-verify `npm run check:agent` on `main`. Repeat cycle for the next branch until complete.
+8. **Pull Request Targeting `develop` & Human Review Gate**:
+   - Push the parent ticket branch: `git push -u origin ticket/<ticket-id>-<ticket-slug>`.
+   - Open PR targeting `develop`: `gh pr create --base develop --head ticket/<ticket-id>-<ticket-slug> ...`.
+   - **Inform the user to inspect/check out the running build**.
+   - If the user provides remarks/feedback, fix remarks on the ticket branch until approved.
+   - Once explicitly approved by the user, merge the PR into `develop`.
+9. **Production Releases from `develop` to `main`**:
+   - When major milestones are achieved on `develop`, open a PR from `develop` to `main`, inspect, and merge for production release.
 
 ---
 
