@@ -1,108 +1,129 @@
-# Mandatory Development & Review Workflow
+# Mandatory Ticket-Driven Development & Review Workflow (Develop Trunk)
 
-> **Standard**: This document defines the mandatory, non-negotiable end-to-end development, git, documentation, review, and merge lifecycle for every feature and milestone in V-HELD. All contributors and agents must follow this workflow iteratively until the entire application is completed.
+> **Standard**: This document defines the mandatory, non-negotiable end-to-end development, git, documentation, review, and merge lifecycle for every feature, ticket, and milestone in V-HELD. All contributors and agents must follow this workflow iteratively until the entire application is completed.
 
 ---
 
-## 1. Workflow Overview & Lifecycle Loop
+## 1. Workflow Architecture & Lifecycle Loop
 
-For every feature, milestone, or task track, execute this continuous cycle:
+All ongoing feature and component development is rooted in the **`develop`** branch. The **`main`** branch is strictly reserved for verified, production-ready releases.
 
+### 1.1 Hierarchical Branching Model
 ```text
-[Main Branch]
-      │
-      ▼
-1. Create & Checkout Feature Branch ──────────► (e.g., feat/xyz or landing-page)
-      │
-      ▼
-2. Create Branch Documentation Subfolder ─────► docs/build docs/<branch-name>/
-      │                                         ├── <branch-name>.md
-      │                                         ├── progress.md
-      │                                         └── handoff.md
-      ▼
-3. UI Design Discovery via Folio MCP ─────────► Reference Landingfolio collections
-      │                                         ├── Hard budget: ≤ 100 calls / day
-      │                                         ├── Mandatory daily usage counter
-      │                                         ├── Local storage & caching (never re-fetch)
-      │                                         └── Subagent design taste audit for options
-      ▼
-4. Incremental Build & Validation ────────────► 9-step incremental lifecycle
-      │
-      ├── Periodic Upstream Sync ─────────────► git fetch / rebase main
-      └── Periodic Atomic Commits ────────────► Strict User Authorship ONLY (Heisck)
-      │                                         (NO Gemini co-author/contributor tags)
-      ▼
-5. Multi-Disciplinary Audit Gate ─────────────► Single Agent using all specialized skills:
-      │                                         ├── 1. UI Critic Audit
-      │                                         ├── 2. "Pony Tail" Security Review
-      │                                         └── 3. Code & Architecture Review
-      ▼
-6. Remediate ALL Findings ────────────────────► Fix 100% of issues; zero warnings/TODOs
-      │
-      ▼
-7. Acceptance Check & Context Compaction ─────► npm run check:agent & compact context
-      │
-      ▼
-8. Merge Branch into Main & Verify ───────────► Clean merge to main, verify build & tests
+main (Protected Production Releases)
+  ▲
+  │ (Milestone PR after full integration)
+  │
+develop (Active Integration Trunk)
+  │
+  ├──► 1. Create Ticket Branch ────────────────► ticket/<ticket-id>-<feature> (from develop)
+  │      │
+  │      ├──► 2. Create Documentation Suite ───► docs/build docs/<ticket-name>/
+  │      │                                         ├── <ticket-name>.md
+  │      │                                         ├── progress.md (with MCP counter)
+  │      │                                         └── handoff.md
+  │      │
+  │      ├──► 3. Create Sub-Task Branches ─────► subtask/<ticket-id>-<section-name> (from ticket)
+  │      │      │                                  (e.g., header, hero, impact, footer)
+  │      │      ├── Reference Landingfolio MCP ─► Fetch once, cache locally (≤ 100 calls/day)
+  │      │      ├── Subagent Design Taste Audit ─► Evaluate UI options before code
+  │      │      ├── 9-Step Incremental Build ───► Component, test, DOM, console, responsive
+  │      │      ├── Periodic User Commits ──────► Strictly authored as Heisck (ZERO AI tags)
+  │      │      └── Merge into Parent Ticket ───► git merge --no-ff subtask/...
+  │      │
+  │      ├──► 4. Multi-Disciplinary Gate ──────► Single Agent with all specialized skills:
+  │      │                                         ├── UI Critic (Anti-vibecoding, 7 viewports)
+  │      │                                         ├── "Pony Tail" Security (40 mandates, zero leaks)
+  │      │                                         └── Code Review (Strict TS, lint, vitest)
+  │      │
+  │      ├──► 5. Remediate ALL Findings ───────► Fix 100% of findings; zero warnings or debt
+  │      ├──► 6. Acceptance Gate & Compaction ─► npm run check:agent & compact context
+  │      │
+  │      └──► 7. Open PR Targeting 'develop' ──► gh pr create --base develop --head ticket/...
+  │             │
+  │             ▼
+  │      8. HUMAN INSPECTION & APPROVAL GATE
+  │             │
+  │             ├── Agent informs user to inspect and test the running build
+  │             │
+  │             ├── User Remarks / Changes Requested ──► Fix on ticket branch ──► Re-inspect
+  │             │
+  │             └── User Explicit Approval ───────────► Merge PR into develop
+  │
+  └──► Repeat for next ticket branch
 ```
 
 ---
 
-## 2. Phase 1: Branch Creation & Environment Isolation
+## 2. Phase 1: Trunk Architecture & Ticket Branch Creation
 
-1. **Never build directly on `main`**: All modifications, features, refactors, and assets must be developed on an isolated branch.
-2. **Branch Naming**: Use clear, descriptive branch names corresponding to the feature or milestone (e.g., `landing-page`, `auth-flow`, `programmes-directory`, `volunteer-application`).
-3. **Branch Creation**:
+### 2.1 The `develop` Trunk Rule
+1. **Never build directly on `main`**: `main` contains only deployed production code.
+2. **Never branch features directly from `main`**: All feature and ticket branches branch exclusively from `develop`.
+3. **Always sync before branching**:
    ```bash
-   git checkout -b <branch-name>
-   # or
-   git switch -c <branch-name>
+   git checkout develop
+   git pull origin develop
    ```
-4. Verify you are on the new branch before writing any code:
-   ```bash
-   git branch --show-current
-   ```
+
+### 2.2 Ticket Branch Naming Convention
+Every task or feature track must be tied to a specific ticket identifier:
+- **Format**: `ticket/<ticket-id>-<ticket-slug>`
+- **Examples**:
+  - `ticket/VH-101-landing-page`
+  - `ticket/VH-102-authentication-flow`
+  - `ticket/VH-103-programmes-directory`
+  - `ticket/VH-104-volunteer-application`
+
+```bash
+git checkout -b ticket/<ticket-id>-<ticket-slug>
+```
+
+Verify the active branch:
+```bash
+git branch --show-current
+```
 
 ---
 
 ## 3. Phase 2: Branch Documentation Suite
 
-Every feature branch must have a dedicated documentation subfolder created immediately under `docs/build docs/<branch-name>/`. This folder must contain three core documents:
+Every ticket branch must have a dedicated documentation subfolder created immediately under `docs/build docs/<ticket-name>/` (e.g. `docs/build docs/landing-page/`). This folder must contain three living documents:
 
-### 1. `<branch-name>.md` (Feature & Architecture Specification)
-- **Purpose**: Blueprints the functional and visual architecture before and during construction.
-- **Contents**:
-  - Route and layout structure (e.g., `/`, `/programmes`, `/apply`).
-  - Wireframe/editorial component breakdown and visual hierarchy.
-  - Design tokens, typography rules, color palettes, and asset paths.
-  - Component interface contracts, TypeScript props, and state models.
-  - Anti-vibecoding checklist specific to the feature.
+### 3.1 `<ticket-name>.md` (Feature & Architecture Specification)
+- Route and layout structure (e.g., `/`, `/programmes`, `/apply`).
+- Wireframe/editorial component breakdown and visual hierarchy.
+- Design tokens, typography rules, color palettes, and asset paths.
+- Component interface contracts, TypeScript props, and state models.
+- Anti-vibecoding checklist specific to the feature.
 
-### 2. `progress.md` (Living Status Tracker)
-- **Purpose**: Real-time tracking of milestones, deliverables, test execution, blockers, and MCP quota usage.
-- **Contents**:
-  - **Status Overview Table**: Metrics, current status (Completed / In Progress / Pending), and details.
-  - **MCP Usage Counter**: Daily counter tracking Landingfolio MCP queries against the 100 requests/day limit.
-  - **Deliverables Checklist**: Granular checkbox list (`- [x]` / `- [ ]`) of implemented components and features.
-  - **Validation & Test History**: Record of type-check, lint, unit tests, and browser verification passes.
-  - **Blockers & Decisions**: Architecture decisions or dependencies resolved.
+### 3.2 `progress.md` (Living Status Tracker & MCP Quota Counter)
+- **Status Overview Table**: Metrics, current status (Completed / In Progress / Pending), and details.
+- **Landingfolio MCP Daily Usage Tracker**: Active counter tracking requests against the 100 calls/day limit:
+  ```markdown
+  ### Landingfolio MCP Daily Usage Tracker (Daily Limit: 100)
+  | Call # | Date | Component / Section Queried | Local Cache Path | Calls Remaining |
+  | :--- | :--- | :--- | :--- | :--- |
+  | 01 | 2026-10-09 | Hero Editorial Layout | docs/build docs/landing-page/references/hero.png | 99 |
+  ```
+- **Deliverables Checklist**: Granular checkbox list (`- [x]` / `- [ ]`) of implemented components and features.
+- **Validation & Test History**: Record of type-check, lint, unit tests, and browser verification passes.
+- **Blockers & Decisions**: Architecture decisions or dependencies resolved.
 
-### 3. `handoff.md` (Engineering Handoff Document)
-- **Purpose**: Clean interface contracts, asset inventories, and runtime requirements for handoff and downstream integration.
-- **Contents**:
-  - Primary asset paths, local MCP reference files, and CDN configurations.
-  - Interaction physics, scroll dynamic thresholds, and animation specs.
-  - API endpoint contracts and server actions.
-  - Responsive breakpoints, touch targets, and accessibility requirements.
-  - Verification notes and deployment considerations.
+### 3.3 `handoff.md` (Engineering Handoff Document)
+- Primary asset paths, local MCP reference files, and CDN configurations.
+- Interaction physics, scroll dynamic thresholds, and animation specs.
+- API endpoint contracts, Zod schemas, and server actions.
+- Responsive breakpoints, touch targets, and accessibility requirements.
+- Verification notes and deployment considerations.
 
 ---
 
 ## 4. Phase 3: UI Design Reference via Landingfolio MCP & Design Taste Governance
 
 ### 4.1 Strict Security: `folio-mcp.json` Permanently Gitignored
-- `folio-mcp.json` resides in the project root and configures the Landingfolio MCP server (`https://mcp.landingfolio.com/mcp`) with an authorized bearer token.
-- **NON-NEGOTIABLE SECURITY RULE**: `folio-mcp.json` is and **must always remain gitignored** (`.gitignore`).
+- `folio-mcp.json` resides in the project root and configures the Landingfolio MCP server with an authorized bearer token.
+- **NON-NEGOTIABLE RULE**: `folio-mcp.json` is and **must always remain gitignored** (`.gitignore`).
 - Never stage, commit, log, or leak `folio-mcp.json` or its bearer token into Git history.
 
 ### 4.2 The "No Designing From Your Head" Mandate
@@ -112,26 +133,18 @@ Every feature branch must have a dedicated documentation subfolder created immed
 
 ### 4.3 Daily Quota & Mandatory Call Counter (Max 100 Requests / Day)
 - **Hard Ceiling**: We operate under a strict rate limit of **100 MCP requests per day**.
-- **Mandatory MCP Usage Counter**:
-  - Every feature track must log and maintain an active MCP call counter in `docs/build docs/<branch-name>/progress.md`.
-  - Format:
-    ```markdown
-    ### Landingfolio MCP Daily Usage Tracker (Daily Limit: 100)
-    | Call # | Date | Component / Section Queried | Local Cache Path | Calls Remaining |
-    | :--- | :--- | :--- | :--- | :--- |
-    | 01 | 2026-10-09 | Hero Editorial Layout | docs/build docs/landing-page/references/hero.png | 99 |
-    ```
-  - Before making an MCP call, check the day's total calls. If the counter reaches 100, no further MCP requests may be issued until the next day; rely entirely on previously cached references.
+- Every ticket track must log and maintain the active MCP call counter in `docs/build docs/<ticket-name>/progress.md`.
+- Before making an MCP call, check the day's total calls. If the counter reaches 100, no further MCP requests may be issued until the next day; rely entirely on previously cached references.
 
 ### 4.4 Aggressive Local Storage & Asset Caching (Fetch Once, Reuse Forever)
 - To conserve the 100-calls/day budget, **never make repeated calls for the same design, section, or asset**:
-  - Whenever querying the MCP, download and store the code snippet, screenshot, and screen recording directly on the local filesystem (under `docs/build docs/<branch-name>/references/` or `public/assets/reference/<section>/`).
+  - Whenever querying the MCP, download and store the code snippet, screenshot, and screen recording directly on the local filesystem (under `docs/build docs/<ticket-name>/references/` or `public/assets/reference/<section>/`).
   - Read from the saved local reference files during implementation.
   - Re-use cached references across similar sections or future iterations rather than calling the MCP again.
 
 ### 4.5 Subagent Design Taste Audits for UI Options
 - When selecting between design options, section layouts, animations, or styling treatments:
-  - **Spawn a specialized subagent** (e.g. via `invoke_subagent` or a dedicated design review subagent).
+  - **Spawn a specialized subagent** via `invoke_subagent`.
   - Provide the subagent with the retrieved MCP options, screenshots, and proposed code.
   - The subagent conducts a **Design Taste Audit**, assessing:
     1. Alignment with V-HELD's brand (warm, authentic Ghanaian community development, professional NGO aesthetic).
@@ -141,36 +154,56 @@ Every feature branch must have a dedicated documentation subfolder created immed
 
 ---
 
-## 5. Phase 4: Incremental Build, Periodic Sync & Atomic Commits
+## 5. Phase 4: Sub-Task Section Branching & Incremental Build
 
-### 5.1 Incremental Execution
-- Adhere strictly to the **9-step incremental validation protocol** ([`docs/incremental-validation.md`](incremental-validation.md)):
-  1. Build component referencing local MCP cache -> 2. Run relevant test -> 3. Verify DOM render -> 4. Check console errors -> 5. Check interaction -> 6. Check responsive viewports -> 7. Check performance -> 8. Fix root cause immediately -> 9. Advance to next item.
-
-### 5.2 Periodic Synchronization
-- As you build, sync periodically with upstream to avoid code drift and merge friction:
+### 5.1 Sub-Task Branch Creation
+For complex tickets composed of multiple sections or components (e.g. `landing-page` containing header, hero, impact metrics, program grid, stories, CTA, and footer), break the work into isolated sub-task branches:
+- **Base**: The parent ticket branch (`ticket/<ticket-id>-<ticket-slug>`).
+- **Naming**: `subtask/<ticket-id>-<section-name>`
+- **Example**:
   ```bash
-  git fetch origin
-  git status
+  # Ensure you are on the ticket branch
+  git checkout ticket/VH-101-landing-page
+  
+  # Branch off for a specific section
+  git checkout -b subtask/VH-101-header-component
   ```
 
-### 5.3 Periodic Atomic Commits
-- Commit frequently as logical units of work are completed (e.g., new component built, schema validated, style refined).
-- Never accumulate massive uncommitted working trees.
+### 5.2 9-Step Incremental Validation Lifecycle
+Work on the section following the **9-step incremental validation protocol** ([`docs/incremental-validation.md`](incremental-validation.md)):
+1. Build component referencing local MCP cache
+2. Run relevant unit/component test
+3. Verify DOM render
+4. Check browser and terminal console for errors
+5. Check interaction behavior and micro-interactions
+6. Check responsive layout across 7 viewports
+7. Check performance impact (<150 KB bundle, 60fps)
+8. Fix any identified defects at root cause immediately
+9. Advance to next subtask or section
 
-### 5.4 Strict Commit Identity & Authorship Rules (CRITICAL)
+### 5.3 Periodic Atomic Commits with Strict User Authorship (CRITICAL)
+- Make small, frequent, atomic commits as components or milestones are finished.
 - **Commit as User ONLY**: All commits must be authored strictly and exclusively as the repository owner (`Heisck <kelvinkwabenaparkingston@gmail.com>`).
-- **NO AI Attributions**:
+- **ZERO AI Attributions**:
   - **NEVER** include "Gemini", "Antigravity", "AI Assistant", or any third-party agent names in the commit author, committer, or commit message body.
   - **NEVER** add `Co-authored-by: Gemini...` or `Co-authored-by: ...` trailers to commit messages.
   - **NEVER** include contributor annotations attributing work to an AI agent.
-- Commits must look 100% human-authored by the user, adhering to clean conventional commit messages (e.g., `feat: implement floating pill navbar with scroll dynamics`).
+- Commits must look 100% human-authored by the user with standard conventional commit syntax (e.g. `feat(header): implement floating navigation bar with scroll dynamics`).
+
+### 5.4 Merging Sub-Task Branches into Parent Ticket Branch
+Once a section is validated:
+```bash
+git checkout ticket/<ticket-id>-<ticket-slug>
+git merge --no-ff subtask/<ticket-id>-<section-name> -m "feat(<section>): integrate <section-name> into <ticket-slug>"
+git branch -d subtask/<ticket-id>-<section-name>
+```
+Repeat for each section until all subtasks for the ticket are merged into the parent ticket branch.
 
 ---
 
 ## 6. Phase 5: Multi-Disciplinary Completion Gate (Single Unified Agent)
 
-When feature implementation is complete, execute a comprehensive, rigorous multi-disciplinary audit using **one single unified agent utilizing all available specialized skills**. The audit covers three non-negotiable pillars:
+When all subtasks of the ticket are integrated into the parent ticket branch, execute a comprehensive, rigorous multi-disciplinary audit using **one single unified agent utilizing all available specialized skills**. The audit covers three non-negotiable pillars:
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -218,10 +251,10 @@ When feature implementation is complete, execute a comprehensive, rigorous multi
 
 ---
 
-## 7. Phase 6: Acceptance Check & Context Auto-Compaction
+## 7. Phase 6: Acceptance Review Gate & Context Auto-Compaction
 
 ### 7.1 Acceptance Review Gate
-Execute the formal acceptance review gate command:
+Execute the formal acceptance review gate command on the ticket branch:
 ```bash
 npm run check:agent
 ```
@@ -234,36 +267,55 @@ To prevent context bloat and keep working memory sharp:
 
 ---
 
-## 8. Phase 7: Merge to Main Branch & Final Verification
+## 8. Phase 7: Pull Request to Develop & Human Inspection / Approval Gate
 
-Once the branch is fully built, audited, remediated, and verified:
+Once the ticket branch is fully built, audited, remediated, and verified:
 
-1. **Commit All Final Changes on Branch**:
+### 8.1 Push Ticket Branch & Open PR Targeting `develop`
+1. Push the parent ticket branch to origin:
    ```bash
-   git add .
-   git commit -m "feat(<feature>): complete <feature-name> with verified ui, security, and tests"
+   git push -u origin ticket/<ticket-id>-<ticket-slug>
    ```
-   *(Authored strictly as user, no AI co-author tags).*
-
-2. **Sync and Switch to Main**:
+2. Open a Pull Request targeting `develop`:
    ```bash
-   git checkout main
-   git pull origin main
-   ```
-
-3. **Merge the Feature Branch**:
-   ```bash
-   git merge --no-ff <branch-name> -m "merge: integrate <branch-name> into main"
+   gh pr create --base develop --head ticket/<ticket-id>-<ticket-slug> \
+     --title "feat(<ticket-id>): <ticket-slug> implementation" \
+     --body "..."
    ```
 
-4. **Post-Merge Verification**:
+### 8.2 The Human Inspection & Approval Gate
+1. **Notify User to Inspect**: The agent informs the user that the PR is ready and requests visual and functional inspection of the running build.
+2. **Review Scenarios**:
+   - **User Requests Changes / Gives Remarks**:
+     - Do NOT merge into `develop`.
+     - Return to the ticket branch (`ticket/<ticket-id>-<ticket-slug>`).
+     - Remediate all user remarks.
+     - Re-run `npm run check:agent`.
+     - Push commits to the branch (`Heisck <kelvinkwabenaparkingston@gmail.com>`).
+     - Prompt user to re-inspect.
+   - **User Approves**:
+     - Merge the PR into `develop`:
+       ```bash
+       gh pr merge --squash # or git merge --no-ff
+       ```
+     - Pull updated `develop` locally:
+       ```bash
+       git checkout develop
+       git pull origin develop
+       ```
+     - Proceed to the next ticket.
+
+---
+
+## 9. Phase 8: Promoting Releases from Develop to Main
+
+When major milestone releases are complete and all tickets for a cycle have been integrated and verified on `develop`:
+1. Open a release Pull Request from `develop` into `main`:
    ```bash
-   npm run check:agent
+   gh pr create --base main --head develop \
+     --title "release: <milestone-version> - <summary>" \
+     --body "..."
    ```
-   Verify that the merged `main` branch builds cleanly and passes all tests.
-
-5. **Update Living Documentation**:
-   Update `docs/README.md` and feature build status to reflect completion.
-
-6. **Repeat Cycle**:
-   Move to the next feature branch and repeat until the complete V-HELD platform meets the [Definition of Done](definition-of-done.md).
+2. User reviews and approves the release PR.
+3. Merge `develop` into `main` and tag the release version.
+4. Verify production deployment.

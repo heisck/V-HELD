@@ -30,7 +30,7 @@
 | [`content-standards.md`](content-standards.md) | Zero Lorem Ipsum, authentic voice, Ghanaian NGO narrative standards | **Current** |
 | [`signature-interactions.md`](signature-interactions.md) | Purposeful signature interactive moments tied to community mission | **Current** |
 | [`definition-of-done.md`](definition-of-done.md) | Master Definition of Done checklist | **Current** |
-| [`workflow.md`](workflow.md) | Mandatory branch-to-main development, review, and merge lifecycle | **Current** |
+| [`workflow.md`](workflow.md) | Mandatory develop-trunk, ticket-driven development, review, and merge lifecycle | **Current** |
 | [`raw-spec.md`](raw-spec.md) | Verbatim archive of all user prompt requirements | **Living** |
 
 ---

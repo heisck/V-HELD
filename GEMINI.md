@@ -14,7 +14,7 @@ See [`AGENTS.md`](AGENTS.md) for the complete, authoritative source of truth.
 * Performance Budget: [`docs/performance-budget.md`](docs/performance-budget.md)
 * Headless Chromium QA: [`docs/headless-chromium-qa.md`](docs/headless-chromium-qa.md)
 * Incremental Validation: [`docs/incremental-validation.md`](docs/incremental-validation.md)
-* Mandatory Workflow (Branch-to-Main): [`docs/workflow.md`](docs/workflow.md)
+* Mandatory Workflow (Develop Trunk & Ticket-Driven): [`docs/workflow.md`](docs/workflow.md)
 * Definition of Done: [`docs/definition-of-done.md`](docs/definition-of-done.md)
 
 Refer to [`AGENTS.md`](AGENTS.md) and the respective documents in [`docs/`](docs/) before performing any task.

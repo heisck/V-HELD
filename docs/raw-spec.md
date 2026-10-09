@@ -174,3 +174,19 @@ current, which are historical, and which have been superseded. The agent
 subsystem keeps its own contract in
 [src/lib/agent/DESIGN.md](src/lib/agent/DESIGN.md).
 ```
+
+---
+
+## 2026-10-09 Prompt 4: Real System Logos Reconstructed to SVG
+
+> `/home/heisck/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/photo_1_2026-10-09_08-41-10.jpg`  
+> `/home/heisck/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/photo_2_2026-10-09_08-41-10.jpg`  
+> `/home/heisck/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/photo_3_2026-10-09_08-41-10.jpg`  
+> `/home/heisck/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/photo_4_2026-10-09_08-41-10.jpg`  
+> we have the real system logos here you will create an svg version of them all only the logo the names the descriptions everything exact copy of it and put in the logo section so i can see them
+
+---
+
+## 2026-10-09 Prompt 5: Develop Trunk, Ticket Hierarchy & Human PR Gate
+
+> once that is done delete the landing page branch and create a new branch from main called develop. that is where we will work from, then from develop that is where we will create the other branches and merge into so change the mds we will not create the branches from main but from develop and each branch will have a ticket so say we are working on landing page it has a ticket and then we create the landing page sections from it maybe the headercompnent, and so on all branch from that main branch, then we merge itno the parent. create the pr for develop and inform to check out the build if i approve you merge and continue else we fix my remarks so we update the develop met work flow.
