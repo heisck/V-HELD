@@ -6,11 +6,11 @@ describe('CtaSection Component', () => {
   it('renders call to action heading and primary apply button', () => {
     render(<CtaSection />);
     expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(/Ready to give back and/i);
-    expect(screen.getByRole('link', { name: /Apply to Volunteer/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^Volunteer$/i })).toBeInTheDocument();
   });
 
   it('renders institutional partner button', () => {
     render(<CtaSection />);
-    expect(screen.getByRole('link', { name: /Partner With Us/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^Partner$/i })).toBeInTheDocument();
   });
 });

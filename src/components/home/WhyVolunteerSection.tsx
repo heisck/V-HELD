@@ -9,39 +9,39 @@ interface ValuePillar {
 const VALUE_PILLARS: ValuePillar[] = [
   {
     index: '01',
-    title: 'Make a Meaningful Impact',
+    title: 'Meaningful Community Impact',
     description:
-      'Direct your skills, knowledge, and energy into initiatives defined and requested by community leaders, creating tangible, lasting improvements in education and public health.',
+      'Direct your skills and energy into projects identified and requested by local community leaders, achieving tangible improvements in classrooms and community health centres.',
   },
   {
     index: '02',
-    title: 'Connect With Communities',
+    title: 'Authentic Local Relationships',
     description:
-      'Build genuine, enduring relationships with Ghanaian families, schools, and civic leaders. Experience daily life, dialogue, and culture far beyond the surface of typical tourism.',
+      'Build enduring bonds with Ghanaian families, schools, and civic mentors. Experience daily community life, dialogue, and culture far beyond the surface of conventional tourism.',
   },
   {
     index: '03',
-    title: 'Grow Your Skills',
+    title: 'Practical Skill Development',
     description:
-      'Hone adaptability, cross-cultural communication, empathetic leadership, problem-solving, and practical field competencies that accelerate both personal and professional growth.',
+      'Hone adaptability, cross-cultural communication, collaborative leadership, and resourcefulness while tackling real-world challenges alongside local practitioners.',
   },
   {
     index: '04',
-    title: 'Learn Through Experience',
+    title: 'Reciprocal Learning',
     description:
-      'Gain immersive hands-on insights into grassroots community development, navigating real-world resource dynamics alongside experienced Ghanaian educators and health advocates.',
+      'Gain hands-on understanding of grassroots community development in West Africa, learning as much from host community wisdom as you contribute.',
   },
   {
     index: '05',
-    title: 'Experience Ghana Authentically',
+    title: 'Safe & Structured Support',
     description:
-      'Discover Ghana’s rich history, hospitality, and cultural heritage through safe, structured placements supported by on-the-ground coordinators who understand the terrain.',
+      'Participate with confidence through structured placements, ethical safeguarding policies, and round-the-clock guidance from our on-the-ground Ghanaian coordinator team.',
   },
   {
     index: '06',
-    title: 'Join a Lifelong Network',
+    title: 'Lasting Global Fellowship',
     description:
-      'Become an active member of an international and Ghanaian fellowship of changemakers, alumni, and community partners dedicated to ethical service and collaborative development.',
+      'Join an active network of local and international alumni and community changemakers dedicated to ethical volunteer service and sustainable development.',
   },
 ];
 
@@ -50,15 +50,11 @@ export default function WhyVolunteerSection() {
     <section
       id="why-volunteer"
       aria-labelledby="why-heading"
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-stone-800/80"
+      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-850 border-stone-800/80"
     >
       <div className="space-y-12 sm:space-y-16">
-        {/* Section Header */}
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#121110] border border-stone-800 text-stone-300 text-xs font-semibold tracking-wider uppercase">
-            <span>The V-HELD Experience</span>
-          </div>
-
+        {/* Section Header (Anti-vibecoding: NO badge above headline) */}
+        <div className="max-w-3xl space-y-3">
           <h2
             id="why-heading"
             className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight"
@@ -68,7 +64,7 @@ export default function WhyVolunteerSection() {
           </h2>
 
           <p className="text-base text-stone-300 leading-relaxed font-normal">
-            Volunteering with V-HELD is not a passive holiday. It is an intentional commitment to mutual learning, community empowerment, and cross-cultural solidarity.
+            Volunteering with V-HELD is an intentional commitment to mutual learning, community empowerment, and cross-cultural solidarity.
           </p>
         </div>
 
@@ -77,14 +73,14 @@ export default function WhyVolunteerSection() {
           {VALUE_PILLARS.map((pillar) => (
             <div
               key={pillar.index}
-              className="rounded-2xl bg-[#121110] border border-stone-800/90 p-6 sm:p-7 flex flex-col justify-between hover:border-stone-700 transition-colors space-y-4 group"
+              className="rounded-2xl bg-[#121110] border border-stone-800 p-6 sm:p-7 flex flex-col justify-between hover:border-stone-700 transition-colors space-y-3"
             >
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <span className="text-sm font-mono font-bold text-[#E3A709] tracking-widest">
                   {pillar.index}
                 </span>
 
-                <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                <h3 className="text-lg font-bold text-white">
                   {pillar.title}
                 </h3>
 
@@ -96,33 +92,23 @@ export default function WhyVolunteerSection() {
           ))}
         </div>
 
-        {/* Who Can Volunteer Banner / Callout */}
-        <div className="rounded-3xl bg-stone-900/60 border border-stone-800 p-8 sm:p-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#E3A709]">
-                Inclusive Participation
-              </span>
-              <h3 className="text-2xl font-bold text-white">
-                Who can volunteer with V-HELD?
-              </h3>
-              <p className="text-sm text-stone-300 leading-relaxed max-w-3xl">
-                We welcome students, recent graduates, healthcare personnel, educators, researchers, entrepreneurs, career-break adventurers, and retirees. Professional credentials are required only for specialized health tracks; for most programmes, what matters most is your humility, dedication, and readiness to collaborate respectfully.
-              </p>
-            </div>
-
-            <div className="lg:col-span-4 flex lg:justify-end">
-              <Link
-                href="/apply"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#065830] hover:bg-[#186835] active:scale-[0.98] text-white text-sm font-semibold shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709]"
-              >
-                <span>Check Eligibility &amp; Apply</span>
-                <svg className="w-4 h-4 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </Link>
-            </div>
+        {/* Inclusive Participation Callout */}
+        <div className="rounded-2xl bg-stone-900/60 border border-stone-800 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="space-y-2 max-w-2xl">
+            <h3 className="text-xl font-bold text-white">
+              Who can volunteer with V-HELD?
+            </h3>
+            <p className="text-sm text-stone-300 leading-relaxed">
+              We welcome students, recent graduates, healthcare professionals, educators, researchers, and retirees. Professional credentials are required only for specialized health tracks; for most programmes, what matters most is commitment, humility, and willingness to collaborate responsibly.
+            </p>
           </div>
+
+          <Link
+            href="/apply"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#065830] hover:bg-[#186835] active:scale-[0.98] text-white text-sm font-semibold shadow-md transition-all shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709]"
+          >
+            Apply
+          </Link>
         </div>
       </div>
     </section>

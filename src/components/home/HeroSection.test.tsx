@@ -11,14 +11,14 @@ describe('HeroSection Component', () => {
 
   it('renders dual action buttons', () => {
     render(<HeroSection />);
-    expect(screen.getByRole('link', { name: /Become a Volunteer/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Explore Our Programmes/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^Volunteer$/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Explore Focus Areas/i })).toBeInTheDocument();
   });
 
   it('renders institutional trust indicators', () => {
     render(<HeroSection />);
-    expect(screen.getByText(/Registered Ghanaian NGO/i)).toBeInTheDocument();
+    expect(screen.getByText(/Registered Non-Profit in Ghana/i)).toBeInTheDocument();
     expect(screen.getByText(/Community-Led Placements/i)).toBeInTheDocument();
-    expect(screen.getByText(/Local & Global Cohorts/i)).toBeInTheDocument();
+    expect(screen.getByText(/Local & International Cohorts/i)).toBeInTheDocument();
   });
 });

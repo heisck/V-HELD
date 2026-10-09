@@ -15,6 +15,6 @@ describe('Footer Component', () => {
     expect(screen.getByRole('link', { name: /Education & Teaching/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Child Protection Policy/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Volunteer Code of Conduct/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Apply to Volunteer/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^Apply$/i })).toBeInTheDocument();
   });
 });

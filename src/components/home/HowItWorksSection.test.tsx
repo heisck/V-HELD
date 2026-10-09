@@ -13,6 +13,6 @@ describe('HowItWorksSection Component', () => {
 
   it('renders begin application link', () => {
     render(<HowItWorksSection />);
-    expect(screen.getByRole('link', { name: /Begin Your Application/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^Apply$/i })).toBeInTheDocument();
   });
 });

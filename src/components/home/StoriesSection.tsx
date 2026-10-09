@@ -49,10 +49,6 @@ export default function StoriesSection() {
       <div className="space-y-12 sm:space-y-16">
         {/* Section Header */}
         <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#121110] border border-stone-800 text-stone-300 text-xs font-semibold tracking-wider uppercase">
-            <span>Voices From the Field</span>
-          </div>
-
           <h2
             id="stories-heading"
             className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight"
@@ -74,7 +70,7 @@ export default function StoriesSection() {
               className="rounded-2xl bg-[#121110] border border-stone-800 p-6 sm:p-7 flex flex-col justify-between hover:border-stone-700 transition-colors space-y-6 group"
             >
               <div className="space-y-4">
-                <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#E3A709] px-2.5 py-1 rounded-full bg-amber-950/40 border border-amber-800/40">
+                <span className="text-xs font-mono font-medium text-[#E3A709] uppercase tracking-wider">
                   {story.category}
                 </span>
 
@@ -102,19 +98,9 @@ export default function StoriesSection() {
         <div className="text-center pt-4">
           <Link
             href="/stories"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-stone-300 hover:text-white transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709] rounded-md px-2 py-1"
+            className="inline-flex items-center text-sm font-medium text-stone-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709] rounded-md px-4 py-2 border border-stone-800 hover:border-stone-700 bg-[#121110]"
           >
-            <span>Read More Field Narratives &amp; Community Case Studies</span>
-            <svg
-              className="w-4 h-4 text-[#E3A709] transition-transform group-hover:translate-x-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              aria-hidden="true"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
+            <span>View All Field Stories</span>
           </Link>
         </div>
       </div>

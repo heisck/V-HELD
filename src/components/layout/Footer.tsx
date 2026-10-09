@@ -93,7 +93,7 @@ export default function Footer() {
                   href="/apply"
                   className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
                 >
-                  Apply to Volunteer
+                  Apply
                 </Link>
               </li>
               <li>
@@ -101,7 +101,7 @@ export default function Footer() {
                   href="/partner"
                   className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
                 >
-                  Partner With Us
+                  Partner
                 </Link>
               </li>
               <li>
@@ -109,7 +109,7 @@ export default function Footer() {
                   href="/support"
                   className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
                 >
-                  Support Our Work
+                  Support
                 </Link>
               </li>
               <li>
@@ -117,7 +117,7 @@ export default function Footer() {
                   href="/stories"
                   className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
                 >
-                  Volunteer Stories
+                  Stories
                 </Link>
               </li>
             </ul>
@@ -186,12 +186,9 @@ export default function Footer() {
               <div className="pt-2">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#E3A709] hover:text-amber-300 transition-colors"
+                  className="inline-flex items-center text-xs font-semibold text-[#E3A709] hover:text-amber-300 transition-colors"
                 >
                   <span>Send a message</span>
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
                 </Link>
               </div>
             </div>

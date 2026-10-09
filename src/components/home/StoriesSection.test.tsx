@@ -14,7 +14,7 @@ describe('StoriesSection Component', () => {
   it('renders link to read full stories', () => {
     render(<StoriesSection />);
     expect(
-      screen.getByRole('link', { name: /Read More Field Narratives & Community Case Studies/i })
+      screen.getByRole('link', { name: /View All Field Stories/i })
     ).toBeInTheDocument();
   });
 });

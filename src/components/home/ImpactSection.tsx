@@ -24,8 +24,8 @@ const IMPACT_METRICS: ImpactMetric[] = [
   },
   {
     value: '85+',
-    label: 'Workshops & Clinics',
-    description: 'Preventative health outreach, hygiene campaigns, and youth leadership empowerment seminars.',
+    label: 'Workshops & Outreach',
+    description: 'Preventative health sessions, hygiene campaigns, and youth leadership empowerment seminars.',
   },
 ];
 
@@ -34,15 +34,11 @@ export default function ImpactSection() {
     <section
       id="impact"
       aria-labelledby="impact-heading"
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-stone-800/80"
+      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-850 border-stone-800/80"
     >
       <div className="space-y-12 sm:space-y-16">
-        {/* Section Header */}
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#121110] border border-stone-800 text-stone-300 text-xs font-semibold tracking-wider uppercase">
-            <span>Verified Results</span>
-          </div>
-
+        {/* Section Header (Anti-vibecoding: NO badge above headline) */}
+        <div className="max-w-3xl space-y-3">
           <h2
             id="impact-heading"
             className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight"
@@ -71,7 +67,7 @@ export default function ImpactSection() {
                   {metric.label}
                 </div>
               </div>
-              <p className="text-xs sm:text-sm text-stone-400 leading-relaxed pt-2 border-t border-stone-800/80">
+              <p className="text-xs sm:text-sm text-stone-400 leading-relaxed pt-2 border-t border-stone-800">
                 {metric.description}
               </p>
             </div>
@@ -81,29 +77,19 @@ export default function ImpactSection() {
         {/* Accountability & Transparency Card */}
         <div className="rounded-2xl bg-stone-900/60 border border-stone-800 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="space-y-1 max-w-2xl">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+            <h3 className="text-base font-bold text-white">
               Transparency &amp; Community Governance
-            </h4>
-            <p className="text-xs sm:text-sm text-stone-400 leading-relaxed">
+            </h3>
+            <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
               Every project is co-designed with community partners to ensure resources are deployed ethically, sustainably, and in direct response to local priorities.
             </p>
           </div>
 
           <Link
             href="/impact"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#E3A709] hover:text-amber-300 transition-colors shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709] rounded-md px-1 py-0.5"
+            className="text-xs sm:text-sm font-semibold text-[#E3A709] hover:text-amber-300 transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709] rounded-md"
           >
-            <span>Explore Comprehensive Impact Reports</span>
-            <svg
-              className="w-4 h-4 transition-transform group-hover:translate-x-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              aria-hidden="true"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
+            Explore Impact Reports
           </Link>
         </div>
       </div>

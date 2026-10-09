@@ -16,6 +16,6 @@ describe('ImpactSection Component', () => {
 
   it('renders report navigation link', () => {
     render(<ImpactSection />);
-    expect(screen.getByRole('link', { name: /Explore Comprehensive Impact Reports/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Explore Impact Reports/i })).toBeInTheDocument();
   });
 });

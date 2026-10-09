@@ -3,29 +3,30 @@ import { describe, it, expect } from 'vitest';
 import Navbar from './Navbar';
 
 describe('Navbar Component', () => {
-  it('renders brand identity and primary call to action', () => {
+  it('renders brand identity and punchy apply action', () => {
     render(<Navbar />);
-    expect(screen.getByLabelText(/V-HELD Homepage/i)).toBeInTheDocument();
-    expect(screen.getAllByText(/Apply to Volunteer/i).length).toBeGreaterThan(0);
+    expect(screen.getByLabelText(/V-HELD Home/i)).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: /^Apply$/i }).length).toBeGreaterThan(0);
   });
 
-  it('renders essential navigation links on desktop', () => {
+  it('renders essential single-word navigation links on desktop', () => {
     render(<Navbar />);
-    expect(screen.getAllByText('Focus Areas')[0]).toBeInTheDocument();
-    expect(screen.getAllByText('Why Volunteer')[0]).toBeInTheDocument();
-    expect(screen.getAllByText('How It Works')[0]).toBeInTheDocument();
-    expect(screen.getAllByText('Impact')[0]).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^About$/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^Focus$/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Volunteer/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^Partner$/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /^Contact$/i })).toBeInTheDocument();
   });
 
-  it('toggles mobile menu open and closed', () => {
+  it('toggles mobile menu drawer', () => {
     render(<Navbar />);
-    const toggleButton = screen.getByLabelText(/Open Navigation Menu/i);
+    const toggleButton = screen.getByLabelText(/Open Menu/i);
     expect(toggleButton).toBeInTheDocument();
 
     fireEvent.click(toggleButton);
-    expect(screen.getByLabelText(/Close Navigation Menu/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Close Menu/i)).toBeInTheDocument();
 
-    fireEvent.click(screen.getByLabelText(/Close Navigation Menu/i));
-    expect(screen.getByLabelText(/Open Navigation Menu/i)).toBeInTheDocument();
+    fireEvent.click(screen.getByLabelText(/Close Menu/i));
+    expect(screen.getByLabelText(/Open Menu/i)).toBeInTheDocument();
   });
 });

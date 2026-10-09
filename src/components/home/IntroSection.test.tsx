@@ -6,7 +6,7 @@ describe('IntroSection Component', () => {
   it('renders mission and welcome title', () => {
     render(<IntroSection />);
     expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(/Rooted in Ghanaian communities/i);
-    expect(screen.getByText(/Welcome to V-HELD/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(/connecting hands across the world/i);
   });
 
   it('renders dual-track pathways for Ghanaian and international participants', () => {
