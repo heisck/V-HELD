@@ -15,15 +15,20 @@ The landing page features a full-bleed, unscaled, high-clarity background image 
 - **Location**: `public/assets/landing/hero-primary.jpg`
 - **Native Resolution**: 4096 × 2672 (High Definition 4K)
 ### Section 2: Hero Section (Editorial Layout)
-- **Main Headline (H1)**: Positioned at the **bottom left** under the mountain slope:
-  - **Typography**: Heavy condensed uppercase with tight tracking matching the reference image (`font-black tracking-tighter uppercase leading-[0.88]`).
-  - **Text**: `GIVE BACK.` / `MAKE A` / `DIFFERENCE!`
-- **Vision Narrative**: Positioned in the lower-right area where the vision text sits in the architectural reference:
-  - *"Join volunteers from Ghana and across the world to empower communities through education, health, and leadership development."*
-- **Segmented Capsule Pill Button**: Matches Reference Image 1:
-  - Unified capsule container (`rounded-full bg-[#F4EFEB]/95 backdrop-blur-md border border-stone-200/80 shadow-2xl p-1`).
-  - **Left Segment**: `Explore Programmes` (light interactive pill).
-  - **Right Segment**: `Volunteer` (solid dark pill with entry action arrow icon).
+- **Main Headline (H1)**: Positioned flush to the **bottom left edge** of the screen (`left-3 sm:left-5 lg:left-8 bottom-2 sm:bottom-4 lg:bottom-5`):
+  - **Mountain-Filling Typography**: Ultra-bold uppercase with expanded letter and word spacing (`font-black uppercase tracking-[0.03em] [word-spacing:0.2em] sm:[word-spacing:0.28em] leading-[0.90] sm:leading-[0.92] lg:leading-[0.94] text-[15vw] sm:text-[13vw] lg:text-[11vw] xl:text-[10vw]`), commanding the entire lower mountain silhouette.
+  - **Text**: `GIVE BACK.` / `MAKE A` / `DIFFERENCE!` (warm amber `#FBBF24`).
+- **Right Light Zone Placement (Buttons & Supporting Narrative)**:
+  - Positioned high in the radiant open sky (`top-[22%] sm:top-[26%] lg:top-[28%] right-3 sm:right-6 lg:right-10`) to completely clear the climbing figures in the center-left.
+  - **Segmented Capsule Pill Button**: `[ Explore Programmes | Volunteer → ]` matching the reference.
+  - **Stepped Downward Triangle Description**:
+    - Line 1 (widest, max-w-[290px]): *"Join volunteers from Ghana & across the world"*
+    - Line 2 (medium, max-w-[240px]): *"to support grassroots communities in"*
+    - Line 3 (shortest, max-w-[190px]): *"health, education & leadership."*
+- **Synchronized Navigation Color Transition**:
+  - All navigation links and buttons share the exact identical `duration-400 ease-out` transition timing, ensuring all items transition from `rgb(245, 245, 244)` to `rgb(41, 37, 36)` uniformly at the exact same millisecond.
+
+
 
 
 ---

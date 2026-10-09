@@ -65,23 +65,30 @@ export default function Navbar() {
     setOpenMenu((prev) => (prev === menu ? null : menu));
   };
 
+  // Uniform link class for synchronized color and background transitions across ALL items
+  const linkBaseClass = `px-2 py-1 rounded-full shrink-0 transition-colors duration-400 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
+    isScrolled
+      ? 'text-stone-800 hover:text-stone-950 hover:bg-stone-200/50'
+      : 'text-stone-100 hover:text-white hover:bg-white/15 drop-shadow-sm'
+  }`;
+
   return (
-    <header className="fixed top-3.5 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center pointer-events-none px-4">
-      {/* Outer wrapper: smoothly transitions max-width from 1120px down to 600px */}
+    <header className="fixed top-3 sm:top-3.5 left-1/2 -translate-x-1/2 z-50 w-full flex justify-center pointer-events-none px-3 sm:px-4">
+      {/* Outer wrapper: smoothly transitions max-width */}
       <nav
         ref={navRef}
         aria-label="Main Navigation"
-        className={`pointer-events-auto relative w-full flex items-center justify-between transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        className={`pointer-events-auto relative w-full flex items-center justify-between transition-all duration-400 ease-out ${
           isScrolled
             ? 'max-w-[40rem] py-1.5 px-3 sm:px-4'
-            : 'max-w-[70rem] py-2 sm:py-3 px-2 sm:px-4'
+            : 'max-w-[72rem] py-2 sm:py-3 px-2 sm:px-4'
         }`}
       >
-        {/* Animated Off-white Pill Background: Fades in smoothly without popping */}
+        {/* Animated Pill Background: Pure solid white on scroll */}
         <div
-          className={`absolute inset-0 rounded-full transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] pointer-events-none ${
+          className={`absolute inset-0 rounded-full transition-all duration-400 ease-out pointer-events-none ${
             isScrolled
-              ? 'opacity-100 scale-100 bg-[#F4EFEB]/90 backdrop-blur-md border border-stone-300/60 shadow-lg'
+              ? 'opacity-100 scale-100 bg-white border border-stone-200/90 shadow-lg'
               : 'opacity-0 scale-95 bg-transparent border border-transparent shadow-none'
           }`}
           aria-hidden="true"
@@ -94,40 +101,38 @@ export default function Navbar() {
           aria-label="V-HELD Home"
           onClick={() => setOpenMenu(null)}
         >
-          <div className="relative w-8 h-8">
+          <div className="w-8 h-8 sm:w-8.5 sm:h-8.5 shrink-0 flex items-center justify-center">
             <Image
               src="/assets/logo.svg"
               alt="V-HELD Logo"
               width={32}
               height={32}
               priority
-              className="w-full h-full object-contain"
+              className="w-8 h-8 object-contain"
             />
           </div>
         </Link>
 
-        {/* Center: Navigation Links smoothly drawing inward */}
+        {/* Center: Navigation Links with 100% unified, synchronized transition */}
         <div
-          className={`relative z-10 flex items-center transition-[gap,color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] text-xs sm:text-[13px] font-medium ${
-            isScrolled ? 'gap-0.5 sm:gap-2 text-stone-800' : 'gap-1 sm:gap-5 text-stone-100'
-          }`}
+          className={`relative z-10 flex items-center transition-all duration-400 ease-out text-xs sm:text-[13px] font-medium
+            w-[40vw] max-w-[40vw] sm:w-auto sm:max-w-none overflow-x-auto no-scrollbar whitespace-nowrap shrink
+            [mask-image:linear-gradient(to_right,black_65%,transparent_100%)] sm:[mask-image:none]
+            ${isScrolled ? 'gap-0.5 sm:gap-2' : 'gap-1 sm:gap-4'}
+          `}
         >
           {/* About */}
           <Link
             href="/about"
-            className={`px-2 py-1 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
-              isScrolled
-                ? 'hover:text-stone-950 hover:bg-stone-200/50'
-                : 'hover:text-white hover:bg-white/15 drop-shadow-sm'
-            }`}
+            className={linkBaseClass}
             onClick={() => setOpenMenu(null)}
           >
             About
           </Link>
 
-          {/* Volunteer (Context Menu: hover on laptop, click on touch) */}
+          {/* Volunteer (Context Menu) */}
           <div
-            className="relative"
+            className="relative shrink-0"
             onMouseEnter={() => handleMouseEnter('volunteer')}
             onMouseLeave={handleMouseLeave}
           >
@@ -135,17 +140,15 @@ export default function Navbar() {
               type="button"
               onClick={() => handleClickToggle('volunteer')}
               aria-expanded={openMenu === 'volunteer'}
-              className={`flex items-center gap-1 px-2 py-1 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
+              className={`flex items-center gap-1 ${linkBaseClass} ${
                 openMenu === 'volunteer'
                   ? isScrolled
                     ? 'bg-stone-200/70 text-stone-950'
                     : 'bg-white/20 text-white'
-                  : isScrolled
-                  ? 'hover:text-stone-950 hover:bg-stone-200/50'
-                  : 'hover:text-white hover:bg-white/15 drop-shadow-sm'
+                  : ''
               }`}
             >
-              Volunteer
+              <span>Volunteer</span>
               <svg
                 className={`w-3 h-3 transition-transform duration-200 ${
                   openMenu === 'volunteer' ? 'rotate-180' : ''
@@ -164,10 +167,10 @@ export default function Navbar() {
               </svg>
             </button>
 
-            {/* Volunteer Context Menu (Proof only: Our Impact & Stories) */}
+            {/* Volunteer Context Menu (Proof only) */}
             {openMenu === 'volunteer' && (
               <div
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-2xl bg-[#F4EFEB] shadow-xl border border-stone-300/70 py-2 px-1 text-stone-800 animate-in fade-in duration-150"
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-2xl bg-white shadow-xl border border-stone-200 py-2 px-1 text-stone-800 animate-in fade-in duration-150 whitespace-normal"
                 role="menu"
               >
                 <div className="px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-stone-400">
@@ -206,19 +209,15 @@ export default function Navbar() {
           {/* Programmes */}
           <Link
             href="/programmes"
-            className={`px-2 py-1 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
-              isScrolled
-                ? 'hover:text-stone-950 hover:bg-stone-200/50'
-                : 'hover:text-white hover:bg-white/15 drop-shadow-sm'
-            }`}
+            className={linkBaseClass}
             onClick={() => setOpenMenu(null)}
           >
             Programmes
           </Link>
 
-          {/* Join (Context Menu: hover on laptop, click on touch) */}
+          {/* Join (Context Menu) */}
           <div
-            className="relative"
+            className="relative shrink-0"
             onMouseEnter={() => handleMouseEnter('join')}
             onMouseLeave={handleMouseLeave}
           >
@@ -226,17 +225,15 @@ export default function Navbar() {
               type="button"
               onClick={() => handleClickToggle('join')}
               aria-expanded={openMenu === 'join'}
-              className={`flex items-center gap-1 px-2 py-1 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
+              className={`flex items-center gap-1 ${linkBaseClass} ${
                 openMenu === 'join'
                   ? isScrolled
                     ? 'bg-stone-200/70 text-stone-950'
                     : 'bg-white/20 text-white'
-                  : isScrolled
-                  ? 'hover:text-stone-950 hover:bg-stone-200/50'
-                  : 'hover:text-white hover:bg-white/15 drop-shadow-sm'
+                  : ''
               }`}
             >
-              Join
+              <span>Join</span>
               <svg
                 className={`w-3 h-3 transition-transform duration-200 ${
                   openMenu === 'join' ? 'rotate-180' : ''
@@ -258,7 +255,7 @@ export default function Navbar() {
             {/* Join Context Menu */}
             {openMenu === 'join' && (
               <div
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-2xl bg-[#F4EFEB] shadow-xl border border-stone-300/70 py-2 px-1 text-stone-800 animate-in fade-in duration-150"
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-2xl bg-white shadow-xl border border-stone-200 py-2 px-1 text-stone-800 animate-in fade-in duration-150 whitespace-normal"
                 role="menu"
               >
                 <Link
@@ -294,36 +291,18 @@ export default function Navbar() {
           {/* Contact */}
           <Link
             href="/contact"
-            className={`hidden sm:inline-flex px-2 py-1 rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
-              isScrolled
-                ? 'hover:text-stone-950 hover:bg-stone-200/50'
-                : 'hover:text-white hover:bg-white/15 drop-shadow-sm'
-            }`}
+            className={linkBaseClass}
             onClick={() => setOpenMenu(null)}
           >
             Contact
           </Link>
         </div>
 
-        {/* Right: Volunteer Button (Direct Icon with no circle border) */}
-        <div className="relative z-10 flex items-center gap-1 shrink-0">
-          <Link
-            href="/contact"
-            className={`sm:hidden text-xs font-medium px-1.5 py-1 ${
-              isScrolled ? 'text-stone-700' : 'text-stone-200'
-            }`}
-            onClick={() => setOpenMenu(null)}
-          >
-            Contact
-          </Link>
-
+        {/* Right: Volunteer Button - Solid black */}
+        <div className="relative z-10 flex items-center shrink-0">
           <Link
             href="/apply"
-            className={`group inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
-              isScrolled
-                ? 'bg-stone-950 hover:bg-stone-800 text-white shadow-sm'
-                : 'bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm'
-            }`}
+            className="group inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-stone-950 hover:bg-stone-800 text-white shadow-md border border-stone-800/50 transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
             onClick={() => setOpenMenu(null)}
           >
             <span>Volunteer</span>
