@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="bg-[#090807] text-stone-300 border-t border-stone-800/80 pt-16 sm:pt-20 pb-12 px-4 sm:px-6 lg:px-8"
+      className="bg-stone-100 text-stone-700 border-t border-stone-200 pt-16 sm:pt-20 pb-12 px-4 sm:px-6 lg:px-8"
       role="contentinfo"
     >
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
@@ -17,11 +17,11 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-5">
             <Link
               href="/"
-              className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709] rounded-xl"
+              className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830] rounded-xl"
               aria-label="V-HELD Home"
             >
               <Image
-                src="/assets/brand/v-held-logo-horizontal-dark.svg"
+                src="/assets/brand/v-held-logo-horizontal.svg"
                 alt="V-HELD Logo"
                 width={260}
                 height={80}
@@ -29,12 +29,12 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="text-sm text-stone-400 leading-relaxed font-normal max-w-sm">
+            <p className="text-sm text-stone-600 leading-relaxed font-normal max-w-sm">
               Volunteers in Health, Education and Leadership Development (V-HELD) is a registered Ghanaian non-profit organisation connecting passionate people with grassroots community initiatives.
             </p>
 
-            <div className="text-xs text-stone-400 space-y-1">
-              <div className="font-semibold text-stone-300">
+            <div className="text-xs text-stone-500 space-y-1">
+              <div className="font-semibold text-stone-800">
                 Motto: &ldquo;Give Back. Make a Difference.&rdquo;
               </div>
               <div>Accra &amp; Regional Communities • Republic of Ghana</div>
@@ -43,14 +43,14 @@ export default function Footer() {
 
           {/* Column 2: Programmes (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-stone-900">
               Programmes
             </h3>
-            <ul className="space-y-2.5 text-sm text-stone-400">
+            <ul className="space-y-2.5 text-sm text-stone-600">
               <li>
                 <Link
                   href="/programmes#education"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   Education &amp; Teaching
                 </Link>
@@ -58,7 +58,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/programmes#health"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   Community Health
                 </Link>
@@ -66,7 +66,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/programmes#leadership"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   Youth Leadership
                 </Link>
@@ -74,7 +74,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/programmes"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   View All Programmes
                 </Link>
@@ -84,14 +84,14 @@ export default function Footer() {
 
           {/* Column 3: Get Involved (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-stone-900">
               Get Involved
             </h3>
-            <ul className="space-y-2.5 text-sm text-stone-400">
+            <ul className="space-y-2.5 text-sm text-stone-600">
               <li>
                 <Link
                   href="/apply"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   Apply
                 </Link>
@@ -99,7 +99,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/partner"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   Partner
                 </Link>
@@ -107,7 +107,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/support"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   Support
                 </Link>
@@ -115,7 +115,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/stories"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   Stories
                 </Link>
@@ -125,14 +125,14 @@ export default function Footer() {
 
           {/* Column 4: Safeguarding & Policies (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-stone-900">
               Safeguarding
             </h3>
-            <ul className="space-y-2.5 text-sm text-stone-400">
+            <ul className="space-y-2.5 text-sm text-stone-600">
               <li>
                 <Link
                   href="/safeguarding"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   Child Protection Policy
                 </Link>
@@ -140,7 +140,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/code-of-conduct"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   Volunteer Code of Conduct
                 </Link>
@@ -148,7 +148,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   Privacy Policy
                 </Link>
@@ -156,7 +156,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   Terms &amp; Conditions
                 </Link>
@@ -166,27 +166,27 @@ export default function Footer() {
 
           {/* Column 5: Contact Credentials (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-stone-900">
               Contact
             </h3>
-            <div className="space-y-2 text-sm text-stone-400">
+            <div className="space-y-2 text-sm text-stone-600">
               <div>
-                <span className="block text-xs text-stone-400">Email:</span>
+                <span className="block text-xs text-stone-500">Email:</span>
                 <a
                   href="mailto:info@vheld.org"
-                  className="hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#E3A709] rounded"
+                  className="hover:text-[#065830] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#065830] rounded"
                 >
                   info@vheld.org
                 </a>
               </div>
               <div>
-                <span className="block text-xs text-stone-400">Location:</span>
-                <span className="text-stone-300">Accra, Ghana</span>
+                <span className="block text-xs text-stone-500">Location:</span>
+                <span className="text-stone-800">Accra, Ghana</span>
               </div>
               <div className="pt-2">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center text-xs font-semibold text-[#E3A709] hover:text-amber-300 transition-colors"
+                  className="inline-flex items-center text-xs font-semibold text-[#065830] hover:text-[#086c3b] transition-colors"
                 >
                   <span>Send a message</span>
                 </Link>
@@ -196,7 +196,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright & Governance Statement */}
-        <div className="pt-8 border-t border-stone-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
+        <div className="pt-8 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
           <div>
             &copy; {currentYear} V-HELD (Volunteers in Health, Education and Leadership Development). All Rights Reserved.
           </div>

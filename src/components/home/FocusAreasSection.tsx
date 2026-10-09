@@ -52,19 +52,19 @@ export default function FocusAreasSection() {
     <section
       id="focus-areas"
       aria-labelledby="focus-heading"
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-850 border-stone-800/80"
+      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-200"
     >
       <div className="space-y-12">
         {/* Section Header (Anti-vibecoding: NO badge above headline) */}
         <div className="max-w-3xl space-y-3">
           <h2
             id="focus-heading"
-            className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight"
+            className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 leading-tight"
           >
             Where volunteers make a lasting difference in Ghana.
           </h2>
 
-          <p className="text-base text-stone-300 leading-relaxed font-normal">
+          <p className="text-base text-stone-600 leading-relaxed font-normal">
             Every V-HELD initiative is designed around genuine community needs, ensuring your time and expertise translate directly into sustainable local development.
           </p>
         </div>
@@ -74,28 +74,28 @@ export default function FocusAreasSection() {
           {FOCUS_PILLARS.map((pillar) => (
             <div
               key={pillar.id}
-              className="rounded-2xl bg-[#121110] border border-stone-800 p-6 sm:p-8 flex flex-col justify-between hover:border-stone-700 transition-colors group"
+              className="rounded-2xl bg-white border border-stone-200 p-6 sm:p-8 flex flex-col justify-between hover:border-stone-300 hover:shadow-md transition-all shadow-sm group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-[#E3A709] tracking-widest">
+                  <span className="text-xs font-mono font-bold text-[#065830] tracking-widest">
                     {pillar.number}
                   </span>
-                  <span className="text-xs text-stone-400 font-medium">
+                  <span className="text-xs text-stone-500 font-medium">
                     Focus Pillar
                   </span>
                 </div>
 
                 <div className="space-y-1">
-                  <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                  <h3 className="text-xl font-bold text-stone-900 group-hover:text-[#065830] transition-colors">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs font-medium text-stone-400">
+                  <p className="text-xs font-medium text-stone-500">
                     {pillar.subtitle}
                   </p>
                 </div>
 
-                <p className="text-sm text-stone-300 leading-relaxed">
+                <p className="text-sm text-stone-600 leading-relaxed">
                   {pillar.description}
                 </p>
 
@@ -103,7 +103,7 @@ export default function FocusAreasSection() {
                   {pillar.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[11px] px-2.5 py-1 rounded-md bg-stone-900 border border-stone-800 text-stone-300 font-medium"
+                      className="text-[11px] px-2.5 py-1 rounded-md bg-stone-50 border border-stone-200 text-stone-700 font-medium"
                     >
                       {tag}
                     </span>
@@ -111,10 +111,10 @@ export default function FocusAreasSection() {
                 </div>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-stone-800">
+              <div className="pt-6 mt-6 border-t border-stone-200">
                 <Link
                   href={pillar.href}
-                  className="text-xs sm:text-sm font-semibold text-stone-200 hover:text-[#E3A709] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709] rounded-md"
+                  className="text-xs sm:text-sm font-semibold text-[#065830] hover:text-[#086c3b] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830] rounded-md"
                 >
                   {pillar.linkText}
                 </Link>

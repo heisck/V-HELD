@@ -34,20 +34,20 @@ export default function ImpactSection() {
     <section
       id="impact"
       aria-labelledby="impact-heading"
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-850 border-stone-800/80"
+      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-200"
     >
       <div className="space-y-12 sm:space-y-16">
         {/* Section Header (Anti-vibecoding: NO badge above headline) */}
         <div className="max-w-3xl space-y-3">
           <h2
             id="impact-heading"
-            className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight"
+            className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 leading-tight"
           >
             Measured by lives touched and{' '}
-            <span className="text-[#E3A709]">communities strengthened.</span>
+            <span className="text-[#065830]">communities strengthened.</span>
           </h2>
 
-          <p className="text-base text-stone-300 leading-relaxed font-normal">
+          <p className="text-base text-stone-600 leading-relaxed font-normal">
             We hold ourselves accountable to the people we serve. Our impact data is grounded in verified community records and ongoing dialogue with local leadership.
           </p>
         </div>
@@ -57,17 +57,17 @@ export default function ImpactSection() {
           {IMPACT_METRICS.map((metric) => (
             <div
               key={metric.label}
-              className="rounded-2xl bg-[#121110] border border-stone-800 p-6 sm:p-7 flex flex-col justify-between hover:border-stone-700 transition-colors space-y-3"
+              className="rounded-2xl bg-white border border-stone-200 p-6 sm:p-7 flex flex-col justify-between hover:border-stone-300 hover:shadow-md transition-all shadow-sm space-y-3"
             >
               <div className="space-y-2">
-                <div className="text-4xl sm:text-5xl font-mono font-bold text-[#E3A709] tracking-tight">
+                <div className="text-4xl sm:text-5xl font-mono font-bold text-[#065830] tracking-tight">
                   {metric.value}
                 </div>
-                <div className="text-base font-bold text-white">
+                <div className="text-base font-bold text-stone-900">
                   {metric.label}
                 </div>
               </div>
-              <p className="text-xs sm:text-sm text-stone-400 leading-relaxed pt-2 border-t border-stone-800">
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed pt-2 border-t border-stone-200">
                 {metric.description}
               </p>
             </div>
@@ -75,19 +75,19 @@ export default function ImpactSection() {
         </div>
 
         {/* Accountability & Transparency Card */}
-        <div className="rounded-2xl bg-stone-900/60 border border-stone-800 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="rounded-2xl bg-stone-50 border border-stone-200 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1 max-w-2xl">
-            <h3 className="text-base font-bold text-white">
+            <h3 className="text-base font-bold text-stone-900">
               Transparency &amp; Community Governance
             </h3>
-            <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
               Every project is co-designed with community partners to ensure resources are deployed ethically, sustainably, and in direct response to local priorities.
             </p>
           </div>
 
           <Link
             href="/impact"
-            className="text-xs sm:text-sm font-semibold text-[#E3A709] hover:text-amber-300 transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709] rounded-md"
+            className="text-xs sm:text-sm font-semibold text-[#065830] hover:text-[#086c3b] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830] rounded-md"
           >
             Explore Impact Reports
           </Link>

@@ -50,20 +50,20 @@ export default function WhyVolunteerSection() {
     <section
       id="why-volunteer"
       aria-labelledby="why-heading"
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-850 border-stone-800/80"
+      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-200"
     >
       <div className="space-y-12 sm:space-y-16">
         {/* Section Header (Anti-vibecoding: NO badge above headline) */}
         <div className="max-w-3xl space-y-3">
           <h2
             id="why-heading"
-            className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight"
+            className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 leading-tight"
           >
             Make your time matter.{' '}
-            <span className="text-[#E3A709]">Serve with purpose.</span>
+            <span className="text-[#065830]">Serve with purpose.</span>
           </h2>
 
-          <p className="text-base text-stone-300 leading-relaxed font-normal">
+          <p className="text-base text-stone-600 leading-relaxed font-normal">
             Volunteering with V-HELD is an intentional commitment to mutual learning, community empowerment, and cross-cultural solidarity.
           </p>
         </div>
@@ -73,18 +73,18 @@ export default function WhyVolunteerSection() {
           {VALUE_PILLARS.map((pillar) => (
             <div
               key={pillar.index}
-              className="rounded-2xl bg-[#121110] border border-stone-800 p-6 sm:p-7 flex flex-col justify-between hover:border-stone-700 transition-colors space-y-3"
+              className="rounded-2xl bg-white border border-stone-200 p-6 sm:p-7 flex flex-col justify-between hover:border-stone-300 hover:shadow-md transition-all shadow-sm space-y-3"
             >
               <div className="space-y-2">
-                <span className="text-sm font-mono font-bold text-[#E3A709] tracking-widest">
+                <span className="text-sm font-mono font-bold text-[#065830] tracking-widest">
                   {pillar.index}
                 </span>
 
-                <h3 className="text-lg font-bold text-white">
+                <h3 className="text-lg font-bold text-stone-900">
                   {pillar.title}
                 </h3>
 
-                <p className="text-sm text-stone-300 leading-relaxed">
+                <p className="text-sm text-stone-600 leading-relaxed">
                   {pillar.description}
                 </p>
               </div>
@@ -93,19 +93,19 @@ export default function WhyVolunteerSection() {
         </div>
 
         {/* Inclusive Participation Callout */}
-        <div className="rounded-2xl bg-stone-900/60 border border-stone-800 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="rounded-2xl bg-stone-50 border border-stone-200 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
           <div className="space-y-2 max-w-2xl">
-            <h3 className="text-xl font-bold text-white">
+            <h3 className="text-xl font-bold text-stone-900">
               Who can volunteer with V-HELD?
             </h3>
-            <p className="text-sm text-stone-300 leading-relaxed">
+            <p className="text-sm text-stone-600 leading-relaxed">
               We welcome students, recent graduates, healthcare professionals, educators, researchers, and retirees. Professional credentials are required only for specialized health tracks; for most programmes, what matters most is commitment, humility, and willingness to collaborate responsibly.
             </p>
           </div>
 
           <Link
             href="/apply"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#065830] hover:bg-[#186835] active:scale-[0.98] text-white text-sm font-semibold shadow-md transition-all shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709]"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#065830] hover:bg-[#086c3b] active:scale-[0.98] text-white text-sm font-semibold shadow-sm transition-all shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830]"
           >
             Apply
           </Link>

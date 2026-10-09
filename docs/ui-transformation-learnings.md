@@ -79,34 +79,55 @@
   4. Ask: *Does this look high-craft? Is it cramped? How does the scroll state look?*
   5. Refine immediately before touching anything else.
 
+### Lesson 4: Pure White Theme Architecture (Zero Dark Theme / Auto Endpoints)
+- **Strict White Theme Only**: The platform is strictly light-mode. No dark theme toggle, no dark endpoints, no auto `prefers-color-scheme` media query switching.
+- **Zero `dark:` Utility Classes**: Strip all `dark:` variants from the entire codebase.
+- **Surface Hierarchy**:
+  - Main background: `#FFFFFF` (pure crisp white).
+  - Subtle alternate sections / card backgrounds: `bg-stone-50` or `bg-stone-100`.
+  - Borders: Crisp, tactile `border-stone-200`.
+  - Text typography: `text-stone-900` (primary headings), `text-stone-700` (body copy), `text-stone-500` (labels/captions).
+- **Brand Colors on White**:
+  - Ghanaian Forest Green (`#065830`) provides high-contrast focus, numerals, and accents on white surfaces (WCAG AAA compliant).
+  - African Gold (`#E3A709`) is reserved for high-contrast dark green surfaces (such as the CTA banner and dark accent buttons) or subtle borders—never low-contrast yellow text directly on pure white.
+- **Brand SVGs**: Use light-surface brand SVGs (`v-held-logo-horizontal.svg` and `v-held-logo-vertical-full.svg`), replacing dark-inverted asset variants.
+
+### Lesson 5: Dropdown Simplicity & Button Purity
+- **No Bulky Dropdown Cards**: Context menus must be lightweight, clean link lists.
+  - Removed "Volunteer Pathways" block headers and long multi-line descriptive text underneath nav links.
+  - Retain clear, scannable links: `Why Volunteer`, `How It Works`, `Impact`, `Stories`.
+- **Typographic Button Clarity**:
+  - Buttons like `Apply` do not need decorative or misplaced SVG icons (such as paper/doc icons or arrows). Clean, crisp typography with purposeful hover states is superior.
+  - Never place dollar signs or arbitrary icons on volunteer actions.
+
 ---
 
 ## 4. Completed Section Transformation Ledger
 
 | Section | Anti-Pattern Removed | Transformed Design | Visual QA Status |
 | :--- | :--- | :--- | :--- |
-| **Header / Navbar** | 8 loose buttons, double-word labels (`Why Volunteer`), verbose CTA (`Apply to Volunteer`), unneeded subtitle text ("Ghana") | 4 single-word links (`About`, `Focus`, `Volunteer ⌄`, `Partner`, `Contact`), context dropdown on `Volunteer`, concise action button `Apply` with document icon, emblem + V-HELD text | Verified via headless Chrome (resting, scrolled pill, mobile) |
-| **Hero Section** | Badge above headline (`• COMMUNITY IMPACT IN GHANA`), em-dash (`—`), 3 check-icon boxes in a row | Pure typographic hierarchy with gold accent, action buttons `Volunteer` and `Explore Focus Areas`, clean monospace credibility line, official emblem badge | Verified via headless Chrome |
-| **Intro / Welcome** | Badge above headline (`• WHO WE ARE`), colored pill badges, dot bullet markers, generic arrow icons | 2 high-contrast structured cards (Ghanaian Residents vs. International Guests) with neutral `border-stone-800` | Verified via headless Chrome |
-| **Focus Areas** | Badge above headline (`• OUR FOCUS AREAS`), colored card borders (`border-emerald-800/40`), generic arrow icons | 3 numbered editorial cards (`01 Focus Pillar`), neutral stone borders, topic tags in dark stone pills, clear typographic links | Verified via headless Chrome |
-| **Why Volunteer** | Badge above headline (`• WHY VOLUNTEER`), verbose CTA (`Check Eligibility & Apply`) | Clean 6-item numbered grid (`01` to `06`), concise action button `Apply` in inclusive participation callout | Verified via headless Chrome |
-| **Volunteer Journey** | Badge above headline (`• HOW IT WORKS`), verbose button (`Begin Application`) | 7 numbered sequential stages (`Stage 01 of 07` to `Stage 07 of 07`), concise action button `Apply` in safeguarding banner | Verified via headless Chrome |
-| **Impact & Accountability** | Badge above headline (`• MEASURABLE OUTCOMES`), generic arrow icons | 4 high-contrast metric cards with large display figures (`500+`, `24+`, `4,500+`, `85+`), neutral borders, transparency bar | Verified via headless Chrome |
-| **Stories & Voices** | Badge above headline (`• VOICES FROM THE FIELD`), colored category pill badges (`bg-amber-950/40`), generic arrow icon, verbose link text | Clean monospace category tags (`GHANAIAN VOLUNTEER`, `INTERNATIONAL VOLUNTEER`, `COMMUNITY PARTNER`), high-contrast italic quotes, `View All Field Stories` | Verified via headless Chrome |
-| **Call to Action** | Badge above headline (`• TAKE ACTION TODAY`), colored glow border (`border-emerald-600/50`), blur blobs, 3 checkmark icons, verbose CTA (`Apply to Volunteer`) | Deep Ghanaian Forest Green container (`#065830`), subtle `border-emerald-900/60`, action buttons `Volunteer` & `Partner`, clean monospace credibility line | Verified via headless Chrome |
-| **Footer** | Verbose CTAs (`Apply to Volunteer`, `Partner With Us`), generic arrow icon on contact link | Single-word links (`Apply`, `Partner`, `Support`, `Stories`), clean email & location, clean text contact link | Verified via headless Chrome |
+| **Header / Navbar** | 8 loose buttons, double-word labels (`Why Volunteer`), verbose CTA (`Apply to Volunteer`), unneeded subtitle text ("Ghana"), bulky dropdown headers/descriptions, SVG icon in Apply | 4 single-word links (`About`, `Focus`, `Volunteer ⌄`, `Partner`, `Contact`), clean dropdown links without card fluff, pure typographic action button `Apply`, emblem + V-HELD text, white pill backdrop | Verified via headless Chrome (resting, scrolled pill, mobile) |
+| **Hero Section** | Badge above headline (`• COMMUNITY IMPACT IN GHANA`), em-dash (`—`), 3 check-icon boxes in a row, dark background | Pure white background, bold stone-900 typography with Ghanaian Forest Green accent, action buttons `Volunteer` and `Explore Focus Areas`, clean monospace credibility line, official vertical emblem badge | Verified via headless Chrome |
+| **Intro / Welcome** | Badge above headline (`• WHO WE ARE`), colored pill badges, dot bullet markers, generic arrow icons, dark theme | 2 high-contrast structured cards (Ghanaian Residents vs. International Guests) with neutral `border-stone-200` on `bg-stone-50` | Verified via headless Chrome |
+| **Focus Areas** | Badge above headline (`• OUR FOCUS AREAS`), colored card borders (`border-emerald-800/40`), generic arrow icons, dark theme | 3 numbered editorial cards (`01 Focus Pillar`), neutral stone-200 borders, white cards, topic tags in stone-50 pills, clear typographic links | Verified via headless Chrome |
+| **Why Volunteer** | Badge above headline (`• WHY VOLUNTEER`), verbose CTA (`Check Eligibility & Apply`), dark theme | Clean 6-item numbered grid (`01` to `06`), white cards, concise action button `Apply` in inclusive participation callout | Verified via headless Chrome |
+| **Volunteer Journey** | Badge above headline (`• HOW IT WORKS`), verbose button (`Begin Application`), dark theme | 7 numbered sequential stages (`Stage 01 of 07` to `Stage 07 of 07`), stone-50 background, concise action button `Apply` in safeguarding banner | Verified via headless Chrome |
+| **Impact & Accountability** | Badge above headline (`• MEASURABLE OUTCOMES`), generic arrow icons, dark theme | 4 high-contrast white metric cards with large display figures in `#065830` (`500+`, `24+`, `4,500+`, `85+`), stone-200 borders, transparency bar | Verified via headless Chrome |
+| **Stories & Voices** | Badge above headline (`• VOICES FROM THE FIELD`), colored category pill badges (`bg-amber-950/40`), generic arrow icon, verbose link text, dark theme | Clean monospace category tags (`GHANAIAN VOLUNTEER`, `INTERNATIONAL VOLUNTEER`, `COMMUNITY PARTNER`), white cards, high-contrast dark quotes, `View All Field Stories` | Verified via headless Chrome |
+| **Call to Action** | Badge above headline (`• TAKE ACTION TODAY`), colored glow border (`border-emerald-600/50`), blur blobs, 3 checkmark icons, verbose CTA (`Apply to Volunteer`) | Deep Ghanaian Forest Green container (`#065830`), subtle border, high-contrast action buttons `Volunteer` & `Partner`, clean monospace credibility line | Verified via headless Chrome |
+| **Footer** | Verbose CTAs (`Apply to Volunteer`, `Partner With Us`), generic arrow icon on contact link, dark theme | Light stone-100 background, crisp stone-200 borders, single-word links (`Apply`, `Partner`, `Support`, `Stories`), light horizontal logo, clean email & location, clean text contact link | Verified via headless Chrome |
 
 ---
 
 ## 5. Banned Patterns Checklist (Verified & Eliminated)
 
-- [x] 01. **No purple-to-blue gradients** (Strict Ghanaian Forest Green `#065830`, African Gold `#E3A709`, Terracotta `#C34D21`, Deep Charcoal `#090807`)
-- [x] 02. **No gradient hero text** (Pure solid white with warm gold `#E3A709` emphasis)
+- [x] 01. **No purple-to-blue gradients** (Strict Ghanaian Forest Green `#065830`, African Gold `#E3A709`, Terracotta `#C34D21`, Crisp White `#FFFFFF`, Soft Stone `#F5F5F4`)
+- [x] 02. **No gradient hero text** (Pure solid stone-900 with Forest Green `#065830` emphasis)
 - [x] 03. **No emojis in headings** (Zero emojis across all titles and labels)
 - [x] 04. **No Inter everywhere** (Tailwind sans system font stack with intentional weight and letter-spacing)
-- [x] 05. **No colored-border cards** (All cards use neutral `border-stone-800` or subtle `border-emerald-900/60`)
-- [x] 06. **No glassmorphism cards** (Solid `#121110` or rich `#065830` container surfaces)
-- [x] 07. **No low-contrast dark mode** (High contrast white and `#E3A709` text on `#090807` background, WCAG AA compliant)
+- [x] 05. **No colored-border cards** (All cards use neutral `border-stone-200` or subtle borders)
+- [x] 06. **No glassmorphism cards** (Solid `#FFFFFF` cards or rich `#065830` container surfaces)
+- [x] 07. **No low-contrast dark mode** (Entire application runs strictly on high-contrast white theme; zero dark mode / auto endpoints)
 - [x] 08. **No three icon boxes in a row** (Clean numbered editorial cards and structured lists)
 - [x] 09. **No badge above headline** (100% eliminated from all 8 page sections and components)
 - [x] 10. **No Lucide icons everywhere** (Replaced with semantic SVG icons or clean typography)

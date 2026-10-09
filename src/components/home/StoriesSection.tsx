@@ -44,20 +44,20 @@ export default function StoriesSection() {
     <section
       id="stories"
       aria-labelledby="stories-heading"
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-stone-800/80"
+      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-stone-200"
     >
       <div className="space-y-12 sm:space-y-16">
         {/* Section Header */}
         <div className="max-w-3xl space-y-4">
           <h2
             id="stories-heading"
-            className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight"
+            className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 leading-tight"
           >
             Real people. Real relationships.{' '}
-            <span className="text-[#E3A709]">Unfiltered impact.</span>
+            <span className="text-[#065830]">Unfiltered impact.</span>
           </h2>
 
-          <p className="text-base text-stone-300 leading-relaxed font-normal">
+          <p className="text-base text-stone-600 leading-relaxed font-normal">
             Hear from local volunteers, international healthcare advocates, and community headteachers whose shared dedication fuels V-HELD’s everyday work.
           </p>
         </div>
@@ -67,23 +67,23 @@ export default function StoriesSection() {
           {STORIES.map((story) => (
             <div
               key={story.id}
-              className="rounded-2xl bg-[#121110] border border-stone-800 p-6 sm:p-7 flex flex-col justify-between hover:border-stone-700 transition-colors space-y-6 group"
+              className="rounded-2xl bg-white border border-stone-200 p-6 sm:p-7 flex flex-col justify-between hover:border-stone-300 hover:shadow-md transition-all shadow-sm space-y-6 group"
             >
               <div className="space-y-4">
-                <span className="text-xs font-mono font-medium text-[#E3A709] uppercase tracking-wider">
+                <span className="text-xs font-mono font-medium text-[#065830] uppercase tracking-wider">
                   {story.category}
                 </span>
 
-                <blockquote className="text-sm sm:text-[15px] text-stone-200 leading-relaxed italic">
+                <blockquote className="text-sm sm:text-[15px] text-stone-700 leading-relaxed italic">
                   &ldquo;{story.quote}&rdquo;
                 </blockquote>
               </div>
 
-              <div className="pt-4 border-t border-stone-800/80 space-y-1">
-                <div className="text-sm font-bold text-white">
+              <div className="pt-4 border-t border-stone-200 space-y-1">
+                <div className="text-sm font-bold text-stone-900">
                   {story.author}
                 </div>
-                <div className="text-xs font-medium text-emerald-400">
+                <div className="text-xs font-medium text-[#065830]">
                   {story.role}
                 </div>
                 <div className="text-[11px] text-stone-500 font-mono">
@@ -98,7 +98,7 @@ export default function StoriesSection() {
         <div className="text-center pt-4">
           <Link
             href="/stories"
-            className="inline-flex items-center text-sm font-medium text-stone-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709] rounded-md px-4 py-2 border border-stone-800 hover:border-stone-700 bg-[#121110]"
+            className="inline-flex items-center text-sm font-medium text-stone-700 hover:text-stone-950 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830] rounded-md px-4 py-2 border border-stone-200 hover:border-stone-300 bg-stone-50 shadow-sm"
           >
             <span>View All Field Stories</span>
           </Link>

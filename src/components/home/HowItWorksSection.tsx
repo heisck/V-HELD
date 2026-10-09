@@ -56,20 +56,20 @@ export default function HowItWorksSection() {
     <section
       id="how-it-works"
       aria-labelledby="journey-heading"
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-850 border-stone-800/80"
+      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-200"
     >
       <div className="space-y-12 sm:space-y-16">
         {/* Section Header (Anti-vibecoding: NO badge above headline) */}
         <div className="max-w-3xl space-y-3">
           <h2
             id="journey-heading"
-            className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight"
+            className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 leading-tight"
           >
             Your volunteer journey,{' '}
-            <span className="text-[#E3A709]">from first step to field impact.</span>
+            <span className="text-[#065830]">from first step to field impact.</span>
           </h2>
 
-          <p className="text-base text-stone-300 leading-relaxed font-normal">
+          <p className="text-base text-stone-600 leading-relaxed font-normal">
             Whether you are joining us locally from across Ghana or travelling internationally, every phase is transparent, structured, and mutually supportive.
           </p>
         </div>
@@ -79,25 +79,25 @@ export default function HowItWorksSection() {
           {JOURNEY_STEPS.map((item, idx) => (
             <div
               key={item.step}
-              className={`rounded-2xl bg-[#121110] border border-stone-800 p-6 flex flex-col justify-between hover:border-stone-700 transition-colors ${
+              className={`rounded-2xl bg-stone-50/70 border border-stone-200 p-6 flex flex-col justify-between hover:border-stone-300 hover:shadow-md transition-all shadow-sm ${
                 idx === 6 ? 'md:col-span-2 lg:col-span-2' : ''
               }`}
             >
               <div className="space-y-3">
-                <span className="text-2xl font-mono font-bold text-[#E3A709]">
+                <span className="text-2xl font-mono font-bold text-[#065830]">
                   {item.step}
                 </span>
 
-                <h3 className="text-lg font-bold text-white">
+                <h3 className="text-lg font-bold text-stone-900">
                   {item.title}
                 </h3>
 
-                <p className="text-sm text-stone-300 leading-relaxed">
+                <p className="text-sm text-stone-600 leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-stone-800/60 text-xs text-stone-400 font-mono">
+              <div className="pt-4 mt-4 border-t border-stone-200 text-xs text-stone-500 font-mono">
                 Stage 0{idx + 1} of 07
               </div>
             </div>
@@ -105,19 +105,19 @@ export default function HowItWorksSection() {
         </div>
 
         {/* Safeguarding & Guidance Banner */}
-        <div className="rounded-2xl bg-stone-900/60 border border-stone-800 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="rounded-2xl bg-stone-50 border border-stone-200 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1 max-w-2xl">
-            <h4 className="text-base font-bold text-white">
+            <h4 className="text-base font-bold text-stone-900">
               Preparedness &amp; Safeguarding Standards
             </h4>
-            <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
+            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
               All placements follow strict safeguarding protocols, emergency contact networks, and ethical community engagement guidelines co-signed by local partner leaders.
             </p>
           </div>
 
           <Link
             href="/apply"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#065830] hover:bg-[#186835] active:scale-[0.98] text-white text-xs sm:text-sm font-semibold transition-all shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709]"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#065830] hover:bg-[#086c3b] active:scale-[0.98] text-white text-xs sm:text-sm font-semibold transition-all shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830]"
           >
             Apply
           </Link>
