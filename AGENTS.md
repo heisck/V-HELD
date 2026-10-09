@@ -33,6 +33,7 @@ Before implementing or modifying code, read and follow the dedicated specificati
 * **Content Quality & Voice**: [`docs/content-standards.md`](docs/content-standards.md)
 * **Signature Interactions**: [`docs/signature-interactions.md`](docs/signature-interactions.md)
 * **Definition of Done (Master Checklist)**: [`docs/definition-of-done.md`](docs/definition-of-done.md)
+* **Mandatory Development & Review Workflow**: [`docs/workflow.md`](docs/workflow.md)
 * **Raw Requirements Archive**: [`docs/raw-spec.md`](docs/raw-spec.md)
 
 ---
@@ -53,6 +54,43 @@ Before opening a pull request, committing code, or completing an implementation 
 npm run check:agent
 ```
 This runs the full gate: `tsc --noEmit` + lint + unit/integration tests. This is a non-negotiable prerequisite to the [Definition of Done](docs/definition-of-done.md).
+
+---
+
+## 1.2 Mandatory Branch-to-Main Development Workflow
+
+> **Detailed Specification**: [`docs/workflow.md`](docs/workflow.md)
+
+Until the entire application is completed, all development must strictly follow this closed-loop workflow:
+
+1. **Branch Isolation**:
+   - Never build directly on `main`.
+   - Create a dedicated branch for every feature or task track: `git checkout -b <branch-name>`.
+2. **Branch Documentation Suite**:
+   - Immediately create a dedicated subfolder under `docs/build docs/<branch-name>/` containing the 3 mandatory living files:
+     - `<branch-name>.md`: Architecture blueprints, component contracts, tokens, and visual specifications.
+     - `progress.md`: Living tracker with milestone breakdown, status table, checklist items, and test history.
+     - `handoff.md`: Engineering handoff, interaction physics, runtime configs, and verification steps.
+3. **Incremental Build & Periodic Synchronization**:
+   - Follow the 9-step incremental validation lifecycle ([`docs/incremental-validation.md`](docs/incremental-validation.md)).
+   - Sync periodically with upstream (`git fetch` / status checks) during the build to avoid code drift.
+4. **Periodic Atomic Commits with Strict User Authorship (CRITICAL)**:
+   - Make small, frequent, atomic commits as logical milestones are hit.
+   - **Commit strictly as the user**: All commits must be authored strictly by `Heisck <kelvinkwabenaparkingston@gmail.com>`.
+   - **ZERO AI attribution**: Absolutely NO "Gemini", "Antigravity", or agent mentions in author, committer, or commit messages.
+   - **ZERO co-author tags**: Never append `Co-authored-by: Gemini...` or any AI contributor trailers. Commits must look 100% human-authored by the user.
+5. **Multi-Disciplinary Completion Gate (Single Agent, Full Skill Stack)**:
+   - When the build is finished, run an exhaustive triple-pillar audit using **one single unified agent utilizing all available specialized skills**:
+     - **UI Critic**: Enforce 20 anti-vibecoding rules ([`docs/ui-patterns-avoid.md`](docs/ui-patterns-avoid.md)), 7-viewport responsive QA, WCAG AA contrast, typography scale, headless Chromium frame review.
+     - **"Pony Tail" Security Review**: Deep, paranoid, tight review covering all 40 security mandates ([`docs/security-requirements.md`](docs/security-requirements.md)): RLS, server-side Zod validation on all inputs/mutations, sanitization, secret leakage prevention, secure headers, auth/session locks.
+     - **Code Review**: Strict TypeScript (`tsc --noEmit`), lint checks (`next lint`), Vitest test suite, clean modular structure, zero dead code, zero console warnings.
+   - **Fix 100% of Findings**: Remediate every defect, warning, or gap immediately. No deferred bugs, no TODOs.
+6. **Acceptance Gate & Context Auto-Compaction**:
+   - Execute `npm run check:agent` (`tsc --noEmit && next lint && vitest run`).
+   - Compact agent context by recording progress, decisions, and handoff contracts into `progress.md` and `handoff.md`, freeing working memory.
+7. **Merge Branch to Main & Final Verification**:
+   - Switch to `main`, ensure `main` is current, and cleanly merge: `git merge --no-ff <branch-name>`.
+   - Re-verify `npm run check:agent` on `main`. Repeat cycle for the next branch until complete.
 
 ---
 
