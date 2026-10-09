@@ -5,31 +5,32 @@ export default function IntroSection() {
     <section
       id="about"
       aria-labelledby="intro-heading"
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-200"
+      className="sticky top-14 sm:top-20 z-10 w-full bg-[#0b7342] text-white rounded-t-2xl sm:rounded-t-3xl border-t border-white/10 shadow-[0_-4px_24px_rgba(0,0,0,0.15)] pt-10 sm:pt-14 pb-16 sm:pb-24 min-h-[75vh] sm:min-h-[82vh]"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+      <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
         {/* Left Column: Organization Identity (5 cols) */}
         <div className="lg:col-span-5 space-y-5">
           <h2
             id="intro-heading"
-            className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 leading-tight"
+            className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight"
           >
             Rooted in Ghanaian communities,{' '}
-            <span className="text-[#065830]">connecting hands across the world.</span>
+            <span className="text-[#E3A709]">connecting hands across the world.</span>
           </h2>
 
-          <p className="text-base text-stone-600 leading-relaxed font-normal">
+          <p className="text-base text-stone-100/90 leading-relaxed font-normal">
             Volunteers in Health, Education and Leadership Development (V-HELD) is an authentic non-profit organisation committed to opening direct avenues for purposeful community action.
           </p>
 
-          <p className="text-sm text-stone-500 leading-relaxed">
+          <p className="text-sm text-emerald-100/80 leading-relaxed">
             We believe that lasting change happens when passionate individuals connect with local communities through mutual respect, shared purpose, and humble service.
           </p>
 
           <div className="pt-2">
             <Link
               href="/about"
-              className="text-sm font-semibold text-[#065830] hover:text-[#086c3b] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#065830] rounded-md"
+              className="text-sm font-semibold text-[#E3A709] hover:text-[#f3be2b] underline underline-offset-4 decoration-[#E3A709]/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E3A709] rounded-md"
             >
               Learn more about our heritage &amp; leadership
             </Link>
@@ -39,7 +40,7 @@ export default function IntroSection() {
         {/* Right Column: Dual-Track Inclusivity Architecture (7 cols) */}
         <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Track 1: Ghanaian Volunteers */}
-          <div className="rounded-2xl bg-stone-50 border border-stone-200 p-6 sm:p-7 space-y-4 shadow-sm">
+          <div className="rounded-2xl bg-white border border-emerald-950/20 p-6 sm:p-7 space-y-4 shadow-md text-stone-900">
             <div className="text-xs font-semibold uppercase tracking-wider text-stone-500">
               Ghanaian Residents
             </div>
@@ -57,7 +58,7 @@ export default function IntroSection() {
           </div>
 
           {/* Track 2: International Volunteers */}
-          <div className="rounded-2xl bg-stone-50 border border-stone-200 p-6 sm:p-7 space-y-4 shadow-sm">
+          <div className="rounded-2xl bg-white border border-emerald-950/20 p-6 sm:p-7 space-y-4 shadow-md text-stone-900">
             <div className="text-xs font-semibold uppercase tracking-wider text-stone-500">
               International Guests
             </div>
@@ -75,6 +76,8 @@ export default function IntroSection() {
           </div>
         </div>
       </div>
+      </div>
     </section>
   );
 }
+

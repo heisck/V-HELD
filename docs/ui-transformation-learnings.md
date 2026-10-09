@@ -124,6 +124,27 @@
   - Below the illustration, the headline completes the thought: **"Make a"** in crisp black (`text-black`), **"Difference."** in Ghanaian Forest Green (`text-[#065830]`).
   - Accessible `sr-only` labeling ensures screen readers and test runners recognize the complete phrase "Give Back. Make a Difference."
 
+### Lesson 10: Refined Corner Radius for Card Sections
+- **Avoid Oversized Curvatures**: Excessively large border-radii (e.g. `4.5rem` / `72px`) look cartoonish and detach the section visually from internal card components.
+- **Refined Proportion**: A tight, sleek radius (`rounded-t-2xl sm:rounded-t-3xl` / `16px - 24px`) provides a clean modern tab feel that harmonizes with internal card components (`rounded-2xl`).
+- **Eliminate Empty Stroke Dividers**: Rather than a separate disconnected stroke SVG sitting between sections, the top edge of the card container itself serves as the boundary, with a subtle `border-t border-white/10` highlight and natural drop shadow.
+
+### Lesson 11: Stacked Card Deck Scrolling with Chromatic Depth Hierarchy
+- **Individual Subsection Cards**: Rather than bundling consecutive sections into one static flat div, each key thematic track is an autonomous physical card:
+  - *Card 1*: Welcome & Inclusivity (`IntroSection` / `#about`)
+  - *Card 2*: Three Core Focus Pillars (`FocusAreasSection` / `#focus-areas`)
+  - *Card 3*: Why Volunteer Value Ledger (`WhyVolunteerSection` / `#why-volunteer`)
+  - *Card 4*: Volunteer Journey 7 Steps (`HowItWorksSection` / `#how-it-works`)
+- **Sticky Tiered Stacking Mechanics**:
+  - Cards stack via CSS `position: sticky` within a shared parent relative container.
+  - Staggered `top` offsets (`top-14 sm:top-20`, `top-18 sm:top-24`, `top-22 sm:top-28`, `top-26 sm:top-32`) ensure each preceding card leaves a ~16px-24px tab peeking out at the top.
+  - Card 1 pins first right below the floating navbar pill.
+  - Card 2 slides directly over Card 1.
+- **Chromatic Hierarchy (Green Shade Staging)**:
+  - Preceding background card uses a noticeably **fainter green** (`#0b7342`) so the eye immediately registers visual depth and hierarchy when Card 2 (`#065830`) slides over it.
+  - Card 3 (`#054c29`) and Card 4 (`#033d20`) continue the depth gradient.
+  - Each card casts an elevated upward drop shadow (`shadow-[0_-10px_35px_rgba(0,0,0,0.25)]`) onto the card behind it.
+
 ---
 
 ## 4. Completed Section Transformation Ledger
@@ -132,10 +153,7 @@
 | :--- | :--- | :--- | :--- |
 | **Header / Navbar** | 8 loose buttons, double-word labels, verbose CTA, unneeded subtitle, bulky dropdown fluff, SVG doc icon, floating island div at rest, line divider at rest | Borderless full-width bar at rest (`border-0`, `bg-[#EFE9E2]/80`), packing to centered pill (`max-w-4xl rounded-full`) only on scroll | Verified via headless Chrome (at rest, mid-scroll, full scroll) |
 | **Hero Section** | Badge above headline, em-dash, 3 check-icon boxes, dark background, artificial seal card box | Featured "GIVE BACK" artistic illustration (`hero-give-back.webp`), centered headline with "Make a" in black & "Difference." in green, action buttons, credentials | Verified via headless Chrome |
-| **Intro / Welcome** | Badge above headline (`• WHO WE ARE`), colored pill badges, dot bullet markers, generic arrow icons, dark theme | 2 high-contrast structured cards (Ghanaian Residents vs. International Guests) on `#EFE9E2` background | Verified via headless Chrome |
-| **Focus Areas** | Badge above headline (`• OUR FOCUS AREAS`), colored card borders (`border-emerald-800/40`), generic arrow icons, dark theme | 3 numbered editorial cards (`01 Focus Pillar`), neutral stone-200 borders, white cards, topic tags in stone-50 pills, clear typographic links | Verified via headless Chrome |
-| **Why Volunteer** | Badge above headline (`• WHY VOLUNTEER`), verbose CTA (`Check Eligibility & Apply`), dark theme | Clean 6-item numbered grid (`01` to `06`), white cards, concise action button `Apply` in inclusive participation callout | Verified via headless Chrome |
-| **Volunteer Journey** | Badge above headline (`• HOW IT WORKS`), verbose button (`Begin Application`), dark theme | 7 numbered sequential stages (`Stage 01 of 07` to `Stage 07 of 07`), stone-50 background, concise action button `Apply` in safeguarding banner | Verified via headless Chrome |
+| **Programmes Deck (Cards 1-4)** | Static continuous block, oversized 4.5rem curves, empty stroke dividers | 4-card interactive sticky stacked deck with tiered offsets (16px tabs), chromatic green hierarchy (`#0b7342` to `#065830` to `#054c29` to `#033d20`), sleek `rounded-t-3xl` | Verified via headless Chrome (pinned, sliding, stacked states across y=680 to y=3550) |
 | **Impact & Accountability** | Badge above headline (`• MEASURABLE OUTCOMES`), generic arrow icons, dark theme | 4 high-contrast white metric cards with large display figures in `#065830` (`500+`, `24+`, `4,500+`, `85+`), stone-200 borders, transparency bar | Verified via headless Chrome |
 | **Stories & Voices** | Badge above headline (`• VOICES FROM THE FIELD`), colored category pill badges (`bg-amber-950/40`), generic arrow icon, verbose link text, dark theme | Clean monospace category tags (`GHANAIAN VOLUNTEER`, `INTERNATIONAL VOLUNTEER`, `COMMUNITY PARTNER`), white cards, high-contrast dark quotes, `View All Field Stories` | Verified via headless Chrome |
 | **Call to Action** | Badge above headline (`• TAKE ACTION TODAY`), colored glow border (`border-emerald-600/50`), blur blobs, 3 checkmark icons, verbose CTA (`Apply to Volunteer`) | Deep Ghanaian Forest Green container (`#065830`), subtle border, high-contrast action buttons `Volunteer` & `Partner`, clean monospace credibility line | Verified via headless Chrome |

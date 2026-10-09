@@ -124,6 +124,7 @@
 | 2026-10-09 | Hero Seal Removal & Navbar Flash Fix | **PASS** | Removed floating seal card from Hero, centered hero layout, eliminated compositor white flash during navbar scroll via GPU layer lock & targeted geometry transitions, 26/26 tests passing |
 | 2026-10-09 | Full-Width Unconfined Navbar at Rest | **PASS** | Navbar spans 100% width edge-to-edge at rest (no floating div), gracefully grouping to centered floating pill only on scroll; 26/26 tests passing, screenshots verified |
 | 2026-10-09 | Give Back Hero Illustration & Color Match | **PASS** | Matched global codebase background to #EFE9E2 from uploaded asset, removed line divider at rest, integrated feathered Give Back illustration, paired with black/green Make a Difference headline; 26/26 tests passing |
+| 2026-10-09 | Stacked Card Deck Scrolling Architecture | **PASS** | Refined corner radii (rounded-t-2xl sm:rounded-t-3xl), separated 4 subsections into autonomous sticky cards with tiered offsets (16px tabs), chromatic green depth hierarchy (#0b7342, #065830, #054c29, #033d20); 26/26 tests passing, screenshots verified |
 
 ---
 
@@ -140,3 +141,4 @@
 10. **Unconfined Header at Rest**: Header spans the entire top edge of the screen at rest without being boxed into a floating pill container; only morphs into a centered pill upon scroll.
 11. **Warm Sand (#EFE9E2) Surface Palette**: Background harmonized to exact color of hero Give Back illustration, with borderless top header at rest and bold typographic pairing ("Make a" in black, "Difference." in green).
 12. **Centralized QA Screenshots & Gitignore**: All QA and validation screenshots are consolidated into a single local `/qa-screenshots/` directory and permanently excluded via `.gitignore` to keep git history lightweight.
+13. **Stacked Card Deck Scrolling Architecture**: The 4 community programme subsections (`IntroSection`, `FocusAreasSection`, `WhyVolunteerSection`, `HowItWorksSection`) are autonomous physical cards within `#community-programmes`. Features refined corner radii (`rounded-t-2xl sm:rounded-t-3xl`), staggered sticky top offsets (`top-14 sm:top-20`, `top-18 sm:top-24`, `top-22 sm:top-28`, `top-26 sm:top-32`), and a chromatic depth hierarchy (fainter green `#0b7342` for Card 1 behind, rich `#065830` for Card 2 in front, deep `#054c29` for Card 3, dark `#033d20` for Card 4). Card 1 pins beneath the floating navbar, and subsequent cards slide over the preceding card while leaving ~16px-24px tiered tabs visible at the top.

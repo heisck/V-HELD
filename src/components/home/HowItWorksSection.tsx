@@ -56,20 +56,20 @@ export default function HowItWorksSection() {
     <section
       id="how-it-works"
       aria-labelledby="journey-heading"
-      className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-stone-200"
+      className="sticky top-26 sm:top-32 z-40 w-full bg-[#033d20] text-white rounded-t-2xl sm:rounded-t-3xl border-t border-white/10 shadow-[0_-14px_45px_rgba(0,0,0,0.35)] pt-10 sm:pt-14 pb-16 sm:pb-24 min-h-[82vh] sm:min-h-[90vh]"
     >
-      <div className="space-y-12 sm:space-y-16">
-        {/* Section Header (Anti-vibecoding: NO badge above headline) */}
+      <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto space-y-12 sm:space-y-16">
+        {/* Section Header */}
         <div className="max-w-3xl space-y-3">
           <h2
             id="journey-heading"
-            className="text-3xl sm:text-4xl font-bold tracking-tight text-stone-900 leading-tight"
+            className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight"
           >
             Your volunteer journey,{' '}
-            <span className="text-[#065830]">from first step to field impact.</span>
+            <span className="text-[#E3A709]">from first step to field impact.</span>
           </h2>
 
-          <p className="text-base text-stone-600 leading-relaxed font-normal">
+          <p className="text-base text-stone-100/90 leading-relaxed font-normal">
             Whether you are joining us locally from across Ghana or travelling internationally, every phase is transparent, structured, and mutually supportive.
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function HowItWorksSection() {
           {JOURNEY_STEPS.map((item, idx) => (
             <div
               key={item.step}
-              className={`rounded-2xl bg-stone-50/70 border border-stone-200 p-6 flex flex-col justify-between hover:border-stone-300 hover:shadow-md transition-all shadow-sm ${
+              className={`rounded-2xl bg-white border border-emerald-950/20 p-6 flex flex-col justify-between hover:shadow-xl transition-all shadow-md text-stone-900 ${
                 idx === 6 ? 'md:col-span-2 lg:col-span-2' : ''
               }`}
             >
@@ -105,7 +105,7 @@ export default function HowItWorksSection() {
         </div>
 
         {/* Safeguarding & Guidance Banner */}
-        <div className="rounded-2xl bg-stone-50 border border-stone-200 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
+        <div className="rounded-2xl bg-white border border-emerald-950/20 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-md text-stone-900">
           <div className="space-y-1 max-w-2xl">
             <h4 className="text-base font-bold text-stone-900">
               Preparedness &amp; Safeguarding Standards

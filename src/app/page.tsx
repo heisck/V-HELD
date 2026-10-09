@@ -16,29 +16,32 @@ export default function HomePage() {
       <Navbar />
 
       {/* Main Page Content */}
-      <main className="flex-1 space-y-4">
+      <main className="flex-1">
         {/* 1. Hero Section */}
         <HeroSection />
 
-        {/* 2. Welcome & Inclusivity Section */}
-        <IntroSection />
+        {/* 2. Stacked Card Deck: Community Programmes & Volunteer Journey */}
+        <div id="community-programmes" className="relative w-full">
+          {/* Card 1: Welcome & Inclusivity (Fainter green #0b7342, pinned first) */}
+          <IntroSection />
 
-        {/* 3. Three Core Focus Areas */}
-        <FocusAreasSection />
+          {/* Card 2: Three Core Focus Areas (Classic forest green #065830, slides over Card 1) */}
+          <FocusAreasSection />
 
-        {/* 4. Why Volunteer & Value Architecture */}
-        <WhyVolunteerSection />
+          {/* Card 3: Why Volunteer & Value Architecture (Deep forest green #054c29, slides over Card 2) */}
+          <WhyVolunteerSection />
 
-        {/* 5. Volunteer Journey (7 Steps) */}
-        <HowItWorksSection />
+          {/* Card 4: Volunteer Journey 7 Steps (Dark forest green #033d20, slides over Card 3) */}
+          <HowItWorksSection />
+        </div>
 
-        {/* 6. Impact Metrics & Accountability */}
+        {/* 3. Impact Metrics & Accountability */}
         <ImpactSection />
 
-        {/* 7. Real Stories & Testimonials */}
+        {/* 4. Real Stories & Testimonials */}
         <StoriesSection />
 
-        {/* 8. Call to Action Gateway */}
+        {/* 5. Call to Action Gateway */}
         <CtaSection />
       </main>
 
