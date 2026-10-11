@@ -29,3 +29,4 @@ describe('StoriesSection Component', () => {
     );
   });
 });
+

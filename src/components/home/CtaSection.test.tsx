@@ -13,3 +13,4 @@ describe('CtaSection Component', () => {
     expect(screen.getByText(/Registered Non-Profit in Ghana/i)).toBeInTheDocument();
   });
 });
+
