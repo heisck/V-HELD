@@ -1,5 +1,11 @@
 import Navbar from '@/components/layout/Navbar';
 import HeroSection from '@/components/home/HeroSection';
+import IntroSection from '@/components/home/IntroSection';
+import FocusAreasSection from '@/components/home/FocusAreasSection';
+import HowItWorksSection from '@/components/home/HowItWorksSection';
+import ImpactSection from '@/components/home/ImpactSection';
+import StoriesSection from '@/components/home/StoriesSection';
+import CtaSection from '@/components/home/CtaSection';
 import Footer from '@/components/layout/Footer';
 
 export default function HomePage() {
@@ -13,10 +19,23 @@ export default function HomePage() {
         {/* Top Hero Section */}
         <HeroSection />
 
-        {/* Middle Placeholder */}
-        <div className="py-24 text-center text-stone-600 text-lg">
-          ui to be built
-        </div>
+        {/* Introduction & Dual-Track Inclusivity */}
+        <IntroSection />
+
+        {/* Focus Areas & Why Volunteer (Bento Grid) */}
+        <FocusAreasSection />
+
+        {/* How It Works (Step Formula) */}
+        <HowItWorksSection />
+
+        {/* Impact Scorecard */}
+        <ImpactSection />
+
+        {/* Stories & Testimonials */}
+        <StoriesSection />
+
+        {/* Call to Action Gateway */}
+        <CtaSection />
       </main>
 
       {/* Global Comprehensive Footer */}
