@@ -30,6 +30,11 @@ Execute automated and scripted browser sessions across:
 
 Capture screenshots during automated test runs and inspect them visually. Look specifically for:
 
+* **Text-only skeleton sections (CRITICAL)**: Inspect whether any section is just a big bold headline and divs with plain text bullet points (the exact pattern stripped in commit `ee9ee21`). If so, flag as critical defect.
+* **Missing tailored media**: Inspect whether reference image slots were skipped or left as empty colored boxes instead of authentic WebP imagery.
+* **Floating badges above headlines**: Look for unwanted pill badges or dots (`• OUTCOMES`) above section titles.
+* **Compositor flashes / scroll white flash**: Inspect scroll transitions for raw white flashes caused by animating `backdrop-filter`.
+* **Navbar rest vs. scroll geometry**: Verify that navbar is edge-to-edge unconfined at rest (`scrollY = 0`), borderless, and packs smoothly into a centered floating pill only on scroll.
 * **Overlapping elements**: text overlapping cards, floating controls colliding with content.
 * **Text collisions**: titles colliding with navigation or subtitle text.
 * **Content hidden behind other elements**: sticky headers covering top content, floating badges obscuring inputs.
@@ -54,3 +59,4 @@ Always test against the compiled **production build**:
 * Zero uncaught JavaScript exceptions.
 * Zero failed critical network requests (404s, CORS failures, 500s).
 * Clean runtime performance traces.
+
