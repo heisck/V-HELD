@@ -13,7 +13,7 @@
 | **Current Ticket Status** | **Ready for Review** | All 11 subtasks integrated & fully verified |
 | **Branch Architecture** | `develop` ➔ `ticket/VH-101-landing-page` | Develop trunk rule strictly upheld |
 | **Landingfolio MCP Budget** | **7 / 100 calls used** | 93 calls remaining today |
-| **Acceptance Gate Review** | **Passed (26/26 tests)** | `npm run check:agent` (`tsc`, `lint`, `vitest`) clean |
+| **Acceptance Gate Review** | **Passed (12/12 tests)** | `npm run check:agent` (`tsc`, `lint`, `vitest`) clean |
 | **Production Build** | **Passed (103 kB / 150 kB budget)** | Prerendered static pages (5/5) |
 | **Headless Chromium QA** | **Passed (6 viewports inspected)** | Screenshots captured in `qa-screenshots/` |
 | **Commit Authorship** | `Heisck <kelvinkwabenaparkingston@gmail.com>` | Zero AI tags, human attribution |
@@ -49,49 +49,15 @@
   - [x] Official brand seal showcase card
   - [x] Trust indicators and non-profit credentials
 
-- [x] **Subtask 3: Introduction & Community Welcome** (`subtask/VH-101-intro-section`)
-  - [x] V-HELD mission and service philosophy
-  - [x] Dual-track invitation (Ghanaian volunteers & International volunteers)
-  - [x] Dignified African community partnership framing
+- [x] **Subtask 3: Middle Placeholder**
+  - [x] Plain development placeholder (`ui to be built`) between Hero and Footer
 
-- [x] **Subtask 4: Focus Areas & Programmes Showcase** (`subtask/VH-101-focus-areas`)
-  - [x] Pillar 1: Education & Teaching
-  - [x] Pillar 2: Community Health & Wellbeing
-  - [x] Pillar 3: Youth Leadership Development
-  - [x] Interactive exploration cards and clear program pathways
-
-- [x] **Subtask 5: Why Volunteer & Value Pillars** (`subtask/VH-101-why-volunteer`)
-  - [x] Meaningful impact, community immersion, skill acquisition
-  - [x] Cultural exchange without voluntourism tropes
-  - [x] Editorial asymmetric cards (no 3 identical icon boxes)
-  - [x] Inclusive participation eligibility criteria
-
-- [x] **Subtask 6: Volunteer Journey (How It Works)** (`subtask/VH-101-how-it-works`)
-  - [x] 7-stage pathway: Explore ➔ Apply ➔ Connect ➔ Prepare ➔ Arrive ➔ Volunteer ➔ Reflect
-  - [x] Clear onboarding steps for local and global participants
-  - [x] Safeguarding & community guidance callout
-
-- [x] **Subtask 7: Impact Metrics & Accountability** (`subtask/VH-101-impact-metrics`)
-  - [x] Verified metrics: 500+ volunteers, 24+ communities, 4,500+ learners, 85+ workshops
-  - [x] High-contrast, clear editorial data visualization
-  - [x] Community governance accountability card
-
-- [x] **Subtask 8: Stories from the Field & Testimonials** (`subtask/VH-101-stories-testimonials`)
-  - [x] Genuine reflections from Ghanaian and international volunteers
-  - [x] Community partner and headteacher testimony
-  - [x] Unfiltered field quotes with role metadata
-
-- [x] **Subtask 9: Call to Action Gateway** (`subtask/VH-101-cta-gateway`)
-  - [x] Forest Green container with Warm Gold action buttons
-  - [x] Direct routing to online application and institutional partnership inquiries
-  - [x] Safeguarding and NGO reassurance tags
-
-- [x] **Subtask 10: Comprehensive Footer** (`subtask/VH-101-footer-section`)
+- [x] **Subtask 4: Comprehensive Footer** (`subtask/VH-101-footer-section`)
   - [x] Full branding, mission statement, and quick links
   - [x] Safeguarding & Child Protection policy access
   - [x] Ghana contact details, social links, and registration notice
 
-- [x] **Subtask 11: Page Assembly & Integration** (`subtask/VH-101-page-assembly`)
+- [x] **Subtask 5: Page Assembly & Integration** (`subtask/VH-101-page-assembly`)
   - [x] Assembled in `src/app/page.tsx`
   - [x] Integration unit test suite in `src/app/page.test.tsx`
   - [x] Security headers and accessibility styles in `next.config.js` and `globals.css`
@@ -141,5 +107,5 @@
 10. **Unconfined Header at Rest**: Header spans the entire top edge of the screen at rest without being boxed into a floating pill container; only morphs into a centered pill upon scroll.
 11. **Warm Sand (#EFE9E2) Surface Palette**: Background harmonized to exact color of hero Give Back illustration, with borderless top header at rest and bold typographic pairing ("Make a" in black, "Difference." in green).
 12. **Centralized QA Screenshots & Gitignore**: All QA and validation screenshots are consolidated into a single local `/qa-screenshots/` directory and permanently excluded via `.gitignore` to keep git history lightweight.
-13. **Stacked Card Deck Scrolling Architecture**: The 4 community programme subsections (`IntroSection`, `FocusAreasSection`, `WhyVolunteerSection`, `HowItWorksSection`) are autonomous physical cards within `#community-programmes`. Features refined corner radii (`rounded-t-2xl sm:rounded-t-3xl`), staggered sticky top offsets (`top-14 sm:top-20`, `top-18 sm:top-24`, `top-22 sm:top-28`, `top-26 sm:top-32`), and a chromatic depth hierarchy (fainter green `#0b7342` for Card 1 behind, rich `#065830` for Card 2 in front, deep `#054c29` for Card 3, dark `#033d20` for Card 4). Card 1 pins beneath the floating navbar, and subsequent cards slide over the preceding card while leaving ~16px-24px tiered tabs visible at the top.
-14. **Centralized UI References & Gitignore**: All Landingfolio MCP JSON schemas and reference image captures are consolidated into `/ui-references/` and permanently untracked and excluded via `.gitignore`.
+13. **Centralized UI References & Gitignore**: All Landingfolio MCP JSON schemas and reference image captures are consolidated into `/ui-references/` and permanently untracked and excluded via `.gitignore`.
+14. **Middle Placeholder State**: Per user directive, `#community-programmes` deck and all subsequent sections (`ImpactSection`, `StoriesSection`, `CtaSection`) were deleted along with their unit tests and scripts. Top section (`HeroSection`) and `Footer` are preserved, with `"ui to be built"` text in the middle.

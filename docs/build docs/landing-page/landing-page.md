@@ -64,45 +64,10 @@ Homepage (/)
 │   ├── Dual Action CTAs: "Apply to Volunteer" & "Explore Our Programmes"
 │   ├── Social Proof / Verification Badges (Accredited NGO in Ghana, Community Driven)
 │   └── High-fidelity visual showcase
+├── 3. Middle Section Placeholder
+│   └── "ui to be built"
 │
-├── 3. Introduction & Welcome Section
-│   ├── "Welcome to V-HELD" editorial overview
-│   ├── Community-grounded philosophy: Mutual respect, sustainable impact, experiential learning
-│   └── Ghanaian hospitality & international collaboration framing
-│
-├── 4. Core Focus Areas (Our Three Pillars)
-│   ├── Pillar 1: Education (Classroom support, tutoring, mentorship, resources)
-│   ├── Pillar 2: Community Health (Health education, clinical support, hygiene campaigns)
-│   ├── Pillar 3: Leadership Development (Youth empowerment, skills workshops, entrepreneurship)
-│   └── Cross-link to full Programmes directory
-│
-├── 5. Why Volunteer With V-HELD (Value Architecture)
-│   ├── Meaningful Impact (Tangible local outcomes)
-│   ├── Community Immersion (Genuine relationships beyond tourism)
-│   ├── Professional & Personal Growth (Experiential skill building)
-│   └── Authentic Ghanaian Culture (Heritage, warmth, welcoming communities)
-│
-├── 6. How It Works (7-Step Volunteer Pathway)
-│   ├── 01 Explore ➔ 02 Apply ➔ 03 Connect ➔ 04 Prepare ➔ 05 Arrive & Orient ➔ 06 Volunteer ➔ 07 Reflect & Grow
-│   └── Clear guidance for both Local & International applicants
-│
-├── 7. Impact Metrics & Accountability
-│   ├── Volunteers Placed & Supported
-│   ├── Partner Communities Reached
-│   ├── Learners & Schools Assisted
-│   └── Health & Leadership Sessions Conducted
-│
-├── 8. Stories from the Field & Testimonials
-│   ├── Real volunteer narratives (Ghanaian and international voices)
-│   ├── Community partner quotes and perspectives
-│   └── Unfiltered, dignified field reflections
-│
-├── 9. Primary Call to Action Section
-│   ├── Compelling invitation to serve
-│   ├── Direct entry point to application form
-│   └── Alternative pathways: Partner with Us / Support Our Work
-│
-└── 10. Comprehensive Footer
+└── 4. Comprehensive Footer
     ├── Full brand lockup and mission statement
     ├── Complete navigation links & programme directories
     ├── Safeguarding, Child Protection & Volunteer Code of Conduct
@@ -134,40 +99,15 @@ interface HeroProps {
 }
 ```
 
-### 4.3 Focus Areas Grid (`FocusAreasSection.tsx`)
+### 4.3 Middle Placeholder
 ```typescript
-interface FocusArea {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  href: string;
-  badge: string;
-  highlights: string[];
-  color: string;
-}
+// Rendered in src/app/page.tsx:
+// "ui to be built"
 ```
 
-### 4.4 Impact Section (`ImpactSection.tsx`)
+### 4.4 Comprehensive Footer (`Footer.tsx`)
 ```typescript
-interface ImpactMetric {
-  value: string;
-  label: string;
-  description: string;
-}
-```
-
-### 4.5 Testimonials Section (`TestimonialsSection.tsx`)
-```typescript
-interface StoryItem {
-  id: string;
-  quote: string;
-  author: string;
-  role: string;
-  location: string;
-  origin: string;
-  focusArea: string;
-}
+// Global footer with navigation directories, contact info, and legal links.
 ```
 
 ---

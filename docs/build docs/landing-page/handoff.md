@@ -14,10 +14,6 @@ All implemented UI components were referenced from cached Landingfolio component
 `ui-references/`
 - `header.json` & `header_ref_*.jpg`
 - `hero.json` & `hero_ref_*.jpg`
-- `feature.json` & `feature_ref_*.jpg`
-- `stats.json` & `stats_ref_*.jpg`
-- `testimonial.json` & `testimonial_ref_*.jpg`
-- `call-to-action.json` & `call-to-action_ref_*.jpg`
 - `footer.json` & `footer_ref_*.jpg`
 
 ### 1.2 Official Brand Asset Inventory
