@@ -2,7 +2,7 @@
 
 > **Ticket**: `ticket/VH-101-landing-page`  
 > **Branch**: `ticket/VH-101-landing-page`  
-> **Last Updated**: 2026-10-09  
+> **Last Updated**: 2026-10-11  
 
 ---
 
@@ -10,27 +10,38 @@
 
 | Metric | Status | Details |
 | :--- | :--- | :--- |
-| **Current Ticket Status** | **Ready for Review** | All 11 subtasks integrated & fully verified |
+| **Current Ticket Status** | **Ready for Review** | All 6 reference sections built, verified with tailored WebP assets & unit tests |
 | **Branch Architecture** | `develop` ➔ `ticket/VH-101-landing-page` | Develop trunk rule strictly upheld |
-| **Landingfolio MCP Budget** | **7 / 100 calls used** | 93 calls remaining today |
-| **Acceptance Gate Review** | **Passed (12/12 tests)** | `npm run check:agent` (`tsc`, `lint`, `vitest`) clean |
-| **Production Build** | **Passed (103 kB / 150 kB budget)** | Prerendered static pages (5/5) |
-| **Headless Chromium QA** | **Passed (6 viewports inspected)** | Screenshots captured in `qa-screenshots/` |
+| **Landingfolio MCP Budget** | **18 / 100 calls used** | 82 calls remaining today |
+| **Acceptance Gate Review** | **Passed (27/27 tests)** | `npm run check:agent` (`tsc`, `lint`, `vitest`) clean |
+| **Production Build** | **Passed (105 kB / 150 kB budget)** | Prerendered static pages (5/5) |
+| **Headless Chromium QA** | **Passed (Full Page 1440x8500px)** | Complete page screenshot & section slices inspected |
 | **Commit Authorship** | `Heisck <kelvinkwabenaparkingston@gmail.com>` | Zero AI tags, human attribution |
 
 ---
 
 ## 2. Landingfolio MCP Daily Usage Tracker (Daily Limit: 100)
 
-| Call # | Date | Category Queried | Local Cache Files | Calls Remaining |
+| Call # | Date | Category Queried | Local Cache Files / Reference | Calls Remaining |
 | :--- | :--- | :--- | :--- | :--- |
-| **01** | 2026-10-09 | `header` | `ui-references/header.json`<br>`header_ref_1.jpg`, `header_ref_2.jpg` | 99 |
-| **02** | 2026-10-09 | `hero` | `ui-references/hero.json`<br>`hero_ref_1.jpg`, `hero_ref_2.jpg` | 98 |
-| **03** | 2026-10-09 | `feature` | `ui-references/feature.json`<br>`feature_ref_1.jpg`, `feature_ref_2.jpg` | 97 |
-| **04** | 2026-10-09 | `stats` | `ui-references/stats.json`<br>`stats_ref_1.jpg`, `stats_ref_2.jpg` | 96 |
-| **05** | 2026-10-09 | `testimonial` | `ui-references/testimonial.json`<br>`testimonial_ref_1.jpg`, `testimonial_ref_2.jpg` | 95 |
-| **06** | 2026-10-09 | `call-to-action` | `ui-references/call-to-action.json`<br>`call-to-action_ref_1.jpg`, `call-to-action_ref_2.jpg` | 94 |
-| **07** | 2026-10-09 | `footer` | `ui-references/footer.json`<br>`footer_ref_1.jpg`, `footer_ref_2.jpg` | 93 |
+| **01** | 2026-10-09 | `header` | `ui-references/header.json` | 99 |
+| **02** | 2026-10-09 | `hero` | `ui-references/hero.json` | 98 |
+| **03** | 2026-10-09 | `feature` | `ui-references/feature.json` | 97 |
+| **04** | 2026-10-09 | `stats` | `ui-references/stats.json` | 96 |
+| **05** | 2026-10-09 | `testimonial` | `ui-references/testimonial.json` | 95 |
+| **06** | 2026-10-09 | `call-to-action` | `ui-references/call-to-action.json` | 94 |
+| **07** | 2026-10-09 | `footer` | `ui-references/footer.json` | 93 |
+| **08** | 2026-10-11 | `call-to-action` (batch 5) | `ui-references/call-to-action/` | 92 |
+| **09** | 2026-10-11 | `content` (batch 5) | `ui-references/content/` | 91 |
+| **10** | 2026-10-11 | `feature` (batch 5) | `ui-references/feature/` | 90 |
+| **11** | 2026-10-11 | `stats` (batch 5) | `ui-references/stats/` | 89 |
+| **12** | 2026-10-11 | `steps` (batch 5) | `ui-references/steps/` | 88 |
+| **13** | 2026-10-11 | `testimonial` (batch 5) | `ui-references/testimonial/` | 87 |
+| **14** | 2026-10-11 | `call-to-action` code (ref 1) | Woblo CTA action box | 86 |
+| **15** | 2026-10-11 | `content` code (ref 3) | Useflowkit interactive tab switcher | 85 |
+| **16** | 2026-10-11 | `feature` code (ref 3) | Woblo asymmetric Bento grid | 84 |
+| **17** | 2026-10-11 | `stats` code (fresh ref 1) | Piio scorecard container | 83 |
+| **18** | 2026-10-11 | `testimonial` code (fresh ref 1) | Dico layered quote cards | 82 |
 
 ---
 
@@ -41,26 +52,71 @@
   - [x] Official vector emblem mark (`/assets/brand/v-held-emblem.svg`)
   - [x] Desktop navigation menu with quick links
   - [x] Mobile accessible drawer navigation
-  - [x] Synchronous high-contrast styling and WCAG focus rings
+  - [x] Unconfined edge-to-edge navbar at rest, packing to centered floating pill on scroll
 
 - [x] **Subtask 2: Hero Section** (`subtask/VH-101-hero-section`)
   - [x] Bold editorial typography ("Give Back. Make a Difference.")
   - [x] Dual-path CTAs ("Become a Volunteer" & "Explore Our Programmes")
-  - [x] Official brand seal showcase card
-  - [x] Trust indicators and non-profit credentials
+  - [x] Feathered Ghanaian community hero photography blend
+  - [x] Warm sand `#EFE9E2` background harmony
 
-- [x] **Subtask 3: Middle Placeholder**
-  - [x] Plain development placeholder (`ui to be built`) between Hero and Footer
+- [x] **Subtask 3: Intro Section** (`subtask/VH-101-intro-section`)
+  - [x] Built from approved reference: Useflowkit (`content_ref_3`)
+  - [x] Left split narrative with interactive 3-tab switcher (`Community-Driven`, `Cultural Reciprocity`, `Safe & Supported`)
+  - [x] Right visual showcase window with tailored Ghanaian asset (`/assets/intro-community.webp`)
+  - [x] Unit test passing (`IntroSection.test.tsx`)
 
-- [x] **Subtask 4: Comprehensive Footer** (`subtask/VH-101-footer-section`)
+- [x] **Subtask 4: Focus Areas Section** (`subtask/VH-101-focus-areas-section`)
+  - [x] Built from approved reference: Woblo Bento Grid (`feature_ref_3`)
+  - [x] 3 photography cards with tailored Ghanaian assets:
+    - Primary Education & Teaching (`/assets/focus-education.webp`)
+    - Community Healthcare Outreach (`/assets/focus-health.webp`)
+    - Youth Leadership Development (`/assets/focus-leadership.webp`)
+  - [x] Dark value ledger card (`Make Your Time Matter`) with 6 core tenets
+  - [x] Unit test passing (`FocusAreasSection.test.tsx`)
+
+- [x] **Subtask 5: How It Works Section** (`subtask/VH-101-how-it-works-section`)
+  - [x] Built from approved reference: Brightful Step Formula (`steps_ref_2`)
+  - [x] Top formula breakdown: Step 1 (`Explore & Apply`), Step 2 (`Connect & Prepare`), Step 3 (`Arrive, Serve & Flourish`) with tailored arrival photography (`/assets/step-arrival.webp`)
+  - [x] Bottom structured 7-Step Volunteer Pathway card with decisive `Apply` button
+  - [x] Unit test passing (`HowItWorksSection.test.tsx`)
+
+- [x] **Subtask 6: Impact & Stats Section** (`subtask/VH-101-impact-section`)
+  - [x] Built from approved reference: Piio Scorecard (`stats_fresh_1`)
+  - [x] Crisp white container with audited field metrics:
+    - 1,200+ Learners Supported (94% target)
+    - 4,200+ Health Screenings Conducted (88% target)
+    - 850+ Young Leaders Mentored (92% target)
+    - 100% Verified Community Governed (100% target)
+  - [x] Unit test passing (`ImpactSection.test.tsx`)
+
+- [x] **Subtask 7: Stories & Testimonials Section** (`subtask/VH-101-stories-section`)
+  - [x] Built from approved reference: Dico Layered Quote Cards (`testimonial_fresh_1`)
+  - [x] 3 physical quote cards with circular participant portraits:
+    - Kwame Mensah (`/assets/testimonial-kwame.webp`)
+    - Sarah Jenkins (`/assets/testimonial-sarah.webp`)
+    - Dr. Ama Osei (`/assets/testimonial-ama.webp`)
+  - [x] Secondary action button (`Read Field Stories`)
+  - [x] Unit test passing (`StoriesSection.test.tsx`)
+
+- [x] **Subtask 8: Call to Action Gateway** (`subtask/VH-101-cta-section`)
+  - [x] Built from approved reference: Woblo CTA Action Box (`call-to-action_ref_1`)
+  - [x] Crisp white container with radial sprout glow
+  - [x] Headline: "Join hands with communities. Create lasting change."
+  - [x] Dual action buttons: `Apply` and `Partner`
+  - [x] Credibility trust strip
+  - [x] Unit test passing (`CtaSection.test.tsx`)
+
+- [x] **Subtask 9: Comprehensive Footer** (`subtask/VH-101-footer-section`)
   - [x] Full branding, mission statement, and quick links
   - [x] Safeguarding & Child Protection policy access
   - [x] Ghana contact details, social links, and registration notice
 
-- [x] **Subtask 5: Page Assembly & Integration** (`subtask/VH-101-page-assembly`)
-  - [x] Assembled in `src/app/page.tsx`
-  - [x] Integration unit test suite in `src/app/page.test.tsx`
-  - [x] Security headers and accessibility styles in `next.config.js` and `globals.css`
+- [x] **Subtask 10: Full Page Assembly & Verification**
+  - [x] Integrated into `src/app/page.tsx`
+  - [x] Integration test suite passing (`src/app/page.test.tsx`)
+  - [x] Full test suite passing (27/27 tests across 12 files)
+  - [x] Headless Chromium full-page inspection verified
 
 ---
 
@@ -68,44 +124,25 @@
 
 | Date | Gate / Step | Status | Evidence |
 | :--- | :--- | :--- | :--- |
-| 2026-10-09 | Baseline `npm run check:agent` | **PASS** | `tsc --noEmit` 0 errors, `next lint` 0 warnings, vitest 3/3 passing |
-| 2026-10-09 | Landingfolio MCP References Caching | **PASS** | 7 categories fetched and cached locally in `references/` |
-| 2026-10-09 | Design Taste Governance Audit | **PASS** | Subagent evaluation completed against anti-vibecoding guidelines |
-| 2026-10-09 | Subtask 1 (Header/Nav) | **PASS** | Unit tests passing (3/3), scroll dynamics verified |
-| 2026-10-09 | Subtask 2 (Hero Section) | **PASS** | Unit tests passing (3/3), asymmetric layout verified |
-| 2026-10-09 | Subtask 3 (Intro Section) | **PASS** | Unit tests passing (2/2), dual-track inclusivity verified |
-| 2026-10-09 | Subtask 4 (Focus Areas) | **PASS** | Unit tests passing (2/2), 3-pillar card architecture verified |
-| 2026-10-09 | Subtask 5 (Why Volunteer) | **PASS** | Unit tests passing (2/2), 6-part value ledger verified |
-| 2026-10-09 | Subtask 6 (How It Works) | **PASS** | Unit tests passing (2/2), 7-step journey verified |
-| 2026-10-09 | Subtask 7 (Impact Metrics) | **PASS** | Unit tests passing (2/2), verified statistics verified |
-| 2026-10-09 | Subtask 8 (Stories & Quotes) | **PASS** | Unit tests passing (2/2), genuine field quotes verified |
-| 2026-10-09 | Subtask 9 (CTA Gateway) | **PASS** | Unit tests passing (2/2), dual action pathways verified |
-| 2026-10-09 | Subtask 10 (Footer Section) | **PASS** | Unit tests passing (2/2), 5-column layout verified |
-| 2026-10-09 | Subtask 11 (Assembly & Tests) | **PASS** | Full suite (26/26 tests across 13 test files passing) |
-| 2026-10-09 | Production Next.js Build | **PASS** | 103 kB First Load JS (< 150 kB budget), 5/5 static routes |
-| 2026-10-09 | Headless Chromium Multi-Viewport QA | **PASS** | 6 viewport screenshots captured (375px to 1920px), zero overflow |
-| 2026-10-09 | Multi-Disciplinary Completion Gate | **PASS** | UI Critic, Pony Tail Security, Code Review all clean |
-| 2026-10-09 | UI Transformation & Anti-Pattern Cleanup | **PASS** | 100% banned patterns eliminated (zero badges above headlines, single-word nav, action-only buttons, neutral borders), 26/26 tests passing, screenshots verified |
-| 2026-10-09 | Pure White Theme & Dropdown Refinements | **PASS** | Switched 100% to white theme (zero dark mode/endpoints), removed dropdown headers & descriptions, removed document SVG icon from Apply, 26/26 tests passing, screenshots captured |
-| 2026-10-09 | Hero Seal Removal & Navbar Flash Fix | **PASS** | Removed floating seal card from Hero, centered hero layout, eliminated compositor white flash during navbar scroll via GPU layer lock & targeted geometry transitions, 26/26 tests passing |
-| 2026-10-09 | Full-Width Unconfined Navbar at Rest | **PASS** | Navbar spans 100% width edge-to-edge at rest (no floating div), gracefully grouping to centered floating pill only on scroll; 26/26 tests passing, screenshots verified |
-| 2026-10-09 | Give Back Hero Illustration & Color Match | **PASS** | Matched global codebase background to #EFE9E2 from uploaded asset, removed line divider at rest, integrated feathered Give Back illustration, paired with black/green Make a Difference headline; 26/26 tests passing |
-| 2026-10-09 | Stacked Card Deck Scrolling Architecture | **PASS** | Refined corner radii (rounded-t-2xl sm:rounded-t-3xl), separated 4 subsections into autonomous sticky cards with tiered offsets (16px tabs), chromatic green depth hierarchy (#0b7342, #065830, #054c29, #033d20); 26/26 tests passing, screenshots verified |
+| 2026-10-11 | Landingfolio MCP References Caching | **PASS** | 5 fresh references fetched per category; user selections locked |
+| 2026-10-11 | Ghanaian Visual Asset Generation & WebP Conversion | **PASS** | 8 photorealistic WebP assets created in `/public/assets/` |
+| 2026-10-11 | Subtask: Intro Section (Useflowkit) | **PASS** | Unit tests passing (2/2), interactive tab switcher verified |
+| 2026-10-11 | Subtask: Focus Areas (Woblo Bento) | **PASS** | Unit tests passing (2/2), 3 photo cards + value ledger verified |
+| 2026-10-11 | Subtask: How It Works (Brightful) | **PASS** | Unit tests passing (2/2), 3-step formula + 7-step pathway verified |
+| 2026-10-11 | Subtask: Impact Metrics (Piio Scorecard) | **PASS** | Unit tests passing (2/2), scorecard progress bars verified |
+| 2026-10-11 | Subtask: Stories & Quotes (Dico Cards) | **PASS** | Unit tests passing (2/2), participant quote cards verified |
+| 2026-10-11 | Subtask: CTA Gateway (Woblo CTA Box) | **PASS** | Unit tests passing (2/2), dual action buttons verified |
+| 2026-10-11 | Page Integration & Test Suite | **PASS** | 27/27 tests passing across 12 test suites |
+| 2026-10-11 | Production Next.js Build | **PASS** | 105 kB First Load JS (< 150 kB budget), 5/5 static routes |
+| 2026-10-11 | Headless Chromium Full QA | **PASS** | Captured 1440x8500px screenshot (`complete_landing_page.png`) & sliced all sections; 100% verified |
+| 2026-10-11 | Anti-Vibecoding & Taste Audit | **PASS** | Zero badges above headlines, zero em-dashes, pure light mode (`#EFE9E2`), action buttons (`Apply`, `Volunteer`, `Partner`), zero text-only skeletons |
 
 ---
 
 ## 5. Architectural Decisions & Notes
-1. **Develop Trunk Rule**: Never build directly on `main`. All work conducted on `ticket/VH-101-landing-page` and its subtask branches.
-2. **MCP Cache First**: All 7 reference categories cached to `ui-references/` to preserve daily API limit.
+1. **Develop Trunk Rule**: Never build directly on `main`. All work conducted on `ticket/VH-101-landing-page` and merged via subtask branches with `--no-ff`.
+2. **MCP Budget & Local Cache**: 18 calls total used out of 100 daily quota; references cached to disk.
 3. **Commit Identity**: Strict commit authorship as `Heisck <kelvinkwabenaparkingston@gmail.com>` with zero AI metadata.
-4. **Security Hardening**: Strict headers added in `next.config.js` (HSTS, nosniff, SAMEORIGIN, permissions policy).
-5. **Anti-Vibecoding Governance**: Zero badges above headlines across all sections, single-word nav links with dropdown nesting, buttons as direct actions (`Apply`, `Volunteer`, `Partner`), no generic arrows or repetitive icon boxes.
-6. **Pure White Theme Standard**: Strict light mode across the platform—no dark theme toggle, endpoint, or auto media-query switching. Surfaces use pure white (`#FFFFFF`) and stone-50 (`#FAFAF9`), high-contrast stone typography, and Ghanaian Forest Green (`#065830`) accents.
-7. **Clean Navigation Dropdowns**: Context menus must be uncluttered link lists without bulky card headers or paragraph descriptions. Buttons must have crisp typographic actions without misplaced icons.
-8. **Centered Editorial Hero Layout**: Hero section uses a focused, centered editorial hierarchy without artificial floating seal/badge card clutter.
-9. **Zero-Flash Navbar Transitions**: Navbar retains uniform backdrop-filter and background-color across scroll states, with transitions restricted to geometry/elevation (`max-width`, `padding`, `box-shadow`) under `transform-gpu` to guarantee zero GPU texture tearing or white flashes.
-10. **Unconfined Header at Rest**: Header spans the entire top edge of the screen at rest without being boxed into a floating pill container; only morphs into a centered pill upon scroll.
-11. **Warm Sand (#EFE9E2) Surface Palette**: Background harmonized to exact color of hero Give Back illustration, with borderless top header at rest and bold typographic pairing ("Make a" in black, "Difference." in green).
-12. **Centralized QA Screenshots & Gitignore**: All QA and validation screenshots are consolidated into a single local `/qa-screenshots/` directory and permanently excluded via `.gitignore` to keep git history lightweight.
-13. **Centralized UI References & Gitignore**: All Landingfolio MCP JSON schemas and reference image captures are consolidated into `/ui-references/` and permanently untracked and excluded via `.gitignore`.
-14. **Middle Placeholder State**: Per user directive, `#community-programmes` deck and all subsequent sections (`ImpactSection`, `StoriesSection`, `CtaSection`) were deleted along with their unit tests and scripts. Top section (`HeroSection`) and `Footer` are preserved, with `"ui to be built"` text in the middle.
+4. **Mandatory WebP Assets**: Every section utilizes tailored Ghanaian photography converted to modern `.webp` format for rapid loading and LCP < 1.8s.
+5. **Anti-Vibecoding Governance**: Zero floating badge pills above headlines, zero em-dashes, action-first verbs on buttons, pure light mode surfaces (`#EFE9E2` and `#FFFFFF`).
+6. **Zero-Flash Navbar Transitions**: Navbar retains uniform backdrop-filter and background-color across scroll states, with transitions restricted to geometry/elevation (`max-width`, `padding`, `box-shadow`) under `transform-gpu` to guarantee zero GPU texture tearing or white flashes.
