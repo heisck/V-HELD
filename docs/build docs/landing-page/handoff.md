@@ -48,12 +48,12 @@ All implemented UI components were referenced from cached Landingfolio component
 ## 3. Responsive Breakpoints & Multi-Viewport Verification
 
 Verified via Headless Chromium (`google-chrome --headless=new`) against production build:
-- **Mobile Small (375px)**: `docs/build docs/landing-page/qa-screenshots/mobile_375.png`
-- **Mobile Large (414px)**: `docs/build docs/landing-page/qa-screenshots/mobile_414.png`
-- **Tablet Portrait (768px)**: `docs/build docs/landing-page/qa-screenshots/tablet_768.png`
-- **Laptop (1024px)**: `docs/build docs/landing-page/qa-screenshots/laptop_1024.png`
-- **Desktop Standard (1440px)**: `docs/build docs/landing-page/qa-screenshots/desktop_1440.png`
-- **Ultrawide (1920px)**: `docs/build docs/landing-page/qa-screenshots/ultrawide_1920.png`
+- **Mobile Small (375px)**: `qa-screenshots/mobile_375.png`
+- **Mobile Large (414px)**: `qa-screenshots/mobile_414.png`
+- **Tablet Portrait (768px)**: `qa-screenshots/tablet_768.png`
+- **Laptop (1024px)**: `qa-screenshots/laptop_1024.png`
+- **Desktop Standard (1440px)**: `qa-screenshots/desktop_1440.png`
+- **Ultrawide (1920px)**: `qa-screenshots/ultrawide_1920.png`
 
 Zero horizontal overflow, zero clipping, zero layout overlap.
 

@@ -78,7 +78,8 @@ async def capture_scrolled():
             shot_res = json.loads(await ws.recv())
             data = shot_res.get("result", {}).get("data")
             if data:
-                out_path = "docs/build docs/landing-page/qa-screenshots/header_desktop_scrolled.png"
+                os.makedirs("qa-screenshots", exist_ok=True)
+                out_path = "qa-screenshots/header_desktop_scrolled.png"
                 with open(out_path, "wb") as f:
                     f.write(base64.b64decode(data))
                 print(f"Captured scrolled screenshot: {out_path} ({os.path.getsize(out_path)} bytes)")
