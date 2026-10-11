@@ -30,15 +30,35 @@ const VOLUNTEER_SUBITEMS: SubItem[] = [
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navRef = useRef<HTMLElement>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 20);
+
+      // Always show at top
+      if (currentScrollY <= 60) {
+        setIsVisible(true);
+      } else {
+        const delta = currentScrollY - lastScrollYRef.current;
+        // Significant scroll threshold to prevent jitter
+        if (delta > 8) {
+          // Scrolling down -> hide navbar
+          setIsVisible(false);
+        } else if (delta < -8) {
+          // Scrolling up -> show navbar
+          setIsVisible(true);
+        }
+      }
+
+      lastScrollYRef.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -90,7 +110,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none transition-[padding] duration-300 ease-out ${
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none transition-all duration-300 ease-out transform ${
+        isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+      } ${
         isScrolled ? 'pt-3 sm:pt-4 px-4 sm:px-6' : 'pt-0 px-0'
       }`}
     >
