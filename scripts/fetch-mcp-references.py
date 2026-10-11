@@ -4,14 +4,31 @@ import os
 import sys
 import urllib.request
 
-TOKEN = "lf_ca17041e0954e655633681fb6a5c56b9"
 MCP_URL = "https://mcp.landingfolio.com/mcp"
 
+def get_token():
+    env_token = os.environ.get("LANDINGFOLIO_TOKEN")
+    if env_token:
+        return env_token
+    config_path = os.path.join(os.path.dirname(__file__), "..", "folio-mcp.json")
+    if os.path.exists(config_path):
+        try:
+            with open(config_path, "r", encoding="utf-8") as f:
+                cfg = json.load(f)
+                auth = cfg.get("mcpServers", {}).get("landingfolio", {}).get("headers", {}).get("Authorization", "")
+                if auth.startswith("Bearer "):
+                    return auth.split("Bearer ", 1)[1]
+                return auth
+        except Exception:
+            pass
+    return ""
+
 def call_mcp(name, arguments):
+    token = get_token()
     req = urllib.request.Request(
         MCP_URL,
         headers={
-            "Authorization": f"Bearer {TOKEN}",
+            "Authorization": f"Bearer {token}",
             "Content-Type": "application/json",
             "Accept": "application/json, text/event-stream"
         },

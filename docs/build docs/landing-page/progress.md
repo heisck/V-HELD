@@ -24,13 +24,13 @@
 
 | Call # | Date | Category Queried | Local Cache Files | Calls Remaining |
 | :--- | :--- | :--- | :--- | :--- |
-| **01** | 2026-10-09 | `header` | `docs/build docs/landing-page/references/header.json`<br>`header_ref_1.jpg`, `header_ref_2.jpg` | 99 |
-| **02** | 2026-10-09 | `hero` | `docs/build docs/landing-page/references/hero.json`<br>`hero_ref_1.jpg`, `hero_ref_2.jpg` | 98 |
-| **03** | 2026-10-09 | `feature` | `docs/build docs/landing-page/references/feature.json`<br>`feature_ref_1.jpg`, `feature_ref_2.jpg` | 97 |
-| **04** | 2026-10-09 | `stats` | `docs/build docs/landing-page/references/stats.json`<br>`stats_ref_1.jpg`, `stats_ref_2.jpg` | 96 |
-| **05** | 2026-10-09 | `testimonial` | `docs/build docs/landing-page/references/testimonial.json`<br>`testimonial_ref_1.jpg`, `testimonial_ref_2.jpg` | 95 |
-| **06** | 2026-10-09 | `call-to-action` | `docs/build docs/landing-page/references/call-to-action.json`<br>`call-to-action_ref_1.jpg`, `call-to-action_ref_2.jpg` | 94 |
-| **07** | 2026-10-09 | `footer` | `docs/build docs/landing-page/references/footer.json`<br>`footer_ref_1.jpg`, `footer_ref_2.jpg` | 93 |
+| **01** | 2026-10-09 | `header` | `ui-references/header.json`<br>`header_ref_1.jpg`, `header_ref_2.jpg` | 99 |
+| **02** | 2026-10-09 | `hero` | `ui-references/hero.json`<br>`hero_ref_1.jpg`, `hero_ref_2.jpg` | 98 |
+| **03** | 2026-10-09 | `feature` | `ui-references/feature.json`<br>`feature_ref_1.jpg`, `feature_ref_2.jpg` | 97 |
+| **04** | 2026-10-09 | `stats` | `ui-references/stats.json`<br>`stats_ref_1.jpg`, `stats_ref_2.jpg` | 96 |
+| **05** | 2026-10-09 | `testimonial` | `ui-references/testimonial.json`<br>`testimonial_ref_1.jpg`, `testimonial_ref_2.jpg` | 95 |
+| **06** | 2026-10-09 | `call-to-action` | `ui-references/call-to-action.json`<br>`call-to-action_ref_1.jpg`, `call-to-action_ref_2.jpg` | 94 |
+| **07** | 2026-10-09 | `footer` | `ui-references/footer.json`<br>`footer_ref_1.jpg`, `footer_ref_2.jpg` | 93 |
 
 ---
 
@@ -130,7 +130,7 @@
 
 ## 5. Architectural Decisions & Notes
 1. **Develop Trunk Rule**: Never build directly on `main`. All work conducted on `ticket/VH-101-landing-page` and its subtask branches.
-2. **MCP Cache First**: All 7 reference categories cached to `docs/build docs/landing-page/references/` to preserve daily API limit.
+2. **MCP Cache First**: All 7 reference categories cached to `ui-references/` to preserve daily API limit.
 3. **Commit Identity**: Strict commit authorship as `Heisck <kelvinkwabenaparkingston@gmail.com>` with zero AI metadata.
 4. **Security Hardening**: Strict headers added in `next.config.js` (HSTS, nosniff, SAMEORIGIN, permissions policy).
 5. **Anti-Vibecoding Governance**: Zero badges above headlines across all sections, single-word nav links with dropdown nesting, buttons as direct actions (`Apply`, `Volunteer`, `Partner`), no generic arrows or repetitive icon boxes.
@@ -142,3 +142,4 @@
 11. **Warm Sand (#EFE9E2) Surface Palette**: Background harmonized to exact color of hero Give Back illustration, with borderless top header at rest and bold typographic pairing ("Make a" in black, "Difference." in green).
 12. **Centralized QA Screenshots & Gitignore**: All QA and validation screenshots are consolidated into a single local `/qa-screenshots/` directory and permanently excluded via `.gitignore` to keep git history lightweight.
 13. **Stacked Card Deck Scrolling Architecture**: The 4 community programme subsections (`IntroSection`, `FocusAreasSection`, `WhyVolunteerSection`, `HowItWorksSection`) are autonomous physical cards within `#community-programmes`. Features refined corner radii (`rounded-t-2xl sm:rounded-t-3xl`), staggered sticky top offsets (`top-14 sm:top-20`, `top-18 sm:top-24`, `top-22 sm:top-28`, `top-26 sm:top-32`), and a chromatic depth hierarchy (fainter green `#0b7342` for Card 1 behind, rich `#065830` for Card 2 in front, deep `#054c29` for Card 3, dark `#033d20` for Card 4). Card 1 pins beneath the floating navbar, and subsequent cards slide over the preceding card while leaving ~16px-24px tiered tabs visible at the top.
+14. **Centralized UI References & Gitignore**: All Landingfolio MCP JSON schemas and reference image captures are consolidated into `/ui-references/` and permanently untracked and excluded via `.gitignore`.

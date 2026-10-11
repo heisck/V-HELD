@@ -104,7 +104,7 @@ Every ticket branch must have a dedicated documentation subfolder created immedi
   ### Landingfolio MCP Daily Usage Tracker (Daily Limit: 100)
   | Call # | Date | Component / Section Queried | Local Cache Path | Calls Remaining |
   | :--- | :--- | :--- | :--- | :--- |
-  | 01 | 2026-10-09 | Hero Editorial Layout | docs/build docs/landing-page/references/hero.png | 99 |
+  | 01 | 2026-10-09 | Hero Editorial Layout | ui-references/hero_ref_1.jpg | 99 |
   ```
 - **Deliverables Checklist**: Granular checkbox list (`- [x]` / `- [ ]`) of implemented components and features.
 - **Validation & Test History**: Record of type-check, lint, unit tests, and browser verification passes.

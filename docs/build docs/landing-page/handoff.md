@@ -11,7 +11,7 @@
 
 ### 1.1 Local MCP Reference Cache
 All implemented UI components were referenced from cached Landingfolio components located in:
-`docs/build docs/landing-page/references/`
+`ui-references/`
 - `header.json` & `header_ref_*.jpg`
 - `hero.json` & `hero_ref_*.jpg`
 - `feature.json` & `feature_ref_*.jpg`

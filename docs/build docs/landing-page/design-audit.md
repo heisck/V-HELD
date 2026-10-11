@@ -41,7 +41,7 @@ The V-HELD homepage is the foundational touchpoint for an authentic Ghanaian non
 ## 3. Section-by-Section Aesthetic Direction & Reference Evaluation
 
 ### 3.1 Header / Navigation Component (`Navbar.tsx`)
-- **Landingfolio References**: `docs/build docs/landing-page/references/header.json` (Reference points: `spendflo`, `featurebase`, `useflowkit`).
+- **Landingfolio References**: `ui-references/header.json` (Reference points: `spendflo`, `featurebase`, `useflowkit`).
 - **Aesthetic Direction**:
   - **Resting State**: Clean, edge-to-edge transparent or high-contrast bar (`max-w-7xl mx-auto px-6 py-5`). Uses official horizontal brand lockup (`/assets/brand/v-held-logo-horizontal.svg` or dark variant).
   - **Scrolled Floating Pill Dynamics**: On `scrollY > 20px`, smoothly transitions to a compact floating bar (`max-w-5xl rounded-full bg-[#121110]/95 backdrop-blur-md border border-stone-800/80 px-6 py-3 shadow-xl`).
@@ -52,7 +52,7 @@ The V-HELD homepage is the foundational touchpoint for an authentic Ghanaian non
   - **Mobile Drawer**: Full-screen accessible dialog with clean vertical navigation, direct contact numbers (Accra office & WhatsApp), and prominent application CTA.
 
 ### 3.2 Hero Section (`HeroSection.tsx`)
-- **Landingfolio References**: `docs/build docs/landing-page/references/hero.json` (Reference points: `rulebase`, `squarespace`, `scotch`).
+- **Landingfolio References**: `ui-references/hero.json` (Reference points: `rulebase`, `squarespace`, `scotch`).
 - **Layout Strategy**:
   - **Asymmetric Split Editorial Layout** (not centered generic text over a dark void).
   - **Left Column (60% Desktop)**:
@@ -76,7 +76,7 @@ The V-HELD homepage is the foundational touchpoint for an authentic Ghanaian non
   - Editorial Link: "Learn More About Our Story ➔" with warm gold underline transition.
 
 ### 3.4 Core Focus Areas (`FocusAreasSection.tsx`)
-- **Landingfolio References**: `docs/build docs/landing-page/references/feature.json` (Reference points: `prointro`, `near`, `atlas`).
+- **Landingfolio References**: `ui-references/feature.json` (Reference points: `prointro`, `near`, `atlas`).
 - **Anti-Vibecoding Directive**: Strictly avoid 3 identical square cards with Lucide icons.
 - **Aesthetic Direction — Asymmetric 3-Pillar Architectural Cards**:
   - **Card 1: Education & Teaching** (Ghanaian Forest Green accent `#065830`):
@@ -115,7 +115,7 @@ The V-HELD homepage is the foundational touchpoint for an authentic Ghanaian non
   - Dual Guidance Notice: Step 04 ("Prepare") and Step 05 ("Arrive & Orient") explicitly specify tailored guidance tracks for **Ghanaian applicants** (regional logistics, placement dates) and **International volunteers** (visa, pre-departure briefing, airport reception in Accra).
 
 ### 3.7 Impact Metrics & Accountability (`ImpactSection.tsx`)
-- **Landingfolio References**: `docs/build docs/landing-page/references/stats.json` (Reference points: `orshot`, `mailbrew`, `appfollow`).
+- **Landingfolio References**: `ui-references/stats.json` (Reference points: `orshot`, `mailbrew`, `appfollow`).
 - **Aesthetic Direction**:
   - 4-column statistical ledger with warm editorial framing.
   - Metrics:
@@ -127,7 +127,7 @@ The V-HELD homepage is the foundational touchpoint for an authentic Ghanaian non
   - Zero flashing crypto counters or neon glow effects.
 
 ### 3.8 Stories from the Field & Testimonials (`StoriesSection.tsx`)
-- **Landingfolio References**: `docs/build docs/landing-page/references/testimonial.json` (Reference points: `spendflo`, `surge`, `designup`).
+- **Landingfolio References**: `ui-references/testimonial.json` (Reference points: `spendflo`, `surge`, `designup`).
 - **Aesthetic Direction**:
   - Real voices, genuine dignifying photography, zero fake 5-star rating stars.
   - Curated diverse perspectives:
@@ -137,7 +137,7 @@ The V-HELD homepage is the foundational touchpoint for an authentic Ghanaian non
   - Editorial layout with pull-quote typography, author role, placement location, and origin flag/badge.
 
 ### 3.9 Primary Call to Action Section (`CtaSection.tsx`)
-- **Landingfolio References**: `docs/build docs/landing-page/references/call-to-action.json` (Reference points: `woblo`, `near`, `checkout-page`).
+- **Landingfolio References**: `ui-references/call-to-action.json` (Reference points: `woblo`, `near`, `checkout-page`).
 - **Aesthetic Direction**:
   - High-impact, deep Ghanaian Forest Green container (`bg-[#065830]`) framed with Warm Gold accents.
   - Headline: **"Ready to Make a Difference? Join V-HELD Today."**
@@ -148,7 +148,7 @@ The V-HELD homepage is the foundational touchpoint for an authentic Ghanaian non
   - Reassurance notes: Transparent non-profit governance • Year-round applications • Dedicated in-country coordinators.
 
 ### 3.10 Comprehensive Footer (`Footer.tsx`)
-- **Landingfolio References**: `docs/build docs/landing-page/references/footer.json` (Reference points: `simeon`, `rulebase`, `atlas`).
+- **Landingfolio References**: `ui-references/footer.json` (Reference points: `simeon`, `rulebase`, `atlas`).
 - **Aesthetic Direction**:
   - 5-column comprehensive non-profit footer on `#090807` with 1px `border-stone-800` top divider.
   - Column 1: Brand lockup (`v-held-logo-horizontal-dark.svg`), mission statement (*Volunteer. Serve. Develop.*), and non-profit registration notice.

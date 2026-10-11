@@ -46,3 +46,11 @@ screenshots/
 /screenshots/
 **/screenshots/**
 *.png
+
+# UI References
+ui-references/
+/ui-references/
+**/ui-references/**
+references/
+/references/
+**/references/**
