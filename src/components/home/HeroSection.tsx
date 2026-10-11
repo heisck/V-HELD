@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative pt-24 sm:pt-28 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center"
+      className="relative pt-24 sm:pt-28 pb-4 sm:pb-6 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center"
     >
       <div className="space-y-6 sm:space-y-8">
         {/* Artistic Give Back Illustration */}
