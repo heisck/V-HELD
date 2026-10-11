@@ -30,11 +30,6 @@ export default function HeroSection() {
           <span className="text-[#065830]">Difference.</span>
         </h1>
 
-        {/* Subtitle / Core Narrative */}
-        <p className="text-base sm:text-lg lg:text-xl text-stone-700 leading-relaxed max-w-2xl mx-auto font-normal">
-          V-HELD connects passionate volunteers from Ghana and across the world with community-led initiatives in education, community health, and youth leadership.
-        </p>
-
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
           <Link
@@ -54,7 +49,7 @@ export default function HeroSection() {
 
         {/* Context Credentials */}
         <div className="pt-4 text-xs text-stone-600 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 font-medium">
-          <span>Registered Non-Profit in Ghana</span>
+          <span>Non-Profit in Ghana</span>
           <span className="text-stone-400" aria-hidden="true">•</span>
           <span>Community-Led Placements</span>
           <span className="text-stone-400" aria-hidden="true">•</span>
