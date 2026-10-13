@@ -38,6 +38,58 @@ Before implementing or modifying code, read and follow the dedicated specificati
 
 ---
 
+## 1.0 CRITICAL RULES THE MODEL PREVIOUSLY VIOLATED (MANDATORY & NON-NEGOTIABLE)
+
+> **WARNING TO ALL AGENTS — READ CAREFULLY**: In prior implementation runs, the model failed to follow explicit instructions. It produced text-only skeleton pages (just a big bold headline and divs with text/bullets), skipped generating tailored images for reference media slots, violated anti-vibecoding rules by plastering badges above headlines and em-dashes everywhere, animated backdrop filters causing compositor flashes, and bloated the navigation. Consequently, **7 entire sections were stripped from the codebase in commit `ee9ee21`**.
+>
+> **THESE RULES ARE NON-NEGOTIABLE. EVERY AGENT AND CONTRIBUTOR MUST STRICTLY ADHERE TO THEM. NEVER IGNORE OR BYPASS THEM.**
+
+### 1. **MANDATORY REFERENCE IMAGE GENERATION & WEBP ASSETS (NEVER REPLACE IMAGES WITH TEXT DIVS)**
+- **When referencing designs from Landingfolio or UI libraries that contain images, the agent MUST generate tailored visual assets fitting V-HELD's Ghanaian community development context (education, healthcare, youth leadership, authentic community partnership).**
+- **ALL generated and imported raster images MUST be converted to `.webp` format for rapid loading, low bandwidth, and optimal Core Web Vitals (LCP < 1.8s).**
+- **NEVER LEAVE AN IMAGE SLOT EMPTY. NEVER SUBSTITUTE A REFERENCE IMAGE WITH A PLAIN TEXT BOX OR COLORED DIV.**
+
+### 2. **ABSOLUTE BAN ON TEXT-ONLY SKELETON / EMPTY DIV PAGES (WHY PAST SECTIONS WERE REMOVED)**
+- **A PAGE OR SECTION THAT CONSISTS MERELY OF A BIG BOLD HEADER TEXT AND DIVS WITH PLAIN TEXT / BULLET POINTS IS COMPLETELY WRONG AND WILL BE REJECTED.**
+- **Commit `ee9ee21` stripped 7 sections (`IntroSection`, `FocusAreasSection`, `WhyVolunteerSection`, `HowItWorksSection`, `ImpactSection`, `StoriesSection`, `CtaSection`) specifically because the model built them as text-only boxes.**
+- **Agents MUST look at those removed UIs and REFRAIN from ever building sections like that again.** Every section must possess rich visual craft, tailored media, structured hierarchy, and physical depth.
+
+### 3. **STRICT UI CRITIC ENFORCEMENT & ZERO-TOLERANCE ANTI-VIBECODING**
+- **The UI Critic agent must NEVER falsely claim compliance.**
+- **ZERO BADGES ABOVE HEADLINES**: No floating pill tags, dot markers, or uppercase tracking badges above headings (e.g. `[• MEASURABLE OUTCOMES]`, `[• VOICES FROM THE FIELD]`, `[• TAKE ACTION TODAY]`). Headlines must speak with confidence.
+- **ZERO EM-DASHES EVERYWHERE**: Eliminate repetitive `—` crutches across headings, subtitles, and labels.
+- **ZERO GENERIC BOOTSTRAP CARDS / 3 ICON BOXES**: Replicate the literal asymmetry, density, and scale contrast of approved references.
+
+### 4. **STRICT PURE LIGHT THEME & BACKGROUND HARMONY (ZERO `dark:` CLASSES)**
+- **The platform is STRICTLY LIGHT-MODE ONLY.** No dark theme toggle, no dark endpoints, no auto `prefers-color-scheme` switching.
+- **STRIP ALL `dark:` TAILWIND CLASSES FROM THE CODEBASE.**
+- **Harmonize backgrounds directly to `#FFFFFF` (crisp white) and `#EFE9E2` (organic warm sand). Brand colors (Ghanaian Forest Green `#065830`, African Gold `#E3A709`, Terracotta `#C34D21`) provide high contrast on white surfaces.**
+
+### 5. **BUTTON & NAVIGATION PURITY ("BE THE ACTION", SINGLE-WORD LABELS)**
+- **BUTTONS MUST BE THE ACTION, NOT DESCRIBE IT**: Use short decisive action verbs (`Apply`, `Volunteer`, `Partner`). Never use verbose phrases like "Apply to Volunteer" or "Partner With Us Today".
+- **MAXIMUM 3 TO 4 TOP-LEVEL NAV ITEMS WITH SINGLE-WORD LABELS**: `About`, `Focus`, `Volunteer`, `Partner`, `Contact`. Double-word labels look amateur.
+- **NO CLUTTER IN DROPDOWNS**: Clean, scannable link lists without descriptive multi-line card filler.
+- **NAVBAR UNCONFINED AT REST**: Edge-to-edge full width at rest (`scrollY = 0`), borderless (`border-0`), melting seamlessly into the `#EFE9E2` page surface. Packs into a centered floating pill only on scroll.
+
+### 6. **ZERO COMPOSITOR FLASH DURING SCROLL (NEVER ANIMATE `backdrop-filter`)**
+- **NEVER animate `backdrop-filter` or background opacity with `transition-all`.** Doing so forces the browser's compositor to drop the GPU texture cache, flashing raw white on scroll.
+- **Maintain 100% identical background and blur properties across resting and scrolled states.** Constrain transitions strictly to geometry/elevation (`transition-[max-width,padding,box-shadow,border-radius]`), and apply `transform-gpu`.
+
+### 7. **PHYSICAL CRAFT, CHROMATIC STACKED CARD DECKS & REFINED RADII**
+- **Use interactive stacked card decks with sticky tiered stacking mechanics and chromatic green hierarchy (`#0b7342` -> `#065830` -> `#054c29` -> `#033d20`) with upward elevation drop shadows.**
+- **Refined corner radii: `rounded-t-2xl sm:rounded-t-3xl` (16px–24px). NEVER use oversized cartoonish `4.5rem` / `72px` curvatures.**
+- **No empty disconnected stroke SVG dividers.**
+
+### 8. **VISUAL INSPECTION LOOP (NEVER CODE BLIND)**
+- **Never just write code and assume it looks good. The mandatory loop is:**
+  1. Write the component cleanly with literal reference deconstruction and tailored WebP assets.
+  2. Capture a headless Chromium screenshot.
+  3. Visually inspect the image file.
+  4. Verify it is NOT a text-only skeleton, has no badges above headlines, and has no compositor glitches.
+  5. Refine immediately before proceeding.
+
+---
+
 ## 1.1 Core Architectural Principles & Review Gate
 
 All contributors and agents must uphold two core architectural principles:
@@ -113,30 +165,42 @@ Until the entire application is completed, all development must strictly follow 
 
 > **Detailed Specification**: [`docs/ui-patterns-avoid.md`](docs/ui-patterns-avoid.md)
 
-Avoid making the app look "vibecoded." Specifically avoid:
+Avoid making the app look "vibecoded" or like an AI template. Specifically avoid the following 32 anti-patterns:
 
-1. Purple-to-blue gradients
-2. Gradient hero text
-3. Emojis in headings
-4. Using Inter everywhere
-5. Colored-border cards
-6. Glassmorphism cards
-7. Low-contrast dark mode
-8. Three icon boxes in a row
-9. Badge above the headline
-10. Lucide icons everywhere
-11. Untouched Shadcn UI
-12. Fade-in-on-scroll effects
-13. Cursor-following beams
-14. Buttons that only fade/change on hover
-15. Inconsistent spacing
-16. Em dashes everywhere
-17. Generic buzzword copy
-18. Serif italic accents
-19. Space Grotesk + Instrument Serif as a generic combination
-20. Grain/noise texture over gradients
+1. **Purple-to-blue gradients**
+2. **Gradient hero text**
+3. **Emojis in headings**
+4. **Using Inter everywhere**
+5. **Colored-border cards**
+6. **Glassmorphism cards**
+7. **Low-contrast dark mode**
+8. **Three icon boxes in a row**
+9. **Badge above the headline** (e.g. `[• MEASURABLE OUTCOMES]`, `[• VOICES FROM THE FIELD]`, `[• TAKE ACTION TODAY]`)
+10. **Lucide icons everywhere** (decorative icon clouds)
+11. **Untouched Shadcn UI**
+12. **Fade-in-on-scroll effects**
+13. **Cursor-following beams**
+14. **Buttons that only fade/change on hover**
+15. **Inconsistent spacing**
+16. **Em dashes everywhere** (repetitive `—` crutches)
+17. **Generic buzzword copy**
+18. **Serif italic accents**
+19. **Space Grotesk + Instrument Serif as a generic combination**
+20. **Grain/noise texture over gradients**
+21. **Text-Only Skeleton Sections (BANNED: Big bold header + plain text divs — the pattern stripped in commit `ee9ee21`)**
+22. **Skipping Tailored Image Generation for Reference Media Slots (must generate WebP assets for all reference slots)**
+23. **Verbose / Descriptive Button Labels (Buttons must BE the action: `Apply`, `Volunteer`, not "Apply to Volunteer")**
+24. **Misplaced / Nonsensical Icons (No currency/dollar icons on volunteer buttons; no blind forward arrows `→` everywhere)**
+25. **Dark Mode / Dark Endpoints in Light-Mode Application (Strictly light-mode `#FFFFFF` and `#EFE9E2`; zero `dark:` classes)**
+26. **Compositor Flash via Animated Backdrop Filters (Never animate `backdrop-filter` with `transition-all`)**
+27. **Artificial Hero Seal / Badge Boxes (Floating seal cards cluttering hero)**
+28. **Confined / Island Navbar at Rest (Navbar must be edge-to-edge unconfined at rest, packing to centered pill on scroll)**
+29. **Oversized Cartoonish Corner Curvatures (Avoid `4.5rem` / `72px`; use sleek `rounded-t-2xl sm:rounded-t-3xl`)**
+30. **Empty Disconnected Stroke Dividers (Use container boundaries and elevation drop shadows)**
+31. **Bulky Dropdown Card Fluff (Keep dropdowns lightweight and scannable without multi-line filler)**
+32. **Superficial MCP Usage (Literally deconstruct grid ratios, scale, spacing, density, and media; do not invent from memory)**
 
-**Design Philosophy**: Design should feel intentional, polished, distinctive, functional, and product-specific (reflecting V-HELD's mission: warm, human, authentic Ghanaian community development, professional NGO aesthetic) rather than resembling an AI-generated template.
+**Design Philosophy**: Design should feel intentional, polished, distinctive, functional, and product-specific (reflecting V-HELD's mission: warm, human, authentic Ghanaian community development, professional NGO aesthetic) rather than resembling an AI-generated template. Every section must possess physical craft, tailored WebP media, and clear visual hierarchy.
 
 ### 2.1 Landingfolio MCP UI Reference & Taste Governance
 

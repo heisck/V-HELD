@@ -23,6 +23,9 @@ The project is **DONE** only when the following conditions have been **actually 
 * [ ] The organisation's visual identity is distinctive, dignified, and culturally grounded.
 * [ ] The experience contains at least one genuinely memorable, delightful, and signature interaction ("WOW" moment).
 * [ ] The final experience feels authored rather than assembled from templates.
+* [ ] **ZERO Text-Only Skeleton Sections**: No section is built as merely a big bold headline and divs with plain text bullet points (the banned pattern stripped in commit `ee9ee21`).
+* [ ] **Mandatory Tailored WebP Media**: Reference image slots feature authentic, tailored WebP media (`.webp`) representing Ghanaian community partnership, classrooms, health outreach, and youth leadership. No empty text-box substitutions.
+* [ ] **Strict Pure Light Theme**: The application operates strictly in light mode (`#FFFFFF` and `#EFE9E2`). Zero `dark:` Tailwind classes exist in the codebase.
 
 ---
 
@@ -46,12 +49,21 @@ The project is **DONE** only when the following conditions have been **actually 
 * [ ] No element looks like an unstyled browser default.
 * [ ] No component appears accidentally copied from a template or library demo.
 * [ ] No section feels unfinished, hollow, or like an afterthought.
+* [ ] **Zero Badges Above Headlines**: No floating pill tags, dot markers, or uppercase tracking badges above headings (`• OUTCOMES`).
+* [ ] **Zero Em-Dashes**: No overuse of `—` in headings, labels, or badges.
+* [ ] **Refined Corner Curvatures**: Card sections use sleek `rounded-t-2xl sm:rounded-t-3xl` (16px–24px), never oversized `4.5rem` / `72px` curves.
+* [ ] **Natural Card Boundaries**: No disconnected SVG strokes between sections; container boundaries with subtle border highlights and elevation drop shadows provide depth.
 
 ---
 
 ## 3. Interaction Design
 
 * [ ] Navigation is immediately discoverable and effortless to operate.
+* [ ] **Single-Word Navigation**: Maximum 3 to 4 top-level items with single-word labels (`About`, `Focus`, `Volunteer`, `Partner`, `Contact`).
+* [ ] **Action-Only Buttons**: Primary CTAs are short decisive verbs (`Apply`, `Volunteer`), never verbose descriptive phrases ("Apply to Volunteer").
+* [ ] **Unconfined Navbar at Rest**: Navigation bar stretches edge-to-edge full width at rest (`scrollY = 0`), borderless, melting seamlessly into the `#EFE9E2` page surface.
+* [ ] **Centered Floating Pill on Scroll**: Navbar transitions smoothly to centered floating pill on `scrollY > 20px`.
+* [ ] **Zero Compositor Flash**: Scroll transitions maintain 100% identical backdrop-filter and background color, with transitions constrained to geometry/elevation and `transform-gpu` applied.
 * [ ] Users always understand where they are within the site and programme hierarchy.
 * [ ] Users can easily recover or return to previous sections if they explore deeply.
 * [ ] Interactive objects clearly communicate their affordances.

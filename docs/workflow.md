@@ -104,7 +104,7 @@ Every ticket branch must have a dedicated documentation subfolder created immedi
   ### Landingfolio MCP Daily Usage Tracker (Daily Limit: 100)
   | Call # | Date | Component / Section Queried | Local Cache Path | Calls Remaining |
   | :--- | :--- | :--- | :--- | :--- |
-  | 01 | 2026-10-09 | Hero Editorial Layout | docs/build docs/landing-page/references/hero.png | 99 |
+  | 01 | 2026-10-09 | Hero Editorial Layout | ui-references/hero_ref_1.jpg | 99 |
   ```
 - **Deliverables Checklist**: Granular checkbox list (`- [x]` / `- [ ]`) of implemented components and features.
 - **Validation & Test History**: Record of type-check, lint, unit tests, and browser verification passes.
@@ -126,30 +126,42 @@ Every ticket branch must have a dedicated documentation subfolder created immedi
 - **NON-NEGOTIABLE RULE**: `folio-mcp.json` is and **must always remain gitignored** (`.gitignore`).
 - Never stage, commit, log, or leak `folio-mcp.json` or its bearer token into Git history.
 
-### 4.2 The "No Designing From Your Head" Mandate
+### 4.2 The "No Designing From Your Head" Mandate & Literal Deconstruction
 - **Never design in isolation**: Agents must **NOT** invent UI layouts, components, card hierarchies, section flows, or animation choreography purely from memory or default AI templates.
 - **Mandatory Reference Source**: All UI components, section structures (landing page heroes, features, impact metrics, stories, footers), micro-layouts, divs, and animations must be explicitly referenced from the Landingfolio collection via the Folio MCP.
-- Use the MCP collection to retrieve real, production-grade visual designs, section blueprints, interaction patterns, and code implementations.
+- **Literal Reference Deconstruction**:
+  - Open and inspect the cached reference screenshot and code directly.
+  - Deconstruct the exact grid ratios, typographic scale, micro-spacing, visual weight, asymmetry, and layout density.
+  - Replicate the proven layout architecture directly instead of improvising from memory.
 
-### 4.3 Daily Quota & Mandatory Call Counter (Max 100 Requests / Day)
+### 4.3 Mandatory Tailored Image Generation in WebP Format (CRITICAL)
+- **Reference Image Replicating**: Whenever a reference component includes image slots, photos, or graphic elements, agents **MUST generate tailored visual assets** matching V-HELD's Ghanaian community development mission (education, health, youth leadership).
+- **Mandatory WebP Conversion**: All generated or imported raster images must be converted to `.webp` format for rapid loading and optimal LCP.
+- **Absolute Ban on Text-Only Substitutions**: Never replace image slots with plain text boxes, colored divs, or empty containers.
+
+### 4.4 Absolute Ban on Text-Only Skeleton Pages / Sections
+- **Why Previous Sections Were Removed (Commit `ee9ee21`)**: Seven sections were stripped from the codebase because the model generated them with only a big bold header and divs with plain text bullet points.
+- **Strict Rule**: Building sections as pure text boxes is strictly banned. Every section must have visual craft, tailored media, structured hierarchy, and physical depth.
+
+### 4.5 Daily Quota & Mandatory Call Counter (Max 100 Requests / Day)
 - **Hard Ceiling**: We operate under a strict rate limit of **100 MCP requests per day**.
 - Every ticket track must log and maintain the active MCP call counter in `docs/build docs/<ticket-name>/progress.md`.
 - Before making an MCP call, check the day's total calls. If the counter reaches 100, no further MCP requests may be issued until the next day; rely entirely on previously cached references.
 
-### 4.4 Aggressive Local Storage & Asset Caching (Fetch Once, Reuse Forever)
+### 4.6 Aggressive Local Storage & Asset Caching (Fetch Once, Reuse Forever)
 - To conserve the 100-calls/day budget, **never make repeated calls for the same design, section, or asset**:
   - Whenever querying the MCP, download and store the code snippet, screenshot, and screen recording directly on the local filesystem (under `docs/build docs/<ticket-name>/references/` or `public/assets/reference/<section>/`).
   - Read from the saved local reference files during implementation.
   - Re-use cached references across similar sections or future iterations rather than calling the MCP again.
 
-### 4.5 Subagent Design Taste Audits for UI Options
+### 4.7 Subagent Design Taste Audits for UI Options
 - When selecting between design options, section layouts, animations, or styling treatments:
   - **Spawn a specialized subagent** via `invoke_subagent`.
   - Provide the subagent with the retrieved MCP options, screenshots, and proposed code.
   - The subagent conducts a **Design Taste Audit**, assessing:
     1. Alignment with V-HELD's brand (warm, authentic Ghanaian community development, professional NGO aesthetic).
-    2. Adherence to anti-vibecoding rules ([`docs/ui-patterns-avoid.md`](ui-patterns-avoid.md)).
-    3. Editorial typography, spacing harmony, visual weight, and interaction subtlety.
+    2. Adherence to all 32 anti-vibecoding rules ([`docs/ui-patterns-avoid.md`](ui-patterns-avoid.md)).
+    3. Editorial typography, spacing harmony, visual weight, tailored imagery, and interaction subtlety.
   - Implement only the option that passes the subagent's design taste audit.
 
 ---
@@ -223,11 +235,19 @@ When all subtasks of the ticket are integrated into the parent ticket branch, ex
 ```
 
 ### Pillar 1: UI Critic Audit
-- **Anti-Vibecoding Check**: Strictly verify that none of the 20 banned patterns ([`docs/ui-patterns-avoid.md`](ui-patterns-avoid.md)) are present (no purple gradients, no emojis in headings, no Lucide overload, no generic cards, no untouched Shadcn).
-- **Aesthetic & Brand Fidelity**: Verify warm, authentic Ghanaian community development identity with refined editorial typography and structured whitespace. Verify alignment with the approved MCP reference.
-- **Responsive Inspection**: Inspect rendering across mobile (375px), tablet (768px), laptop (1024px), desktop (1440px), and ultrawide (1920px). Zero horizontal scrolling, zero container clipping.
-- **Accessibility Check**: WCAG AA contrast ratios (4.5:1 body, 3:1 large text), 44x44px touch targets, visible keyboard focus indicators, `prefers-reduced-motion` compliance.
-- **Headless Chromium Inspection**: Run against the production build to capture and inspect screenshots for z-index collisions, text overflows, or rendering artifacts.
+- **Exhaustive Anti-Vibecoding Check (All 32 Patterns)**: Strictly verify that none of the 32 banned patterns ([`docs/ui-patterns-avoid.md`](ui-patterns-avoid.md)) are present. The UI Critic MUST actively fail the build if any of the following occur:
+  - **Text-Only Skeleton Sections**: Any section built as just a big bold headline and divs with plain text bullet points (the exact pattern stripped in commit `ee9ee21`).
+  - **Missing Reference Media**: Any reference image slot that was omitted or substituted with empty text boxes instead of tailored WebP images.
+  - **Badges Above Headlines**: Any floating pills or dotted labels (e.g. `[• MEASURABLE OUTCOMES]`, `[• VOICES FROM THE FIELD]`, `[• TAKE ACTION TODAY]`).
+  - **Verbose Button Text**: Any button that describes the action ("Apply to Volunteer") instead of being the action (`Apply`, `Volunteer`).
+  - **Misplaced Icons**: Any dollar signs or currency glyphs on volunteer paths, or generic forward arrows (`→`) everywhere.
+  - **Dark Mode Variants**: Any `dark:` Tailwind classes or dark theme surfaces in this pure light-mode application.
+  - **Compositor Flash**: Any animated `backdrop-filter` or opacity transitions with `transition-all`.
+  - **Confined Navbar at Rest**: Any navbar confined to a floating island div at rest instead of edge-to-edge full width.
+  - **Oversized Curvatures**: Any `4.5rem` / `72px` corner radii.
+- **Aesthetic & Brand Fidelity**: Verify warm, authentic Ghanaian community development identity with refined editorial typography and structured whitespace. Verify literal alignment with the approved MCP reference.
+- **Visual Headless Chromium Inspection (Never Code Blind)**: Capture and inspect screenshots across mobile (375px), tablet (768px), laptop (1024px), and desktop (1440px). Inspect actual images to verify visual hierarchy, tactile depth, and zero rendering artifacts.
+- **Accessibility & Contrast**: WCAG AA contrast ratios (4.5:1 body, 3:1 large text), 44x44px touch targets, visible keyboard focus indicators, `prefers-reduced-motion` compliance.
 
 ### Pillar 2: "Pony Tail" Security Review
 > *A "Pony Tail" review is tight, taut, uncompromising, and paranoid—leaving zero loose strands or overlooked security gaps.*

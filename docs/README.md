@@ -10,7 +10,7 @@
 | :--- | :--- | :--- |
 | [`project-details.md`](project-details.md) | V-HELD Content brief, programme offerings, mission & structure | **Current** |
 | [`technology-stack.md`](technology-stack.md) | Technical stack, dependencies, SAAS integrations (Turso, Cloudinary, Sentry) | **Current** |
-| [`ui-patterns-avoid.md`](ui-patterns-avoid.md) | 20 anti-vibecoding patterns & core aesthetic rules | **Current** |
+| [`ui-patterns-avoid.md`](ui-patterns-avoid.md) | 32 anti-vibecoding & structural anti-patterns, core aesthetic rules | **Current** |
 | [`before-building.md`](before-building.md) | 20 pre-build prerequisites and milestone setup | **Current** |
 | [`security-requirements.md`](security-requirements.md) | 40 security mandates (launch requirements + additional security rules) | **Current** |
 | [`engineering-principles.md`](engineering-principles.md) | 14 core engineering and architectural rules | **Current** |
