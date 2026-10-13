@@ -41,45 +41,49 @@ export default function RootedAnimation() {
       >
         <defs>
           <style>{`
+            @keyframes drawLine {
+              from { stroke-dashoffset: 1200; }
+              to { stroke-dashoffset: 0; }
+            }
+            @keyframes drawCircle {
+              from { stroke-dashoffset: 800; }
+              to { stroke-dashoffset: 0; }
+            }
+            @keyframes drawRoot {
+              from { stroke-dashoffset: 1600; }
+              to { stroke-dashoffset: 0; }
+            }
+
             .draw-stroke {
               stroke-dasharray: 1200;
               stroke-dashoffset: 1200;
-              transition: stroke-dashoffset 2.2s cubic-bezier(0.35, 0.1, 0.25, 1);
-            }
-            .animate-in .draw-stroke {
-              stroke-dashoffset: 0;
+              animation: drawLine 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             }
 
             .circle-stroke {
               stroke-dasharray: 800;
               stroke-dashoffset: 800;
-              transition: stroke-dashoffset 1.8s cubic-bezier(0.35, 0.1, 0.25, 1);
-            }
-            .animate-in .circle-stroke {
-              stroke-dashoffset: 0;
+              animation: drawCircle 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             }
 
             .root-white-stroke {
               stroke-dasharray: 1600;
               stroke-dashoffset: 1600;
-              transition: stroke-dashoffset 2.6s cubic-bezier(0.35, 0.1, 0.25, 1);
-            }
-            .animate-in .root-white-stroke {
-              stroke-dashoffset: 0;
+              animation: drawRoot 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             }
 
             /* Delays for natural handwriting rhythm */
-            .delay-1 { transition-delay: 0.1s; }
-            .delay-2 { transition-delay: 0.25s; }
-            .delay-3 { transition-delay: 0.4s; }
-            .delay-4 { transition-delay: 0.55s; }
-            .delay-5 { transition-delay: 0.7s; }
-            .delay-6 { transition-delay: 0.85s; }
-            .delay-roots { transition-delay: 0.6s; }
+            .delay-1 { animation-delay: 0.1s; }
+            .delay-2 { animation-delay: 0.3s; }
+            .delay-3 { animation-delay: 0.5s; }
+            .delay-4 { animation-delay: 0.7s; }
+            .delay-5 { animation-delay: 0.9s; }
+            .delay-6 { animation-delay: 1.1s; }
+            .delay-roots { animation-delay: 0.8s; }
           `}</style>
         </defs>
 
-        <g className={inView ? 'animate-in' : ''}>
+        <g>
           {/* ============================================================== */}
           {/* LETTER: 'r' (Forest Green Strokes #065830, sit on the surface) */}
           {/* Stem top coordinates: x = 110, 120, 130, 140. Baseline y = 300 */}

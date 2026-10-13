@@ -12,8 +12,8 @@ export default function IntroSection() {
         <RootedAnimation />
       </div>
 
-      {/* Forest Green Base Section: negative margin pulls it up to meet the letters' baseline exactly */}
-      <div className="relative w-full bg-[#065830] border-t border-emerald-800/40 min-h-[220px] sm:min-h-[280px] -mt-[170px] sm:-mt-[210px] md:-mt-[245px] z-10" />
+      {/* Forest Green Base Section: exact alignment where letter bottom sits on the border and roots go down inside */}
+      <div className="relative w-full bg-[#065830] border-t border-emerald-800/40 min-h-[380px] sm:min-h-[440px] md:min-h-[480px] -mt-[175px] sm:-mt-[220px] md:-mt-[255px] z-10" />
     </section>
   );
 }
